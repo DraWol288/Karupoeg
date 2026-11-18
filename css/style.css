@@ -1259,18 +1259,30 @@ letter-spacing: 2px;
 color: var(--gold);
 }
 
+/* Обертка для картинки */
 body.page-wt .art {
-height: 140px;
-display: grid;
-place-items: center;
-margin: 10px 0;
+  height: 180px; /* Фиксированная высота для всех карточек */
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px 0;
+  position: relative;
+  overflow: hidden; /* Обрезаем всё, что вылезает */
+  background: rgba(0, 0, 0, 0.2); /* Легкий фон для контраста */
+  border-radius: 8px;
 }
 
+/* Сама картинка */
 body.page-wt .art img {
-max-width: 100%;
-max-height: 100%;
-object-fit: contain;
-filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.55));
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Картинка вписывается целиком, сохраняя пропорции */
+  filter: drop-shadow(0 8px 16px rgba(0, 0, 0, 0.55));
+  display: block;
+  margin: 0 auto;
 }
 
 body.page-wt .tank {
