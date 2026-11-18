@@ -1337,155 +1337,63 @@ color: var(--gold);
 }
 
 body.page-wt .loggrid {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 12px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
 }
-
 body.page-wt .log {
-padding: 18px;
-display: grid;
-grid-template-columns: 40px 1fr;
-gap: 13px;
+  padding: 18px;
+  display: grid;
+  grid-template-columns: 40px 1fr;
+  gap: 13px;
 }
-
 body.page-wt .ico {
-width: 40px;
-height: 40px;
-border: 1px solid #827642;
-color: var(--gold);
-display: grid;
-place-items: center;
-font-size: 18px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #827642;
+  color: var(--gold);
+  display: grid;
+  place-items: center;
+  font-size: 18px;
 }
+body.page-wt .log h3 { font: bold 13px monospace; margin: 0 0 7px; }
+body.page-wt .log p { font-size: 12px; line-height: 1.7; color: #b5c4c2; margin: 0; }
+body.page-wt .log small { display: block; margin-top: 8px; color: var(--gold); font: 9px monospace; }
 
-body.page-wt .log h3 {
-font: bold 13px monospace;
-margin: 0 0 7px;
-}
+body.page-wt .radio { padding: 22px; background: #0c1519; font: 12px/1.9 monospace; }
+body.page-wt .rhead { display: flex; justify-content: space-between; color: var(--gold); border-bottom: 1px solid var(--line); padding-bottom: 10px; }
+body.page-wt .signal { color: #819394; letter-spacing: 3px; overflow: hidden; white-space: nowrap; }
+body.page-wt .msg { margin: 8px 0; color: #b6c5c2; }
+body.page-wt .msg strong { color: #f0d978; }
+body.page-wt .msg.me strong { color: #9ec6b1; }
 
-body.page-wt .log p {
-font-size: 12px;
-line-height: 1.7;
-color: #b5c4c2;
-margin: 0;
-}
-
-body.page-wt .log small {
-display: block;
-margin-top: 8px;
-color: var(--gold);
-font: 9px monospace;
-}
-
-body.page-wt .radio {
-padding: 22px;
-background: #0c1519;
-font: 12px/1.9 monospace;
-}
-
-body.page-wt .rhead {
-display: flex;
-justify-content: space-between;
-color: var(--gold);
-border-bottom: 1px solid var(--line);
-padding-bottom: 10px;
-}
-
-body.page-wt .signal {
-color: #819394;
-letter-spacing: 3px;
-overflow: hidden;
-white-space: nowrap;
-}
-
-body.page-wt .msg {
-margin: 8px 0;
-color: #b6c5c2;
-}
-
-body.page-wt .msg strong {
-color: #f0d978;
-}
-
-body.page-wt .msg.me strong {
-color: #9ec6b1;
-}
-
-body.page-wt .directive {
-padding: 26px;
-position: relative;
-}
-
+body.page-wt .directive { padding: 26px; position: relative; }
 body.page-wt .stampsecret {
-position: absolute;
-right: 20px;
-top: 18px;
-border: 2px solid var(--red);
-color: var(--red);
-padding: 5px 9px;
-transform: rotate(8deg);
-font: bold 11px monospace;
+  position: absolute; right: 20px; top: 18px;
+  border: 2px solid var(--red); color: var(--red);
+  padding: 5px 9px; transform: rotate(8deg);
+  font: bold 11px monospace;
 }
-
 body.page-wt .doc {
-display: none;
-margin-top: 18px;
-padding: 25px;
-background: #d9d4c3;
-color: #263137;
-border: 1px solid #a39b86;
-font: 12px/1.8 monospace;
-animation: wtAppear 0.5s;
+  display: none; margin-top: 18px; padding: 25px;
+  background: #d9d4c3; color: #263137;
+  border: 1px solid #a39b86; font: 12px/1.8 monospace;
+  animation: wtAppear 0.5s;
 }
-
-body.page-wt .doc.show,
-body.page-wt .personal.show {
-display: block;
-}
-
-@keyframes wtAppear {
-from { opacity: 0; transform: translateY(12px); }
-to { opacity: 1; transform: none; }
-}
-
-body.page-wt .doc h3 {
-text-align: center;
-font-size: 16px;
-}
-
-body.page-wt .sign {
-text-align: right;
-font-weight: bold;
-margin-top: 22px;
-}
+body.page-wt .doc.show, body.page-wt .personal.show { display: block; }
+@keyframes wtAppear { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+body.page-wt .doc h3 { text-align: center; font-size: 16px; }
+body.page-wt .sign { text-align: right; font-weight: bold; margin-top: 22px; }
 
 body.page-wt .personal {
-display: none;
-margin-top: 18px;
-padding: clamp(22px, 5vw, 45px);
-border: 1px solid #9b8a54;
-background: linear-gradient(145deg, #26363a, #101a1e);
-animation: wtAppear 0.6s;
+  display: none; margin-top: 18px; padding: clamp(22px, 5vw, 45px);
+  border: 1px solid #9b8a54;
+  background: linear-gradient(145deg, #26363a, #101a1e);
+  animation: wtAppear 0.6s;
 }
-
-body.page-wt .personal h3 {
-font: bold 22px monospace;
-color: #f0d978;
-}
-
-body.page-wt .letter {
-font: 17px/1.9 Georgia, serif;
-color: #d7e1dc;
-max-width: 780px;
-}
-
-body.page-wt .letter .sign {
-font: 11px monospace;
-letter-spacing: 2px;
-color: var(--gold);
-text-align: left;
-}
+body.page-wt .personal h3 { font: bold 22px monospace; color: #f0d978; }
+body.page-wt .letter { font: 17px/1.9 Georgia, serif; color: #d7e1dc; max-width: 780px; }
+body.page-wt .letter .sign { font: 11px monospace; letter-spacing: 2px; color: var(--gold); text-align: left; }
 
 body.page-wt .footer {
 text-align: center;
