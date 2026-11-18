@@ -401,7 +401,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (m) m.classList.remove('show');
     };
 
-     // Просмотр изображений из таймлайна в полном размере
+    // Просмотр изображений из таймлайна в полном размере
     const lightbox = document.getElementById('photoLightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxTag = document.getElementById('lightboxTag');
@@ -430,9 +430,12 @@ document.addEventListener('DOMContentLoaded', () => {
         lightbox.classList.add('show');
       });
     });
-     
+
     window.addEventListener('keydown', e => {
-      if (e.key === 'Escape') window.closePlanet();
+      if (e.key === 'Escape') {
+        window.closePlanet();
+        if (window.closeLightbox) window.closeLightbox();
+      }
     });
 
     // 3D Heart particle renderer in us.html
