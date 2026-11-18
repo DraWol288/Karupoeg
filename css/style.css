@@ -1588,356 +1588,606 @@ body.page-wt .section { margin-top: 45px; }
 PAGE 3: USS VOYAGER — LCARS INTERFACE (voyager.html)
 ========================================================================== */
 body.page-voyager {
---black: #030405;
---dark: #0b0e16;
---dark2: #080a10;
---orange: #ff982e;
---peach: #ffcb9a;
---purple: #c695c9;
---blue: #83cafa;
---yellow: #f6ca63;
---text: #e6e8f0;
---muted: #8290aa;
-margin: 0;
-background: var(--black);
-color: var(--text);
-font-family: Arial, Helvetica, sans-serif;
-font-size: 14px;
+  --black: #030405;
+  --dark: #0b0e16;
+  --dark2: #080a10;
+  --orange: #ff982e;
+  --peach: #ffcb9a;
+  --purple: #c695c9;
+  --blue: #83cafa;
+  --yellow: #f6ca63;
+  --text: #e6e8f0;
+  --muted: #8290aa;
+  margin: 0;
+  background: var(--black);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
 }
 
 html:has(body.page-voyager) {
-scroll-padding-top: 135px;
+  scroll-padding-top: 135px;
 }
 
 body.page-voyager button {
-font-family: inherit;
+  font-family: inherit;
 }
 
+/* --- INTRO --- */
 body.page-voyager #intro {
-position: fixed;
-inset: 0;
-z-index: 100;
-display: grid;
-place-items: center;
-background: radial-gradient(ellipse at center, #1b2338, #070912 70%);
-cursor: pointer;
-transition: opacity 0.9s, visibility 0.9s;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(ellipse at center, #1b2338, #070912 70%);
+  cursor: pointer;
+  transition: opacity 0.9s, visibility 0.9s;
 }
-
 body.page-voyager #intro.hidden {
-opacity: 0;
-visibility: hidden;
-pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
-
-body.page-voyager .intro-inner {
-text-align: center;
-}
-
+body.page-voyager .intro-inner { text-align: center; }
 body.page-voyager .intro-title {
-color: var(--orange);
-font-size: clamp(42px, 9vw, 100px);
-letter-spacing: 0.15em;
-font-weight: 900;
-text-shadow: 0 0 35px #ff982e55;
+  color: var(--orange);
+  font-size: clamp(42px, 9vw, 100px);
+  letter-spacing: 0.15em;
+  font-weight: 900;
+  text-shadow: 0 0 35px #ff982e55;
 }
-
 body.page-voyager .enter {
-margin-top: 35px;
-font-size: 11px;
-letter-spacing: 0.3em;
-color: var(--peach);
-animation: voyBlink 1.6s infinite;
+  margin-top: 35px;
+  font-size: 11px;
+  letter-spacing: 0.3em;
+  color: var(--peach);
+  animation: voyBlink 1.6s infinite;
 }
+@keyframes voyBlink { 50% { opacity: 0.35; } }
 
-@keyframes voyBlink {
-50% { opacity: 0.35; }
-}
-
+/* --- HEADER --- */
 body.page-voyager header {
-min-height: 67px;
-background: #050505;
-border-bottom: 4px solid var(--orange);
-display: flex;
-align-items: center;
-justify-content: space-between;
-padding: 0 2%;
-gap: 20px;
-position: sticky;
-top: 0;
-z-index: 25;
+  min-height: 67px;
+  background: #050505;
+  border-bottom: 4px solid var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 2%;
+  gap: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 25;
+  flex-wrap: wrap;
 }
-
 body.page-voyager .header-left {
-display: flex;
-align-items: center;
-gap: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
 }
-
 body.page-voyager .lcars-number {
-background: var(--purple);
-color: #111;
-padding: 12px 20px;
-font-weight: bold;
+  background: var(--purple);
+  color: #111;
+  padding: 12px 20px;
+  font-weight: bold;
+  border-radius: 4px;
+}
+body.page-voyager .brand {
+  display: flex;
+  flex-direction: column;
+  color: var(--orange);
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 1.1rem;
+}
+body.page-voyager .brand small {
+  color: var(--muted);
+  font-size: 0.65rem;
+  letter-spacing: 1px;
+  margin-top: 2px;
+}
+body.page-voyager .top-nav {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+body.page-voyager .top-nav a {
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  padding: 8px 12px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+body.page-voyager .top-nav a:hover,
+body.page-voyager .top-nav a.active {
+  color: var(--orange);
+  border-color: var(--orange);
+  background: rgba(255, 152, 46, 0.1);
 }
 
-body.page-voyager .header-center {
-display: flex;
-flex-direction: column;
-gap: 4px;
-}
-
-body.page-voyager .header-title {
-font-size: 1.15rem;
-letter-spacing: 2px;
-font-weight: bold;
-color: var(--orange);
-}
-
-body.page-voyager .header-sub {
-font-size: 0.72rem;
-letter-spacing: 1px;
-color: var(--muted);
-}
-
+/* --- PAGE NAVIGATION (кнопки) --- */
 body.page-voyager .page-navigation {
-display: flex;
-gap: 8px;
-flex-wrap: wrap;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 15px 3%;
+  background: var(--dark);
+  border-bottom: 1px solid rgba(255, 152, 46, 0.2);
+  position: sticky;
+  top: 71px;
+  z-index: 20;
 }
-
 body.page-voyager .page-navigation button {
-background: var(--dark2);
-border: 1px solid var(--muted);
-color: var(--text);
-padding: 8px 14px;
-border-radius: 6px;
-cursor: pointer;
-font-size: 0.75rem;
-letter-spacing: 1px;
-font-weight: bold;
-transition: 0.2s;
+  background: var(--dark2);
+  border: 1px solid var(--muted);
+  color: var(--text);
+  padding: 8px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  font-weight: bold;
+  transition: 0.2s;
 }
-
 body.page-voyager .page-navigation button:hover,
 body.page-voyager .page-navigation button.active {
-background: var(--orange);
-border-color: var(--orange);
-color: var(--black);
-box-shadow: 0 0 15px rgba(255, 152, 46, 0.4);
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--black);
+  box-shadow: 0 0 15px rgba(255, 152, 46, 0.4);
 }
 
+/* --- LAYOUT (сетка: боковые панели + контент) --- */
+body.page-voyager .layout {
+  display: grid;
+  grid-template-columns: 180px 1fr 180px;
+  gap: 20px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 30px 20px 80px;
+}
 body.page-voyager main {
-max-width: 1240px;
-margin: 0 auto;
-padding: 40px 20px 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 }
 
-body.page-voyager .section {
-background: var(--dark);
-border: 1px solid rgba(131, 202, 250, 0.2);
-border-radius: 16px;
-padding: 35px;
-margin-bottom: 40px;
-box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+/* --- БОКОВЫЕ ПАНЕЛИ (side) --- */
+body.page-voyager .side {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: sticky;
+  top: 140px;
+  align-self: start;
+}
+body.page-voyager .side-block {
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: #111;
+  font-weight: bold;
+}
+body.page-voyager .side-block small {
+  display: block;
+  font-size: 0.6rem;
+  opacity: 0.8;
+  margin-bottom: 4px;
+}
+body.page-voyager .side-block b {
+  display: block;
+  font-size: 0.9rem;
+}
+body.page-voyager .side-dark {
+  background: var(--dark2);
+  color: var(--muted);
+  border: 1px solid #52636a44;
+  font-family: monospace;
+  font-size: 0.7rem;
+}
+body.page-voyager .side-tall { padding: 20px 12px; }
+body.page-voyager .orange { background: var(--orange); }
+body.page-voyager .purple { background: var(--purple); }
+body.page-voyager .blue { background: var(--blue); }
+body.page-voyager .peach { background: var(--peach); }
+
+/* --- ПАНЕЛИ КОНТЕНТА --- */
+body.page-voyager .panel {
+  background: var(--dark);
+  border: 1px solid rgba(131, 202, 250, 0.2);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  display: flex;
+  flex-direction: column;
+}
+body.page-voyager .orange-edge { border-color: rgba(255, 152, 46, 0.4); }
+body.page-voyager .purple-edge { border-color: rgba(198, 149, 201, 0.4); }
+body.page-voyager .blue-edge { border-color: rgba(131, 202, 250, 0.4); }
+body.page-voyager .peach-edge { border-color: rgba(255, 203, 154, 0.4); }
+
+body.page-voyager .panel-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 18px;
+  font-size: 0.7rem;
+  font-family: monospace;
+  letter-spacing: 1px;
+  background: rgba(0,0,0,0.3);
+  border-bottom: 1px solid #52636a44;
+  color: var(--muted);
+}
+body.page-voyager .panel-label { color: var(--orange); font-weight: bold; }
+body.page-voyager .panel-content { padding: 22px 25px; flex: 1; }
+body.page-voyager .panel-content h1 {
+  font-size: clamp(1.5rem, 3vw, 2.4rem);
+  letter-spacing: 1px;
+  margin: 0 0 15px;
+  color: var(--text);
+  line-height: 1.1;
+}
+body.page-voyager .panel-content h2 {
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  color: var(--blue);
+  margin: 0 0 15px;
+}
+body.page-voyager .panel-content h3 {
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  color: var(--peach);
+  margin: 0 0 15px;
+}
+body.page-voyager .panel-content p {
+  line-height: 1.8;
+  color: #d1d5db;
+  margin-bottom: 12px;
+}
+body.page-voyager .panel-content p b { color: var(--peach); }
+
+/* Hero (статус) */
+body.page-voyager .hero {
+  display: grid;
+  grid-template-columns: 1.4fr 0.8fr;
+  gap: 20px;
+}
+body.page-voyager .stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 20px;
+}
+body.page-voyager .stat {
+  background: rgba(0,0,0,0.4);
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid #52636a44;
+}
+body.page-voyager .stat span {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 1px;
+  margin-bottom: 4px;
+}
+body.page-voyager .stat b { color: var(--text); font-size: 0.9rem; }
+
+/* Computer */
+body.page-voyager .voice-bars {
+  display: flex;
+  gap: 5px;
+  height: 40px;
+  align-items: flex-end;
+  margin: 15px 0;
+}
+body.page-voyager .voice-bars span {
+  flex: 1;
+  background: var(--purple);
+  height: 30%;
+  border-radius: 2px;
+  animation: voiceBar 1.2s ease-in-out infinite alternate;
+}
+body.page-voyager .voice-bars span:nth-child(2) { animation-delay: 0.2s; height: 60%; }
+body.page-voyager .voice-bars span:nth-child(3) { animation-delay: 0.4s; height: 90%; }
+body.page-voyager .voice-bars span:nth-child(4) { animation-delay: 0.1s; height: 50%; }
+body.page-voyager .voice-bars span:nth-child(5) { animation-delay: 0.3s; height: 75%; }
+@keyframes voiceBar {
+  from { height: 20%; opacity: 0.5; }
+  to { height: 100%; opacity: 1; }
+}
+body.page-voyager .computer-quote {
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--peach);
+  font-size: 0.95rem;
+}
+body.page-voyager .voice-status {
+  padding: 10px 18px;
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: var(--purple);
+  border-top: 1px solid #52636a44;
+  letter-spacing: 1px;
 }
 
-body.page-voyager .section-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-border-bottom: 2px solid var(--blue);
-padding-bottom: 15px;
-margin-bottom: 25px;
+/* --- СЕКЦИИ --- */
+body.page-voyager .section { display: flex; flex-direction: column; gap: 15px; }
+body.page-voyager .section-bar {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 5px;
+}
+body.page-voyager .section-bar .pill {
+  width: 12px;
+  height: 32px;
+  background: var(--orange);
+  border-radius: 6px;
+}
+body.page-voyager .section-bar h2 {
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+  margin: 0;
+  color: var(--orange);
+}
+body.page-voyager .section-bar .line {
+  flex: 1;
+  height: 1px;
+  background: var(--orange);
+  position: relative;
+}
+body.page-voyager .section-bar .line small {
+  position: absolute;
+  right: 0;
+  top: -14px;
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: var(--muted);
 }
 
-body.page-voyager .section-header h2 {
-font-size: 1.6rem;
-letter-spacing: 2px;
-color: var(--blue);
-margin: 0;
+/* --- ДВЕ КОЛОНКИ (журнал + тактика) --- */
+body.page-voyager .two {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
 }
 
-body.page-voyager .section-header span {
-font-family: monospace;
-font-size: 0.8rem;
-color: var(--orange);
-letter-spacing: 2px;
+/* Журнал */
+body.page-voyager .log-entry {
+  border-left: 2px solid var(--peach);
+  padding-left: 14px;
+  margin-bottom: 18px;
+}
+body.page-voyager .log-entry:last-child { margin-bottom: 0; }
+body.page-voyager .log-entry time {
+  display: block;
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: var(--orange);
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+body.page-voyager .log-entry p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
 }
 
-body.page-voyager .grid-2 {
-display: grid;
-grid-template-columns: 1.1fr 0.9fr;
-gap: 25px;
-align-items: center;
+/* --- КАРТА (Наука) --- */
+body.page-voyager .map {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  margin: 15px 0;
 }
-
-body.page-voyager .card {
-background: var(--dark2);
-border: 1px solid rgba(255, 203, 154, 0.25);
-border-radius: 12px;
-padding: 22px;
+body.page-voyager .map .sector {
+  background: var(--dark2);
+  border: 1px solid rgba(198, 149, 201, 0.3);
+  border-radius: 8px;
+  padding: 10px 6px;
+  color: var(--purple);
+  cursor: pointer;
+  text-align: left;
+  transition: 0.2s;
+  font-family: monospace;
 }
-
-body.page-voyager .card h3 {
-color: var(--peach);
-margin-bottom: 12px;
-font-size: 1.2rem;
-letter-spacing: 1px;
+body.page-voyager .map .sector b {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--peach);
 }
-
-body.page-voyager .card p {
-line-height: 1.8;
-color: #d1d5db;
-margin-bottom: 12px;
+body.page-voyager .map .sector small {
+  display: block;
+  font-size: 0.65rem;
+  color: var(--muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
-body.page-voyager .countdown {
-display: grid;
-grid-template-columns: repeat(4, 1fr);
-gap: 10px;
-margin-top: 20px;
+body.page-voyager .map .sector:hover,
+body.page-voyager .map .sector.active {
+  background: rgba(198, 149, 201, 0.18);
+  border-color: var(--purple);
+  color: #fff;
 }
-
-body.page-voyager .time-unit {
-background: rgba(3, 4, 5, 0.7);
-border: 1px solid var(--orange);
-border-radius: 8px;
-padding: 12px 8px;
-text-align: center;
-}
-
-body.page-voyager .time-unit b {
-display: block;
-font-size: 1.6rem;
-color: var(--orange);
-font-family: monospace;
-}
-
-body.page-voyager .time-unit span {
-font-size: 0.65rem;
-color: var(--muted);
-letter-spacing: 1px;
-}
-
-body.page-voyager .log-list {
-display: flex;
-flex-direction: column;
-gap: 16px;
-}
-
-body.page-voyager .log-item {
-background: var(--dark2);
-border-left: 4px solid var(--blue);
-padding: 18px 20px;
-border-radius: 0 10px 10px 0;
-}
-
-body.page-voyager .log-item h4 {
-color: var(--peach);
-margin-bottom: 6px;
-font-size: 1.05rem;
-}
-
-body.page-voyager .log-item small {
-color: var(--orange);
-font-family: monospace;
-display: block;
-margin-bottom: 8px;
-}
-
-body.page-voyager .map-grid {
-display: grid;
-grid-template-columns: repeat(6, 1fr);
-gap: 8px;
-margin-bottom: 20px;
-}
-
-body.page-voyager .sector {
-background: var(--dark2);
-border: 1px solid rgba(198, 149, 201, 0.3);
-border-radius: 8px;
-padding: 14px 8px;
-color: var(--purple);
-cursor: pointer;
-text-align: left;
-transition: 0.2s;
-}
-
-body.page-voyager .sector b {
-display: block;
-font-family: monospace;
-font-size: 0.95rem;
-color: var(--peach);
-margin-bottom: 4px;
-}
-
-body.page-voyager .sector small {
-display: block;
-font-size: 0.7rem;
-color: var(--muted);
-white-space: nowrap;
-overflow: hidden;
-text-overflow: ellipsis;
-}
-
-body.page-voyager .sector:hover,
-body.page-voyager .sector.active {
-background: rgba(198, 149, 201, 0.18);
-border-color: var(--purple);
-color: #fff;
-}
-
 body.page-voyager .mapinfo {
-background: var(--dark2);
-border: 1px solid var(--purple);
-border-radius: 10px;
-padding: 18px;
-font-size: 0.95rem;
-line-height: 1.6;
+  background: var(--dark2);
+  border: 1px solid var(--purple);
+  border-radius: 10px;
+  padding: 15px;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  min-height: 60px;
 }
 
-body.page-voyager .heart-layout {
-display: grid;
-grid-template-columns: 1.1fr 0.9fr;
-gap: 25px;
-align-items: center;
+/* --- ЭКИПАЖ (Crew) --- */
+body.page-voyager .crew {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+body.page-voyager .crew-card {
+  background: var(--dark);
+  border: 1px solid rgba(198, 149, 201, 0.3);
+  border-radius: 16px;
+  padding: 22px;
+}
+body.page-voyager .crew-rank {
+  font-family: monospace;
+  font-size: 0.65rem;
+  color: var(--orange);
+  letter-spacing: 1px;
+  margin-bottom: 10px;
+}
+body.page-voyager .crew-card h3 {
+  font-size: 1.4rem;
+  color: var(--purple);
+  margin: 0 0 10px;
+  letter-spacing: 1px;
+}
+body.page-voyager .crew-card p {
+  line-height: 1.7;
+  color: var(--text);
+  font-size: 0.9rem;
+  margin-bottom: 15px;
+}
+body.page-voyager .crew-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+body.page-voyager .crew-tags span {
+  font-family: monospace;
+  font-size: 0.6rem;
+  padding: 4px 8px;
+  border: 1px solid #52636a66;
+  border-radius: 4px;
+  color: var(--muted);
+  letter-spacing: 1px;
 }
 
-body.page-voyager .canvas-box {
-width: 100%;
-height: 380px;
-background: #020305;
-border: 1px solid rgba(255, 102, 170, 0.3);
-border-radius: 14px;
-position: relative;
-overflow: hidden;
+/* --- ПЕРСОНАЖИ VOYAGER --- */
+body.page-voyager .character-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+body.page-voyager .character {
+  background: var(--dark2);
+  border: 1px solid rgba(255, 203, 154, 0.2);
+  border-radius: 12px;
+  padding: 20px;
+}
+body.page-voyager .character small {
+  font-family: monospace;
+  font-size: 0.6rem;
+  color: var(--orange);
+  letter-spacing: 1px;
+  display: block;
+  margin-bottom: 8px;
+}
+body.page-voyager .character h3 {
+  color: var(--peach);
+  margin: 0 0 10px;
+  font-size: 1.1rem;
+}
+body.page-voyager .character p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin: 0;
 }
 
-body.page-voyager canvas {
-width: 100%;
-height: 100%;
-display: block;
+/* --- ЛИЧНАЯ ПЕРЕДАЧА --- */
+body.page-voyager .message {
+  background: linear-gradient(145deg, #1b1f2e, #0b0e16);
+  border: 1px solid rgba(198, 149, 201, 0.4);
+  border-radius: 16px;
+  padding: 30px;
+}
+body.page-voyager .kicker {
+  font-family: monospace;
+  font-size: 0.7rem;
+  color: var(--orange);
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+body.page-voyager .message p {
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+body.page-voyager .message-signature {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--purple);
+  letter-spacing: 2px;
+  margin-top: 20px;
+  border-top: 1px solid #52636a44;
+  padding-top: 15px;
 }
 
+/* --- ЦЕНТР / ФИНАЛ --- */
+body.page-voyager .center {
+  text-align: center;
+  padding: 40px 20px;
+  border: 1px dashed #52636a66;
+  border-radius: 16px;
+}
+body.page-voyager .center h2 { color: var(--orange); margin-bottom: 10px; }
+body.page-voyager .center p { color: var(--muted); margin-bottom: 20px; }
+body.page-voyager .action {
+  display: inline-block;
+  background: var(--orange);
+  color: var(--black);
+  text-decoration: none;
+  font-weight: bold;
+  letter-spacing: 2px;
+  padding: 14px 30px;
+  border-radius: 8px;
+  transition: 0.2s;
+}
+body.page-voyager .action:hover {
+  box-shadow: 0 0 25px rgba(255, 152, 46, 0.6);
+  transform: translateY(-2px);
+}
+
+/* --- FOOTER --- */
 body.page-voyager footer {
-text-align: center;
-padding: 30px;
-color: var(--muted);
-font-size: 0.75rem;
-letter-spacing: 2px;
-border-top: 1px solid rgba(131, 202, 250, 0.15);
+  text-align: center;
+  padding: 30px;
+  color: var(--muted);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  border-top: 1px solid rgba(131, 202, 250, 0.15);
 }
 
+/* --- АДАПТИВ --- */
+@media (max-width: 1100px) {
+  body.page-voyager .layout {
+    grid-template-columns: 1fr;
+  }
+  body.page-voyager .side {
+    display: none; /* скрываем боковые панели на средних экранах, чтобы не мешали */
+  }
+}
 @media (max-width: 850px) {
-body.page-voyager header { flex-direction: column; align-items: flex-start; padding: 15px; }
-body.page-voyager .grid-2, body.page-voyager .heart-layout { grid-template-columns: 1fr; }
-body.page-voyager .map-grid { grid-template-columns: repeat(3, 1fr); }
-body.page-voyager .countdown { grid-template-columns: repeat(2, 1fr); }
-}
-
-@media (max-width: 520px) {
-body.page-voyager .map-grid { grid-template-columns: repeat(2, 1fr); }
+  body.page-voyager header { flex-direction: column; align-items: flex-start; padding: 15px; }
+  body.page-voyager .page-navigation { position: relative; top: 0; }
+  body.page-voyager .hero { grid-template-columns: 1fr; }
+  body.page-voyager .two { grid-template-columns: 1fr; }
+  body.page-voyager .crew { grid-template-columns: 1fr; }
+  body.page-voyager .character-grid { grid-template-columns: 1fr; }
+  body.page-voyager .map { grid-template-columns: repeat(2, 1fr); }
+  body.page-voyager .stats { grid-template-columns: 1fr; }
 }
 
 /* ==========================================================================
