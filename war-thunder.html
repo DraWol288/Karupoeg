@@ -26,6 +26,7 @@
   </header>
 
   <main>
+    <!-- HERO (оставляем как в первом варианте, он уже стилизован) -->
     <section class="hero">
       <div>
         <div class="kicker">TACTICAL BRIEFING · WINTER SECTOR</div>
@@ -40,7 +41,7 @@
       <div class="radar" aria-hidden="true"></div>
     </section>
 
-    <!-- ТАКТИЧЕСКАЯ КАРТА -->
+    <!-- ТАКТИЧЕСКАЯ КАРТА (оставляем как есть) -->
     <section class="section" id="map">
       <div class="head">
         <h2>ТАКТИЧЕСКАЯ КАРТА СЕКТОРА</h2>
@@ -64,105 +65,138 @@
       </div>
     </section>
 
-    <!-- ТЕХНИКА В АНГАРЕ (С ИЗОБРАЖЕНИЯМИ ТАНКА И САМОЛЁТА) -->
+    <!-- ТЕХНИКА В АНГАРЕ — берём из второго варианта -->
     <section class="section" id="hangar">
       <div class="head">
-        <h2>ТЕХНИКА В АНГАРЕ</h2>
-        <p>ПОЛОЖИ ФАЙЛЫ В ПАПКУ IMAGES/</p>
+        <h2>02 / ДОСЬЕ ТЕХНИКИ</h2>
+        <p>ШВЕДСКАЯ ВЕТКА · ЛИЧНЫЙ СОСТАВ</p>
       </div>
 
       <div class="tabs">
-        <button class="active" data-tab="ground">НАЗЕМНАЯ ТЕХНИКА</button>
+        <button class="active" data-tab="ground">НАЗЕМНЫЕ СИЛЫ</button>
         <button data-tab="air">АВИАЦИЯ</button>
       </div>
 
-      <!-- Вкладка: Наземная техника -->
+      <!-- Вкладка: Наземная техника (искусственные модели танков, как во 2 варианте) -->
       <div class="cards" id="ground">
-        <div class="panel vehicle">
-          <div class="tag">MBT · SWEDEN · BR 8.0</div>
-          <h3>Strv 103A</h3>
-          <div class="art">
-            <!-- Замени src на путь к своей картинке танка (лучше PNG без фона) -->
-            <img src="images/strv-103a.png" alt="Танк Strv 103A" onerror="this.outerHTML='<div style=\'color:var(--muted);font:11px monospace;text-align:center\'>Добавь файл:<br><b style=\'color:var(--gold)\'>images/strv-103a.png</b></div>'">
-          </div>
-          <div class="vfoot">
-            <span>ГИДРОПНЕВМАТИКА · АВТОМАТ ЗАРЯЖАНИЯ</span>
-            <span class="badge">ГОТОВ К БОЮ</span>
-          </div>
-        </div>
-
-        <div class="panel vehicle">
-          <div class="tag">IFV · SWEDEN · BR 9.0</div>
-          <h3>Strf 9040B</h3>
-          <div class="art">
-            <!-- Слот под вторую наземную машину при желании -->
-            <img src="images/strf-9040b.png" alt="БМП Strf 9040B" onerror="this.outerHTML='<div style=\'color:var(--muted);font:11px monospace;text-align:center\'>Добавь файл:<br><b style=\'color:var(--gold)\'>images/strf-9040b.png</b></div>'">
-          </div>
-          <div class="vfoot">
-            <span>40 ММ БОФОРС · ТЕПЛОВИЗОР</span>
-            <span class="badge">В РЕЗЕРВЕ</span>
-          </div>
-        </div>
+        <article class="vehicle panel">
+          <div class="tag">НАЗЕМНАЯ ТЕХНИКА / ШВЕЦИЯ</div>
+          <h3>STRV 103A</h3>
+          <div class="art"><div class="tank"></div></div>
+          <div class="vfoot"><span class="badge">ПРЕДПОЧИТАЕМАЯ МАШИНА КОМАНДИРА</span><span>01 / 02</span></div>
+          <p class="muted">Машина, которой отведено особое место в ангаре. Низкий силуэт, узнаваемый профиль и безусловная верность шведской технике.</p>
+          <button onclick="modal('STRV 103A','Личное досье машины командира. Шведская ПТ-САУ с необычной компоновкой и безбашенной схемой. Здесь не рейтинг важен — здесь важна любовь командира к этой машине.')">ОТКРЫТЬ ТЕХНИЧЕСКОЕ ДОСЬЕ</button>
+        </article>
+        <article class="vehicle panel">
+          <div class="tag">АВТОМАТИЧЕСКАЯ ЗАПИСЬ</div>
+          <h3>ДОПОЛНИТЕЛЬНЫЙ СЛОТ</h3>
+          <div class="art"><div class="tank" style="opacity:.22"></div></div>
+          <div class="vfoot"><span>РЕЗЕРВНЫЙ АНГАР</span><span>02 / 02</span></div>
+          <p class="muted">Свободное место для следующей машины в коллекции. Система рекомендует оставить его пустым до следующего удачного исследования.</p>
+          <button onclick="notify('Слот зарезервирован. Швеция одобряет.')">ЗАРЕЗЕРВИРОВАТЬ СЛОТ</button>
+        </article>
       </div>
 
       <!-- Вкладка: Авиация -->
       <div class="cards" id="air" style="display:none">
-        <div class="panel vehicle">
-          <div class="tag">JET FIGHTER · SWEDEN · BR 9.0</div>
-          <h3>J29F Tunnan</h3>
-          <div class="art">
-            <!-- Замени src на путь к своей картинке самолёта (лучше PNG без фона) -->
-            <img src="images/j29-tunnan.png" alt="Самолёт J29F Tunnan" onerror="this.outerHTML='<div style=\'color:var(--muted);font:11px monospace;text-align:center\'>Добавь файл:<br><b style=\'color:var(--gold)\'>images/j29-tunnan.png</b></div>'">
-          </div>
-          <div class="vfoot">
-            <span>ФОРСАЖ · РАКЕТЫ RB 24</span>
-            <span class="badge">НА ВЗЛЁТЕ</span>
-          </div>
-        </div>
-
-        <div class="panel vehicle">
-          <div class="tag">ATTACK JET · SWEDEN · BR 8.7</div>
-          <h3>SAAB-105G</h3>
-          <div class="art">
-            <img src="images/saab-105g.png" alt="Самолёт SAAB-105G" onerror="this.outerHTML='<div style=\'color:var(--muted);font:11px monospace;text-align:center\'>Добавь файл:<br><b style=\'color:var(--gold)\'>images/saab-105g.png</b></div>'">
-          </div>
-          <div class="vfoot">
-            <span>ШТУРМОВИК · ТОЧНОЕ БОМБОМЕТАНИЕ</span>
-            <span class="badge">В АНГАРЕ</span>
-          </div>
-        </div>
+        <article class="vehicle panel">
+          <div class="tag">АВИАЦИЯ / ШВЕЦИЯ</div>
+          <h3>J29 TUNNAN</h3>
+          <div class="art"><div class="jet"></div></div>
+          <div class="vfoot"><span class="badge">ТЕКУЩИЙ ФАВОРИТ АВИАЦИИ</span><span>BR 9.0</span></div>
+          <p class="muted">Летающая бочка, получившая собственное место в оперативной сводке. Текущий выбор командира для воздушных операций.</p>
+          <button onclick="modal('J29 TUNNAN','Личное авиационное досье. Saab J29 Tunnan — шведский реактивный истребитель. Текущий фаворит авиации командира: BR 9.0.')">ОТКРЫТЬ ТЕХНИЧЕСКОЕ ДОСЬЕ</button>
+        </article>
+        <article class="vehicle panel">
+          <div class="tag">ВОЗДУШНОЕ ПРОСТРАНСТВО</div>
+          <h3>КОРИДОР «СЕВЕР»</h3>
+          <div class="art"><div class="jet" style="opacity:.22"></div></div>
+          <div class="vfoot"><span>МАРШРУТ ПАТРУЛИРОВАНИЯ</span><span>02 / 02</span></div>
+          <p class="muted">Воздушный коридор открыт. Рекомендуется проверить связь перед вылетом и сообщить союзнику о начале операции.</p>
+          <button onclick="notify('Воздушный коридор открыт. Удачного вылета, командир.')">ПРОВЕРИТЬ КОРИДОР</button>
+        </article>
       </div>
     </section>
 
-    <!-- СЕКРЕТНАЯ ДИРЕКТИВА -->
-    <section class="section" id="directive">
+    <!-- ЖУРНАЛ ОПЕРАЦИЙ -->
+    <section class="section" id="log">
       <div class="head">
-        <h2>СЕКРЕТНЫЙ ПАКЕТ</h2>
-        <p>ДОПУСК: ТОЛЬКО ДЛЯ КОМАНДИРА</p>
+        <h2>03 / ЖУРНАЛ ОПЕРАЦИЙ</h2>
+        <p>ВЫДЕРЖКИ ИЗ ЛИЧНОГО ДЕЛА КОМАНДИРА</p>
       </div>
-      <div class="panel directive">
-        <div class="stampsecret">TOP SECRET</div>
-        <div class="kicker">СООБЩЕНИЕ ИЗ ШТАБА</div>
-        <p class="lead" style="margin-top:12px">В архиве обнаружен зашифрованный новогодний приказ.</p>
-        <button onclick="document.getElementById('doc').classList.toggle('show')">ОТКРЫТЬ ПРИКАЗ</button>
-        <div class="doc" id="doc">
-          <h3>ПРИКАЗ № 2027-СВ</h3>
-          <p>Командиру экипажа предписывается в наступающем году одерживать только уверенные победы, не попадать под вражеский обстрел и всегда иметь надёжное прикрытие с фланга.</p>
-          <p>С Новым годом! Пусть каждый бой приносит удовольствие, а рядом всегда будет тот, с кем хочется идти в любой рейд.</p>
-          <div class="sign">ПОДПИСЬ: ТВОЙ СОЮЗНИК</div>
-        </div>
+      <div class="loggrid">
+        <article class="log panel"><div class="ico">⌁</div><div><h3>ЕЩЁ ОДИН БОЙ</h3><p>Командир flupiy сообщил о завершении игровой сессии. Через некоторое время система зафиксировала запуск следующего боя. Причина повторного продления операции остаётся неизвестной.</p><small>НАГРАДА: «ЕЩЁ ПЯТЬ МИНУТ»</small></div></article>
+        <article class="log panel"><div class="ico">✈</div><div><h3>ВОЗДУШНАЯ ТРЕВОГА</h3><p>J29 Tunnan замечен в воздушном коридоре. Наземный персонал просит не забывать, что у союзника тоже есть желание участвовать в миссии.</p><small>НАГРАДА: «ВЕРНОСТЬ ШВЕЦИИ»</small></div></article>
+        <article class="log panel"><div class="ico">◎</div><div><h3>ПРОВЕРКА СОЮЗНИКА</h3><p>DraWol направила запрос о совместной операции. Запрос требует внимания командира. Союзники не появляются в списке техники автоматически.</p><small>НАГРАДА: «СОЮЗНИК НА СВЯЗИ»</small></div></article>
+        <article class="log panel"><div class="ico">▰</div><div><h3>ШВЕДСКАЯ ДОКТРИНА</h3><p>Strv 103A снова заняла почётное место в оперативной сводке. Аналитический отдел пришёл к выводу, что спорить с командиром о любимой машине бесполезно.</p><small>НАГРАДА: «ЖЕЛЕЗНАЯ ВЫДЕРЖКА»</small></div></article>
       </div>
     </section>
 
-    <div class="footer">OPERATION SEVER · TACTICAL ARCHIVE · 2026</div>
+    <!-- РАДИОПЕРЕГОВОРЫ -->
+    <section class="section" id="radio">
+      <div class="head">
+        <h2>04 / РАДИОПЕРЕГОВОРЫ</h2>
+        <p>ЗАЩИЩЁННЫЙ КАНАЛ · 02</p>
+      </div>
+      <div class="radio panel">
+        <div class="rhead"><span>RADIO CHANNEL 02 // ALLIED LINK</span><span id="rstate">● STANDBY</span></div>
+        <div class="signal">▂ ▄ ▆ ▃ ▅ ▂ ▄ ▆ ▃ ▅ ▂ ▄ ▆ ▃ ▅ ▂ ▄ ▆ ▃ ▅</div>
+        <div class="msg"><strong>flupiy:</strong> База, выдвигаюсь на очередную операцию. Strv 103A готов.</div>
+        <div class="msg me"><strong>DraWol:</strong> А союзника взять не забыл?</div>
+        <div class="msg"><strong>flupiy:</strong> Запрос принят. Союзник имеет высокий стратегический приоритет.</div>
+        <div class="msg me"><strong>DraWol:</strong> Надеюсь, выше, чем ещё один бой на шведской технике.</div>
+        <div class="signal">— — — СИГНАЛ СТАБИЛЕН — — —</div>
+        <p>
+          <button onclick="document.getElementById('rstate').textContent='● RECEIVING';notify('Канал 02 чист. Союзник на связи.')">ПРОВЕРИТЬ СВЯЗЬ</button>
+          <button onclick="notify('Сообщение отправлено: «Я на связи. Не забудь меня в следующую миссию».')">ОТПРАВИТЬ СООБЩЕНИЕ</button>
+        </p>
+      </div>
+    </section>
+
+    <!-- СЕКРЕТНЫЙ ПРИКАЗ -->
+    <section class="section" id="orders">
+      <div class="head">
+        <h2>05 / СЕКРЕТНЫЙ ПРИКАЗ</h2>
+        <p>ДОСТУП ПО СПЕЦИАЛЬНОМУ РАЗРЕШЕНИЮ</p>
+      </div>
+      <div class="directive panel">
+        <div class="stampsecret">СЕКРЕТНО</div>
+        <div class="kicker">СОВЕРШЕННО СЕКРЕТНО · ДИРЕКТИВА 2027</div>
+        <h2 style="font: bold 22px monospace">ОПЕРАЦИЯ «НЕ ТЕРЯТЬ СВЯЗЬ»</h2>
+        <p class="muted">В архиве обнаружен документ, адресованный командиру flupiy. Содержимое скрыто до подтверждения допуска.</p>
+        <button onclick="document.getElementById('doc').classList.toggle('show');notify('ДОПУСК ПОДТВЕРЖДЁН. ДОКУМЕНТ РАССЕКРЕЧЕН.')">РАССЕКРЕТИТЬ ПРИКАЗ</button>
+        <div class="doc" id="doc">
+          <h3>ДИРЕКТИВА № 2027<br>ОПЕРАЦИЯ «НЕ ТЕРЯТЬ СВЯЗЬ»</h3>
+          <p><b>АДРЕСАТ:</b> КОМАНДИРУ flupiy<br><b>УРОВЕНЬ ДОСТУПА:</b> ОСОБО ВАЖНЫЙ</p>
+          <p>В связи с поступившими сведениями о чрезмерно продолжительных игровых сессиях и высокой концентрации внимания на шведской технике приказываю:</p>
+          <p>1. Не забывать о DraWol и своевременно приглашать её в совместные бои.</p>
+          <p>2. Не ставить очередной бой выше времени, которое можно провести вместе.</p>
+          <p>3. По возможности создавать новые общие воспоминания — не только на виртуальных полях сражений.</p>
+          <p>4. Помнить, что даже самому опытному командиру иногда нужен свой надёжный союзник.</p>
+          <p><b>ОСОБОЕ УКАЗАНИЕ:</b> оставаться одной командой, даже когда миссии проходят на разных картах и в разных обстоятельствах.</p>
+          <div class="sign">УТВЕРЖДЕНО: DRA WOL<br>ПРИКАЗ НЕ ИМЕЕТ СРОКА ДАВНОСТИ.</div>
+        </div>
+      </div>
+      <div style="text-align:center;margin:22px">
+        <button onclick="let p=document.getElementById('personal');p.classList.toggle('show');if(p.classList.contains('show'))p.scrollIntoView({behavior:'smooth',block:'center'})">ОТКРЫТЬ ЗАПЕЧАТАННОЕ ЛИЧНОЕ ДЕЛО: DraWol</button>
+      </div>
+      <div class="personal" id="personal">
+        <div class="kicker">ЛИЧНОЕ ДЕЛО / ДОСТУП ТОЛЬКО ДЛЯ flupiy</div>
+        <h3>СООБЩЕНИЕ ОТ DRA WOL</h3>
+        <div class="letter">Привет, мой командир.<br><br>Я знаю, что у тебя всегда найдётся ещё один бой, ещё одна машина, которую хочется вывести в бой, и ещё одна причина задержаться в игре. И я совсем не хочу отнимать у тебя то, что тебе нравится. Мне нравится видеть, как ты увлекаешься своими интересами, как выбираешь любимую технику и как можешь часами разбираться в том, что тебе действительно интересно.<br><br>Но мне очень хочется быть частью твоего мира не только где-то рядом, пока ты играешь. Хочется, чтобы ты иногда звал меня с собой, чтобы у нас появлялись свои маленькие истории, смешные моменты и воспоминания. Не обязательно каждый раз устраивать большую операцию. Иногда достаточно просто побыть вместе.<br><br>Спасибо, что ты есть в моей жизни. Я хочу, чтобы впереди у нас было ещё много всего — новых мест, впечатлений, разговоров, приключений и, конечно, побед. Пусть следующий год принесёт нам побольше счастливых моментов и возможностей быть рядом.<br><br>Какими бы ни были следующие миссии, я хочу проходить их с тобой. Не обязательно на одном поле боя — главное, чтобы мы оставались одной командой.<div class="sign">ТВОЙ СОЮЗНИК, DRA WOL ♥</div></div>
+      </div>
+    </section>
+
+    <div class="footer">ОПЕРАЦИЯ «СЕВЕР» · КАНАЛ СВЯЗИ ОСТАЁТСЯ ОТКРЫТЫМ · 2027</div>
   </main>
 
   <div class="toast" id="toast"></div>
   <div class="modal" id="modal" onclick="if(event.target===this)this.classList.remove('show')">
     <div class="modalbox">
       <button class="close" onclick="document.getElementById('modal').classList.remove('show')">×</button>
-      <h3 id="mtitle" style="color:var(--gold);font-family:monospace"></h3>
-      <p id="mtext" style="color:var(--txt);line-height:1.7"></p>
+      <div class="kicker">ТЕХНИЧЕСКОЕ ДОСЬЕ</div>
+      <h3 id="mtitle"></h3>
+      <p class="muted" id="mtext"></p>
     </div>
   </div>
 
