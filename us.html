@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#080b05">
+  <title>US — наша Вселенная</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-us">
+  <canvas id="stars"></canvas>
+  <header class="top">
+    <a class="logo" href="index.html">PROJECT: OUR UNIVERSE</a>
+    <nav class="nav">
+      <a href="index.html">MAIN</a>
+      <a href="war-thunder.html">WAR THUNDER</a>
+      <a href="voyager.html">VOYAGER</a>
+      <a href="#planets">MARS × TITAN</a>
+      <a href="#story">OUR STORY</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <div class="eyebrow">two worlds · one universe</div>
+        <h1>US</h1>
+        <p>Две разные орбиты, два собственных мира — и история, которую мы пишем вместе. Здесь собраны наши настоящие моменты и мечты о том, что ещё может случиться.</p>
+        <div class="pills">
+          <span class="pill">MARS · YOU</span>
+          <span class="pill">TITAN · HIM</span>
+          <span class="pill">MISSION: TOGETHER</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="planets">
+      <div class="head">
+        <div class="eyebrow">our celestial coordinates</div>
+        <h2>Два мира — одна Вселенная</h2>
+        <p>Нажми на планету, чтобы открыть её личную историю.</p>
+      </div>
+      <div class="planets">
+        <button class="planet" onclick="planet('mars')">
+          <div class="orb mars"></div>
+          <h3>MARS</h3>
+          <small>ТЫ · МОЙ МИР</small>
+          <p>У Марса свой характер и неповторимый ландшафт. Как и у тебя — свой мир, который хочется узнавать.</p>
+          <div class="tap">[ НАЖМИ, ЧТОБЫ ОТКРЫТЬ ]</div>
+        </button>
+        <button class="planet" onclick="planet('titan')">
+          <div class="orb titan"></div>
+          <h3>TITAN</h3>
+          <small>ОН · ЕГО МИР</small>
+          <p>Титан скрывает целые миры под своей дымкой. В нём столько неизведанного — как и в человеке, которого можно открывать снова и снова.</p>
+          <div class="tap">[ НАЖМИ, ЧТОБЫ ОТКРЫТЬ ]</div>
+        </button>
+      </div>
+    </section>
+
+    <section id="story">
+      <div class="head">
+        <div class="eyebrow">personal timeline</div>
+        <h2>Наша история</h2>
+        <p>Замени имена файлов в коде на свои PNG с прозрачным фоном. Все сцены уже распределены по временной линии.</p>
+      </div>
+      <div class="timeline">
+        <div class="era"><span>01 / OUR PRESENT</span><small>НАСТОЯЩЕЕ · ТО, ЧТО УЖЕ СТАЛО НАШИМ</small></div>
+        <!-- Для каждого изображения замени src на свой файл. Папка images должна лежать рядом с us.html. -->
+        <div class="item"><div class="card"><div class="photo"><img src="images/01-me-and-plush-cat.png" alt="Ты с плюшевым котом" onerror="fallback(this,'01-me-and-plush-cat.png')"></div><div class="copy"><small>MEMORY 01</small><h3>Мой маленький спутник</h3><p>Маленькие детали, которые делают мой мир уютнее.</p></div></div></div>
+        <div class="item right"><div class="card"><div class="photo"><img src="images/02-him-and-plush-cat.png" alt="Он с плюшевым котом" onerror="fallback(this,'02-him-and-plush-cat.png')"></div><div class="copy"><small>MEMORY 02</small><h3>Его маленький спутник</h3><p>У каждого из нас есть свои маленькие сокровища.</p></div></div></div>
+        <div class="item"><div class="card"><div class="photo"><img src="images/03-chips-and-phone.png" alt="Вместе на кровати с чипсами" onerror="fallback(this,'03-chips-and-phone.png')"></div><div class="copy"><small>MEMORY 03</small><h3>Наш идеальный вечер</h3><p>Чипсы, телефон и компания друг друга. Иногда больше ничего и не нужно.</p></div></div></div>
+        <div class="item right"><div class="card"><div class="photo"><img src="images/04-in-his-arms.png" alt="Он держит тебя на руках" onerror="fallback(this,'04-in-his-arms.png')"></div><div class="copy"><small>MEMORY 04</small><h3>Самое надёжное место</h3><p>Когда весь мир на секунду становится совсем простым.</p></div></div></div>
+        <div class="item"><div class="card"><div class="photo"><img src="images/05-gaming-hug.png" alt="Ты обнимаешь его за компьютером" onerror="fallback(this,'05-gaming-hug.png')"></div><div class="copy"><small>MEMORY 05</small><h3>Его боевая станция</h3><p>Он в своём бою, а я — на своём любимом месте рядом с ним.</p></div></div></div>
+        <div class="item right"><div class="card"><div class="photo"><img src="images/06-sleeping-together.png" alt="Вы спите вместе" onerror="fallback(this,'06-sleeping-together.png')"></div><div class="copy"><small>MEMORY 06</small><h3>Тихая сторона Вселенной</h3><p>Когда можно просто быть рядом и никуда не спешить.</p></div></div></div>
+        <div class="item"><div class="card"><div class="photo"><img src="images/07-kissing.png" alt="Вы целуетесь" onerror="fallback(this,'07-kissing.png')"></div><div class="copy"><small>MEMORY 07</small><h3>Мой любимый человек</h3><p>Один момент, который хочется сохранить надолго.</p></div></div></div>
+
+        <div class="era"><span>02 / BEYOND THE PRESENT</span><small>ВОЗМОЖНОЕ БУДУЩЕЕ · НАШИ МЕЧТЫ</small></div>
+        <div class="note">Следующие главы — не предсказание и не обещание. Это просто красивые мечты о том, каким ещё может стать наше общее завтра.</div>
+        <div class="item right future"><div class="card"><div class="photo"><img src="images/08-proposal.png" alt="Предложение" onerror="fallback(this,'08-proposal.png')"></div><div class="copy"><small>DREAM 01</small><h3>Один большой вопрос</h3><p>Мечта о дне, который хочется запомнить навсегда.</p></div></div></div>
+        <div class="item future"><div class="card"><div class="photo"><img src="images/09-wedding-rings.png" alt="Обмен кольцами" onerror="fallback(this,'09-wedding-rings.png')"></div><div class="copy"><small>DREAM 02</small><h3>Два кольца</h3><p>Символ одной из возможных глав нашей истории.</p></div></div></div>
+        <div class="item right future"><div class="card"><div class="photo"><img src="images/10-baby-daughter.png" alt="Вы с новорождённой дочкой" onerror="fallback(this,'10-baby-daughter.png')"></div><div class="copy"><small>DREAM 03</small><h3>Новая маленькая звезда</h3><p>Фантазия о встрече с вашей дочкой.</p></div></div></div>
+        <div class="item future"><div class="card"><div class="photo"><img src="images/11-daughter-on-sofa.png" alt="Вы с годовалой дочкой на диване" onerror="fallback(this,'11-daughter-on-sofa.png')"></div><div class="copy"><small>DREAM 04</small><h3>Дом, полный смеха</h3><p>Обычный семейный день, который кажется целой Вселенной.</p></div></div></div>
+        <div class="item right future"><div class="card"><div class="photo"><img src="images/12-walk-with-daughter.png" alt="Прогулка с дочкой на плечах у папы" onerror="fallback(this,'12-walk-with-daughter.png')"></div><div class="copy"><small>DREAM 05</small><h3>Маленькие исследователи</h3><p>Прогулки, открытия и самые важные люди рядом.</p></div></div></div>
+        <div class="item future"><div class="card"><div class="photo"><img src="images/13-two-children.png" alt="Вы с дочкой и новорождённым сыном" onerror="fallback(this,'13-two-children.png')"></div><div class="copy"><small>DREAM 06</small><h3>Нас стало больше</h3><p>Ещё одна маленькая жизнь в нашей большой истории.</p></div></div></div>
+        <div class="item right future"><div class="card"><div class="photo"><img src="images/14-family-playing.png" alt="Семья играет вместе" onerror="fallback(this,'14-family-playing.png')"></div><div class="copy"><small>DREAM 07</small><h3>Наш маленький мир</h3><p>Игры, объятия и воспоминания, которые только предстоит создать.</p></div></div></div>
+        <div class="item future"><div class="card"><div class="photo"><img src="images/15-school-day.png" alt="Семья на школьной линейке" onerror="fallback(this,'15-school-day.png')"></div><div class="copy"><small>DREAM 08</small><h3>Новая глава</h3><p>Ещё один день, который однажды может стать семейной историей.</p></div></div></div>
+      </div>
+    </section>
+
+    <!-- СЕКЦИЯ С 3D-СЕРДЦЕМ ИЗ ТОЧЕК ПОСЛЕ ТАЙМЛАЙНА -->
+    <section class="heart-section">
+      <div class="head" style="margin-bottom: 24px;">
+        <div class="eyebrow">final beacon · 3d hologram</div>
+        <h2>Сердце нашей Вселенной</h2>
+        <p>Потяните мышью или пальцем по холсту, чтобы повернуть голограмму.</p>
+      </div>
+
+      <div class="heart-container" id="heart-canvas-wrapper" title="Потяните для вращения">
+        <canvas id="heart-canvas" class="w-full h-full block"></canvas>
+      </div>
+
+      <!-- Панель управления цветом и скоростью -->
+      <div class="heart-controls">
+        <div class="flex items-center gap-2.5">
+          <span style="font-size: 11px; letter-spacing: 0.1em; color: var(--muted);">ЦВЕТ:</span>
+          <button onclick="setHeartPalette('pink')" id="btn-color-pink" class="color-btn active scale-125" style="background:#ff5f9e;" title="Розовый"></button>
+          <button onclick="setHeartPalette('lime')" id="btn-color-lime" class="color-btn" style="background:#c8ff36;" title="Лайм"></button>
+          <button onclick="setHeartPalette('cyan')" id="btn-color-cyan" class="color-btn" style="background:#38bdf8;" title="Голубой"></button>
+          <button onclick="setHeartPalette('gold')" id="btn-color-gold" class="color-btn" style="background:#fbbf24;" title="Золотой"></button>
+        </div>
+
+        <div style="width: 1px; height: 18px; background: rgba(200,255,54,0.25);"></div>
+
+        <div class="flex items-center gap-2.5">
+          <label for="speed-slider" style="font-size: 11px; letter-spacing: 0.1em; color: var(--muted);">СКОРОСТЬ:</label>
+          <input id="speed-slider" type="range" min="0" max="4" step="0.1" value="1.2" style="width: 110px;">
+          <span id="speed-val" style="font-size: 11px; color: var(--lime); width: 32px; font-family: monospace;">1.2x</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="end">
+      <div class="eyebrow">end of current log · beginning of everything</div>
+      <h2>TO BE CONTINUED...</h2>
+      <p>Я — Марс. Ты — Титан. У каждого из нас свой мир, но мне нравится мысль, что наши орбиты пересеклись. И кто знает, сколько ещё прекрасных глав впереди.</p>
+      <div class="pills">
+        <span class="pill">MARS + TITAN</span>
+        <span class="pill">SAME UNIVERSE</span>
+      </div>
+    </div>
+  </main>
+
+  <footer class="footer">PERSONAL SPACE LOG · MARS × TITAN · 2026</footer>
+
+  <div class="modal" id="modal" onclick="if(event.target===this)closePlanet()">
+    <div class="box">
+      <button class="close" onclick="closePlanet()">×</button>
+      <div class="eyebrow" id="mLabel">PERSONAL PLANET FILE</div>
+      <h3 id="mTitle"></h3>
+      <p id="mText"></p>
+    </div>
+  </div>
+
+  <script>
+    // Глобальная функция fallback для обработки ошибок загрузки изображений
+    function fallback(img, name) {
+      if (!img || !img.parentNode) return;
+      img.style.display = 'none';
+      const p = document.createElement('div');
+      p.className = 'placeholder';
+      p.innerHTML = '<b>IMAGE PLACEHOLDER</b>Добавь файл:<br>images/' + name;
+      img.parentNode.appendChild(p);
+    }
+  </script>
+  <script src="js/main.js"></script>
+</body>
+</html>

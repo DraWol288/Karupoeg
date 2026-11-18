@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#050805">
+  <title>НАША ВСЕЛЕННАЯ — ГЛАВНАЯ · v2.1</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-main">
+  <div id="particles" aria-hidden="true"></div>
+  <header>
+    <a class="brand" href="index.html">
+      <div class="brand-mark">✦</div>
+      <div>
+        <div class="brand-name">НАША ВСЕЛЕННАЯ</div>
+        <div class="brand-sub">ЛИЧНАЯ КОСМИЧЕСКАЯ ПРОГРАММА</div>
+      </div>
+    </a>
+    <nav aria-label="Основная навигация">
+      <a class="active" href="index.html">ГЛАВНАЯ</a>
+      <a href="war-thunder.html">WAR THUNDER</a>
+      <a href="voyager.html">VOYAGER</a>
+      <a href="us.html">МЫ</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div class="hero-content">
+        <div class="eyebrow">СИГНАЛ ПРИНЯТ · 01 / 04</div>
+        <h1>С НОВЫМ ГОДОМ,<span>КОМАНДИР!</span></h1>
+        <p class="hero-copy">
+          Один новый год. Тысячи возможностей. И целая вселенная приключений впереди.
+          <strong>Добро пожаловать на борт</strong> нашего маленького проекта — здесь собраны
+          твои любимые миры и кое-что очень личное.
+        </p>
+        <div class="actions">
+          <a class="btn" href="#sectors">ОТКРЫТЬ РАЗДЕЛЫ&nbsp; ↘</a>
+          <button class="btn secondary" id="secretOpen">ТАЙНОЕ СООБЩЕНИЕ&nbsp; ✦</button>
+        </div>
+      </div>
+      <div class="visual" aria-label="Анимированная светящаяся планета">
+        <div class="orbit"><span class="orbit-dot"></span></div>
+        <div class="satellite one"></div>
+        <div class="satellite two"></div>
+        <div class="planet" id="planet" role="button" tabindex="0" aria-label="Нажми на планету, чтобы отправить импульс"></div>
+        <div class="planet-hint">НАЖМИ, ЧТОБЫ ОТПРАВИТЬ СИГНАЛ</div>
+        <div class="visual-label"><b>ВСЕЛЕННАЯ: В СЕТИ</b>КООРДИНАТЫ: ТЫ И Я<br>МИССИЯ: СДЕЛАТЬ ЭТОТ ГОД НЕЗАБЫВАЕМЫМ</div>
+      </div>
+    </section>
+
+    <section class="status-panel" aria-label="Состояние проекта">
+      <div class="status-cell"><small>СОСТОЯНИЕ СИСТЕМЫ</small><strong><i class="live-dot"></i>В СЕТИ</strong></div>
+      <div class="status-cell"><small>СТАТУС МИССИИ</small><strong>АКТИВНА</strong></div>
+      <div class="status-cell"><small>ЧЛЕНЫ ЭКИПАЖА</small><strong>2 НА БОРТУ</strong></div>
+      <div class="status-cell"><small>ПУНКТ НАЗНАЧЕНИЯ</small><strong>НОВЫЙ 2027 ГОД</strong></div>
+    </section>
+
+    <section class="countdown" aria-label="Обратный отсчёт до Нового года">
+      <div>
+        <div class="countdown-label">ОБРАТНЫЙ ОТСЧЁТ ДО НОВОЙ ГЛАВЫ</div>
+        <div class="countdown-title" id="countdownTitle">До нового года осталось:</div>
+        <div class="ambient-note">Новый год — новая глава нашей истории.</div>
+      </div>
+      <div class="timer" id="timer">
+        <div class="time-unit"><b id="days">00</b><span>ДНЕЙ</span></div>
+        <div class="time-unit"><b id="hours">00</b><span>ЧАСОВ</span></div>
+        <div class="time-unit"><b id="minutes">00</b><span>МИНУТ</span></div>
+        <div class="time-unit"><b id="seconds">00</b><span>СЕКУНД</span></div>
+      </div>
+    </section>
+
+    <section id="sectors">
+      <div class="section-head">
+        <div>
+          <div class="section-kicker">SELECT YOUR ПУНКТ НАЗНАЧЕНИЯ</div>
+          <h2>Выбери свой сектор</h2>
+        </div>
+        <p class="section-note">Четыре части одной маленькой вселенной. Каждая — со своей атмосферой.</p>
+      </div>
+      <div class="portals">
+        <a class="portal" href="index.html">
+          <div class="portal-top"><span class="portal-icon">⌂</span><span class="portal-num">01 / БАЗА</span></div>
+          <div>
+            <h3>MAIN</h3>
+            <p>Командный центр и начало нашего путешествия.</p>
+            <div class="portal-link">ТЫ ЗДЕСЬ&nbsp; ●</div>
+          </div>
+        </a>
+        <a class="portal" href="war-thunder.html">
+          <div class="portal-top"><span class="portal-icon">⚙</span><span class="portal-num">02 / БОЙ</span></div>
+          <div>
+            <h3>WAR THUNDER</h3>
+            <p>Боевые машины, миссии и заслуженные победы.</p>
+            <div class="portal-link">ПЕРЕЙТИ В СЕКТОР&nbsp; ↗</div>
+          </div>
+        </a>
+        <a class="portal" href="voyager.html">
+          <div class="portal-top"><span class="portal-icon">✧</span><span class="portal-num">03 / КОСМОС</span></div>
+          <div>
+            <h3>VOYAGER</h3>
+            <p>Далёкие звёзды, новые миры и космические открытия.</p>
+            <div class="portal-link">ПЕРЕЙТИ В СЕКТОР&nbsp; ↗</div>
+          </div>
+        </a>
+        <a class="portal" href="us.html">
+          <div class="portal-top"><span class="portal-icon">♥</span><span class="portal-num">04 / ЛИЧНОЕ</span></div>
+          <div>
+            <h3>US</h3>
+            <p>Самая личная часть этой вселенной — наша история.</p>
+            <div class="portal-link">ОТКРЫТЬ РАЗДЕЛ&nbsp; ♥</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="mission-log">
+      <div class="section-head" style="margin:0 0 8px">
+        <div>
+          <div class="section-kicker">БОРТОВОЙ САМОПИСЕЦ</div>
+          <h2>Журнал миссии</h2>
+        </div>
+        <span class="log-state">АВТОСИНХРОНИЗАЦИЯ · ВКЛ</span>
+      </div>
+      <div class="log-row"><span class="log-icon">✓</span><div class="log-copy"><b>ПРОЕКТ ЗАПУЩЕН</b><small>Наша маленькая вселенная создана.</small></div><span class="log-state">ВЫПОЛНЕНО</span></div>
+      <div class="log-row"><span class="log-icon">◉</span><div class="log-copy"><b>ВСТРЕЧА НОВОГО ГОДА</b><small>Подготовка к следующей главе.</small></div><span class="log-state">В ПРОЦЕССЕ</span></div>
+      <div class="log-row"><span class="log-icon">⌑</span><div class="log-copy"><b>НАШЕ СЛЕДУЮЩЕЕ ПРИКЛЮЧЕНИЕ</b><small>Самое интересное ещё впереди.</small></div><span class="log-state">СЕКРЕТНО</span></div>
+    </section>
+
+    <section class="secret-strip">
+      <div>
+        <small>ВХОДЯЩЕЕ ЛИЧНОЕ СООБЩЕНИЕ</small>
+        <strong>Для одного особенного человека подготовлено сообщение.</strong>
+      </div>
+      <div class="toolbar">
+        <button class="btn secondary" id="ambientToggle" aria-pressed="false">АТМОСФЕРНЫЙ РЕЖИМ: ВЫКЛ</button>
+        <button class="btn" id="secretOpen2">ПОЛУЧИТЬ&nbsp; ✦</button>
+      </div>
+    </section>
+    <footer>
+      <span>НАША ВСЕЛЕННАЯ · ЛИЧНАЯ КОСМИЧЕСКАЯ ПРОГРАММА · v2.0</span>
+      <span>КОНЕЦ ПЕРЕДАЧИ — 01 / 04</span>
+    </footer>
+  </main>
+
+  <button class="secret-star" id="secretStar" aria-label="Скрытый сигнал" title="Скрытый сигнал">✦</button>
+  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="close" id="closeModal" aria-label="Закрыть">×</button>
+      <div class="stamp">ТАЙНОЕ СООБЩЕНИЕ · ТОЛЬКО ДЛЯ ТЕБЯ</div>
+      <h2 id="modalTitle">Эй, командир! 💚</h2>
+      <p id="modalMessage">Пусть в новом году у тебя будет больше поводов улыбаться, больше удивительных открытий и меньше поводов для тревог. А я постараюсь быть рядом — в каждой новой главе нашего приключения.</p>
+      <button class="btn" id="closeModalBottom">СООБЩЕНИЕ ПРИНЯТО&nbsp; ✓</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

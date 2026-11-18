@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>USS VOYAGER — LCARS INTERFACE</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-voyager">
+
+  <!-- INTRO -->
+  <div id="intro" tabindex="0" role="button">
+    <div class="intro-inner">
+      <h1 class="intro-title">USS VOYAGER</h1>
+      <div class="enter">НАЖМИТЕ, ЧТОБЫ ПРОДОЛЖИТЬ</div>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <div class="header-left">
+      <div class="lcars-number">LCARS 47</div>
+      <div class="brand">
+        USS VOYAGER
+        <small>NCC-74656 · UNITED FEDERATION OF PLANETS</small>
+      </div>
+    </div>
+
+    <nav class="top-nav">
+      <a href="index.html">MAIN</a>
+      <a href="war-thunder.html">WAR THUNDER</a>
+      <a class="active" href="#ship-status">VOYAGER</a>
+      <a href="us.html">US</a>
+    </nav>
+  </header>
+
+  <!-- PAGE NAVIGATION -->
+  <nav class="page-navigation">
+    <button class="active" data-target="ship-status">SHIP STATUS</button>
+    <button data-target="tactical">TACTICAL</button>
+    <button data-target="science">SCIENCE</button>
+    <button data-target="crew">CREW</button>
+    <button data-target="captains-log">CAPTAIN'S LOG</button>
+  </nav>
+
+  <div class="layout">
+    <!-- LEFT TECHNICAL PANEL -->
+    <aside class="side side-left">
+      <div class="side-block orange"><small>SYS-01</small><b>WARP 9.975</b></div>
+      <div class="side-block purple"><small>DECK-11</small><b>TORRES</b></div>
+      <div class="side-block side-dark">
+        CORE: 110%<br>
+        ANTI-M: OK<br>
+        PLASMA: 98%<br>
+        COILS: SYNC
+      </div>
+      <div class="side-block blue side-tall"><small>NAV-GRID</small><b>DELTA Q</b></div>
+      <div class="side-block peach"><small>CREW</small><b>CAP. FLUPIY</b></div>
+      <div class="side-block purple"><small>SEC-47</small><b>ONLINE</b></div>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main>
+      <!-- SHIP STATUS -->
+      <section class="hero" id="ship-status">
+        <div class="panel orange-edge hero-main">
+          <div class="panel-top">
+            <span class="panel-label">BRIDGE COMMAND · ONLINE</span>
+            <span>SYS-74656-ALPHA</span>
+          </div>
+          <div class="panel-content">
+            <h1>ДОБРО ПОЖАЛОВАТЬ<br>НА МОСТИК, КАПИТАН.</h1>
+            <p>
+              USS Voyager приветствует капитана <b>flupiy</b>
+              и первого офицера <b>DraWol</b>.
+              Варп-двигатели прогреты, курс проложен,
+              а впереди — неизведанные сектора и маршрут,
+              который вы создаёте вместе.
+            </p>
+            <div class="stats">
+              <div class="stat"><span>ВАРП-ЯДРО (ИНЖ. ТОРРЕС)</span><b>110% · Стабильно</b></div>
+              <div class="stat"><span>КОМАНДОВАНИЕ</span><b>Капитан flupiy</b></div>
+              <div class="stat"><span>СЕНСОРЫ АСТРОМЕТРИКИ</span><b>Калибровка 7 из 9</b></div>
+              <div class="stat"><span>ЗВЁЗДНАЯ ДАТА</span><b>2027.01.01</b></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- COMPUTER -->
+        <div class="panel purple-edge computer">
+          <div class="panel-top">
+            <span class="panel-label">COMPUTER CORE</span>
+            <span>VOICE-09</span>
+          </div>
+          <div class="panel-content">
+            <h2>БОРТОВОЙ КОМПЬЮТЕР</h2>
+            <div class="voice-bars"><span></span><span></span><span></span><span></span><span></span></div>
+            <div class="computer-quote">
+              «Авторизация подтверждена.
+              Коды доступа капитана flupiy приняты.
+              Все палубы USS Voyager готовы
+              к выполнению директивы».
+            </div>
+          </div>
+          <div class="voice-status">ГОЛОСОВОЙ ИНТЕРФЕЙС · АКТИВЕН</div>
+        </div>
+      </section>
+
+      <!-- CAPTAIN'S LOG AND TACTICAL -->
+      <section class="section" id="captains-log">
+        <div class="section-bar">
+          <div class="pill"></div>
+          <h2>КАПИТАНСКИЙ ЖУРНАЛ</h2>
+          <div class="line"><small>LOG-2027.01</small></div>
+        </div>
+
+        <div class="two">
+          <div class="panel peach-edge">
+            <div class="panel-top">
+              <span class="panel-label">PERSONAL LOG</span>
+              <span>CAPTAIN'S RECORD</span>
+            </div>
+            <div class="panel-content">
+              <div class="log-entry">
+                <time>ЗАПИСЬ 001 · НАЧАЛО ПУТИ</time>
+                <p>Один корабль и целая вселенная впереди. Как говорит наш первый помощник Чакотэ: «Акойчимо» — мы далеко от дома, но когда рядом надёжный экипаж, любой квадрант становится своим.</p>
+              </div>
+              <div class="log-entry">
+                <time>ЗАПИСЬ 002 · СВЯЗЬ</time>
+                <p>Даже среди далёких звёзд важно знать, что на мостике есть человек, с которым хочется разделить каждое новое открытие.</p>
+              </div>
+              <div class="log-entry">
+                <time>ЗАПИСЬ 003 · ПРАВИЛО ЭКИПАЖА</time>
+                <p>Не терять чувство юмора, вовремя пополнять запасы кофе и иногда позволять себе немного безрассудные приключения.</p>
+              </div>
+              <div class="log-entry">
+                <time>ЗАПИСЬ 004 · ЛИЧНОЕ</time>
+                <p>Самые интересные открытия иногда происходят не на новых планетах, а благодаря людям, которые оказываются рядом.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- TACTICAL -->
+          <div class="panel blue-edge briefing" id="tactical">
+            <div class="panel-top">
+              <span class="panel-label">MISSION BRIEFING</span>
+              <span>DIR-001</span>
+            </div>
+            <div class="panel-content">
+              <h3>ТЕКУЩАЯ ДИРЕКТИВА</h3>
+              <p>Исследовать неизвестное, держать курс на новые впечатления и помнить, что даже самая долгая экспедиция состоит из тёплых моментов.</p>
+              <p>Приоритет миссии: <b style="color:var(--peach)">получать максимум удовольствия от полёта.</b></p>
+              <div class="stats">
+                <div class="stat"><span>УРОВЕНЬ УГРОЗЫ</span><b style="color:var(--blue)">Минимальный</b></div>
+                <div class="stat"><span>ЭФФЕКТИВНОСТЬ</span><b style="color:var(--orange)">99.8% (Оптимально)</b></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCIENCE -->
+      <section class="section" id="science">
+        <div class="section-bar">
+          <div class="pill" style="background:var(--blue)"></div>
+          <h2 style="color:var(--blue)">НАУЧНАЯ СИСТЕМА</h2>
+          <div class="line" style="background:var(--blue)"><small>ASTROMETRICS-09</small></div>
+        </div>
+        <div class="panel blue-edge">
+          <div class="panel-top">
+            <span class="panel-label">GALACTIC NAVIGATION</span>
+            <span>DELTA QUADRANT</span>
+          </div>
+          <div class="panel-content">
+            <h3>КАРТА НЕИЗВЕДАННЫХ СЕКТОРОВ</h3>
+            <p>Сенсоры обнаружили несколько интересных областей. Выберите сектор, чтобы открыть данные сканирования.</p>
+            <div class="map" id="map"></div>
+            <div class="mapinfo" id="mapinfo">НАВИГАЦИОННАЯ СИСТЕМА ОЖИДАЕТ КОМАНДУ. Выберите сектор на карте.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CREW -->
+      <section class="section" id="crew">
+        <div class="section-bar">
+          <div class="pill" style="background:var(--purple)"></div>
+          <h2 style="color:var(--purple)">КОМАНДОВАНИЕ И ЭКИПАЖ</h2>
+          <div class="line" style="background:var(--purple)"><small>CREW DATABASE</small></div>
+        </div>
+        <div class="crew">
+          <article class="crew-card">
+            <div class="crew-rank">CAPTAIN · COMMANDING OFFICER · 01</div>
+            <h3>flupiy</h3>
+            <p>Главный капитан USS Voyager. Отвечает за стратегический курс корабля, важнейшие решения и исследование неизвестных миров.</p>
+            <div class="crew-tags"><span>CAPTAIN</span><span>COMMAND</span><span>BRIDGE</span></div>
+          </article>
+          <article class="crew-card">
+            <div class="crew-rank">CAPTAIN · FIRST COMMANDER · 02</div>
+            <h3>DraWol</h3>
+            <p>Второй капитан и полноправный командир. Независимый исследователь, надёжный союзник и участник каждого важного решения.</p>
+            <div class="crew-tags"><span>CAPTAIN</span><span>COMMAND</span><span>EXPLORATION</span></div>
+          </article>
+        </div>
+      </section>
+
+      <!-- VOYAGER CHARACTERS -->
+      <section class="section">
+        <div class="section-bar">
+          <div class="pill" style="background:var(--peach)"></div>
+          <h2 style="color:var(--peach)">ЛИЧНЫЕ ФАЙЛЫ · VOYAGER</h2>
+          <div class="line" style="background:var(--peach)"><small>CREW ARCHIVE</small></div>
+        </div>
+        <div class="character-grid">
+          <article class="character">
+            <small>ENGINEERING · 01</small>
+            <h3>Б'Эланна Торрес</h3>
+            <p>Главный инженер. Темперамент, талант и способность заставить работать даже то, что уже давно должно было развалиться.</p>
+          </article>
+          <article class="character">
+            <small>COMMAND · 02</small>
+            <h3>Чакотэ</h3>
+            <p>Первый офицер. Спокойствие, верность экипажу и умение сохранять здравый смысл даже в самых странных ситуациях.</p>
+          </article>
+          <article class="character">
+            <small>SCIENCE · 03</small>
+            <h3>Седьмая из Девяти</h3>
+            <p>Специалист по технологиям Борга. Аналитический ум, точность и совершенно особенный взгляд на человеческие привычки.</p>
+          </article>
+        </div>
+      </section>
+
+      <!-- PERSONAL MESSAGE -->
+      <section class="section">
+        <div class="section-bar">
+          <div class="pill" style="background:var(--purple)"></div>
+          <h2 style="color:var(--purple)">ЛИЧНАЯ ПЕРЕДАЧА</h2>
+          <div class="line" style="background:var(--purple)"><small>PRIORITY: PERSONAL</small></div>
+        </div>
+        <div class="message">
+          <div class="kicker">PRIVATE TRANSMISSION · ENCRYPTED</div>
+          <p>У каждого из нас свой маршрут, свои дела и свои маленькие вселенные. Но мне нравится мысль, что где-то среди всего этого есть наша общая история.</p>
+          <p>Пусть впереди будет ещё много открытий, поводов улыбаться и моментов, которые захочется сохранить.</p>
+          <p>И если однажды навигация покажет неизвестный сектор — надеюсь, мы хотя бы сначала посмотрим, что там интересного.</p>
+          <div class="message-signature">TRANSMISSION FROM DRA WOL · TO FLUPIY</div>
+        </div>
+      </section>
+
+      <!-- NEXT DESTINATION -->
+      <section class="center">
+        <div class="kicker">END OF TRANSMISSION · NEXT DESTINATION</div>
+        <h2 style="margin-top:15px">ГОТОВЫ ПРОДОЛЖИТЬ ПУТЕШЕСТВИЕ?</h2>
+        <p>Следующая точка маршрута — наша общая история.</p>
+        <a href="us.html" class="action">ENGAGE! →</a>
+      </section>
+    </main>
+
+    <!-- RIGHT TECHNICAL PANEL -->
+    <aside class="side side-right">
+      <div class="side-block blue"><small>DECK-08</small><b>7 OF 9</b></div>
+      <div class="side-block peach"><small>BRIDGE</small><b>CHAKOTAY</b></div>
+      <div class="side-block side-dark">
+        SHIELDS: 100%<br>
+        SENSORS: 99.8%<br>
+        COMMS: OPEN<br>
+        LIFE: NOMINAL
+      </div>
+      <div class="side-block orange side-tall"><small>TAC-OPS</small><b>NCC-74656</b></div>
+      <div class="side-block purple"><small>XO</small><b>DRAWOL</b></div>
+      <div class="side-block purple"><small>STARDATE</small><b>2027.01</b></div>
+    </aside>
+  </div>
+
+  <footer>USS VOYAGER · NCC-74656 · TWO CAPTAINS · ONE UNIVERSE</footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
