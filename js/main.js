@@ -521,31 +521,42 @@ document.addEventListener('DOMContentLoaded', () => {
       });
       window.addEventListener('pointerup', () => { isDragging = false; });
 
-      function resizeHeartCanvas() {
+           function resizeHeartCanvas() {
+        // Берем размеры напрямую из контейнера
         const rect = heartWrapper.getBoundingClientRect();
-        if (rect.width === 0 || rect.height === 0) return;
+        
+        // Если размеры еще не рассчитаны (0), пробуем взять их из canvas
+        let w = rect.width;
+        let h = rect.height;
+
+        if (w === 0) w = heartWrapper.clientWidth;
+        if (h === 0) h = heartWrapper.clientHeight || 420; // дефолт, если скрыт
+
+        if (w === 0 || h === 0) return;
+
         const dpr = window.devicePixelRatio || 1;
-        heartWidth = rect.width;
-        heartHeight = rect.height;
+        heartWidth = w;
+        heartHeight = h;
+        
         heartCanvas.width = heartWidth * dpr;
         heartCanvas.height = heartHeight * dpr;
+        
+        // ВАЖНО: Применяем масштабирование для Retina-экранов
         hCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        
+        // Явно задаем CSS-размеры для canvas, чтобы он не схлопывался
+        heartCanvas.style.width = w + 'px';
+        heartCanvas.style.height = h + 'px';
       }
+
+      // Запускаем ресайз после полной загрузки страницы и при изменении окна
       window.addEventListener('resize', resizeHeartCanvas);
+      
+      // Вызываем ресайз с небольшой задержкой, чтобы DOM успел отрисоваться
+      setTimeout(resizeHeartCanvas, 100);
+      
+      // Также вызываем сразу
       resizeHeartCanvas();
-
-      let lastTime = performance.now();
-      function renderHeart(now) {
-        const dt = (now - lastTime) * 0.001;
-        lastTime = now;
-
-        if (heartWidth > 0 && heartHeight > 0) {
-          hCtx.clearRect(0, 0, heartWidth, heartHeight);
-
-          if (!isDragging) {
-            angleY += dt * 0.85 * rotationSpeed;
-          }
-
           const timeSec = now * 0.001;
           const beat = 1 + 0.055 * Math.sin(timeSec * 3.2) + 0.02 * Math.sin(timeSec * 6.4);
           const baseScale = Math.min(heartWidth, heartHeight) / 38;
