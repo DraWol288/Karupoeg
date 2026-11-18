@@ -142,6 +142,19 @@
     </div>
   </div>
 
+   <!-- Лайтбокс для просмотра картинок из таймлайна -->
+  <div class="lightbox" id="photoLightbox" onclick="if(event.target===this)closeLightbox()">
+    <div class="lightbox-box">
+      <button class="lightbox-close" onclick="closeLightbox()" aria-label="Закрыть">×</button>
+      <img id="lightboxImg" src="" alt="">
+      <div class="lightbox-caption">
+        <div class="eyebrow" id="lightboxTag"></div>
+        <h3 id="lightboxTitle"></h3>
+        <p id="lightboxDesc"></p>
+      </div>
+    </div>
+  </div>
+  
   <script>
     // Глобальная функция fallback для обработки ошибок загрузки изображений
     function fallback(img, name) {
