@@ -2471,20 +2471,26 @@ transform: translateY(-3px);
 }
 
 body.page-us .photo {
-width: 100%;
-height: 260px;
-background: #111b09;
-display: grid;
-place-items: center;
-overflow: hidden;
-position: relative;
+  width: 100%;
+  height: 260px;
+  background: #111b09;
+  display: flex;              /* flex вместо grid — проще центрировать */
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+  padding: 10px;              /* отступ, чтобы картинка не прилипала к краям */
+  box-sizing: border-box;
 }
 
 body.page-us .photo img {
-width: 100%;
-height: 100%;
-object-fit: cover;
-transition: transform 0.4s;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;        /* картинка видна целиком, без обрезки */
+  transition: transform 0.4s;
+  display: block;
 }
 
 body.page-us .card:hover .photo img {
