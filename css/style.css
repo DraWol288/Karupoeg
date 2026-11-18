@@ -2259,67 +2259,136 @@ grid-template-columns: 1fr 1fr;
 gap: 20px;
 }
 
+/* Карточка планеты */
 body.page-us .planet {
-background: var(--card);
-border: 1px solid var(--line);
-border-radius: 20px;
-padding: 30px;
-text-align: left;
-cursor: pointer;
-transition: 0.3s;
-color: var(--text);
-display: flex;
-flex-direction: column;
-gap: 12px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  padding: 30px;
+  text-align: left;
+  cursor: pointer;
+  transition: 0.3s;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+  overflow: hidden;
+  /* Убираем стандартные стили кнопки, если они есть */
+  font-family: inherit;
+  font-size: inherit;
 }
 
 body.page-us .planet:hover {
-border-color: var(--lime);
-transform: translateY(-5px);
-box-shadow: 0 0 25px rgba(200, 255, 54, 0.15);
+  border-color: var(--lime);
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(200, 255, 54, 0.1), inset 0 0 20px rgba(200, 255, 54, 0.05);
+  background: rgba(14, 24, 8, 0.95);
 }
 
+/* Контейнер для визуала (сама планета + кольца) */
+body.page-us .planet-visual {
+  height: 160px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+/* Базовая планета */
 body.page-us .orb {
-width: 70px;
-height: 70px;
-border-radius: 50%;
-margin-bottom: 10px;
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  transition: transform 0.4s ease;
 }
 
+body.page-us .planet:hover .orb {
+  transform: scale(1.05); /* Легкое увеличение при наведении */
+}
+
+/* Кольца (создаются через псевдоэлемент у контейнера) */
+body.page-us .planet-visual::before {
+  content: "";
+  position: absolute;
+  width: 170px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1.5px solid;
+  border-color: inherit; /* Цвет наследуется от конкретной планеты */
+  transform: rotate(-15deg);
+  z-index: 1;
+  opacity: 0.6;
+}
+
+/* Стили для Марса */
 body.page-us .orb.mars {
-background: radial-gradient(circle at 30% 30%, #ff8b54, #bd3412 70%, #521303);
-box-shadow: 0 0 20px rgba(255, 139, 84, 0.4);
+  background: radial-gradient(circle at 30% 30%, #ffb58a, #e05a2b 45%, #7c1c06 80%, #2b0601 100%);
+  box-shadow: 
+    inset -15px -10px 25px rgba(0, 0, 0, 0.7), 
+    0 0 30px rgba(255, 139, 84, 0.3);
+}
+body.page-us .orb.mars + .planet-visual::before {
+  border-color: #e05a2b;
 }
 
+/* Стили для Титана */
 body.page-us .orb.titan {
-background: radial-gradient(circle at 30% 30%, #ffe373, #d99b2b 70%, #57380a);
-box-shadow: 0 0 20px rgba(255, 227, 115, 0.35);
+  background: radial-gradient(circle at 35% 30%, #fff4b3, #f2c74e 40%, #a67115 75%, #3d2603 100%);
+  box-shadow: 
+    inset -15px -10px 25px rgba(0, 0, 0, 0.6), 
+    0 0 30px rgba(255, 227, 115, 0.3);
 }
 
+/* Фикс: псевдоэлемент должен быть у .planet-visual, а не у .orb */
+body.page-us .planet-visual:has(.mars)::before {
+  border-color: rgba(224, 90, 43, 0.6);
+}
+body.page-us .planet-visual:has(.titan)::before {
+  border-color: rgba(242, 199, 78, 0.6);
+}
+
+/* Заголовки и текст внутри карточек */
 body.page-us .planet h3 {
-font-size: 1.5rem;
-color: var(--lime);
-letter-spacing: 1px;
+  font-size: 1.6rem;
+  color: var(--lime);
+  letter-spacing: 2px;
+  margin: 0;
+  text-transform: uppercase;
 }
 
 body.page-us .planet small {
-font-size: 0.72rem;
-color: var(--muted);
-letter-spacing: 2px;
+  font-size: 0.7rem;
+  color: var(--muted);
+  letter-spacing: 2px;
+  margin-bottom: 5px;
 }
 
 body.page-us .planet p {
-font-size: 0.88rem;
-line-height: 1.6;
-color: var(--text);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text);
+  margin-bottom: 15px;
 }
 
 body.page-us .planet .tap {
-font-size: 0.68rem;
-color: var(--lime);
-letter-spacing: 1.5px;
-margin-top: auto;
-padding-top: 10px;
+  font-size: 0.65rem;
+  color: var(--lime);
+  letter-spacing: 1.5px;
+  margin-top: auto;
+  padding-top: 10px;
+  font-weight: bold;
+  opacity: 0.8;
+  transition: opacity 0.3s;
+}
+
+body.page-us .planet:hover .tap {
+  opacity: 1;
+  text-shadow: 0 0 10px rgba(200, 255, 54, 0.5);
 }
 
 body.page-us .timeline {
