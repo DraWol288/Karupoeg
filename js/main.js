@@ -401,6 +401,36 @@ document.addEventListener('DOMContentLoaded', () => {
       if (m) m.classList.remove('show');
     };
 
+     // Просмотр изображений из таймлайна в полном размере
+    const lightbox = document.getElementById('photoLightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const lightboxTag = document.getElementById('lightboxTag');
+    const lightboxTitle = document.getElementById('lightboxTitle');
+    const lightboxDesc = document.getElementById('lightboxDesc');
+
+    window.closeLightbox = function () {
+      if (lightbox) lightbox.classList.remove('show');
+    };
+
+    document.querySelectorAll('body.page-us .timeline .card').forEach(card => {
+      const hint = document.createElement('span');
+      hint.className = 'zoom-hint';
+      hint.textContent = 'ОТКРЫТЬ';
+      card.appendChild(hint);
+
+      card.addEventListener('click', () => {
+        const img = card.querySelector('.photo img');
+        if (!img || img.style.display === 'none' || !lightbox) return;
+
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || '';
+        lightboxTag.textContent = card.querySelector('.copy small')?.textContent || 'MEMORY';
+        lightboxTitle.textContent = card.querySelector('.copy h3')?.textContent || '';
+        lightboxDesc.textContent = card.querySelector('.copy p')?.textContent || '';
+        lightbox.classList.add('show');
+      });
+    });
+     
     window.addEventListener('keydown', e => {
       if (e.key === 'Escape') window.closePlanet();
     });
