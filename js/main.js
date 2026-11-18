@@ -413,23 +413,31 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.querySelectorAll('body.page-us .timeline .card').forEach(card => {
-      const hint = document.createElement('span');
-      hint.className = 'zoom-hint';
-      hint.textContent = 'ОТКРЫТЬ';
-      card.appendChild(hint);
+  const hint = document.createElement('span');
+  hint.className = 'zoom-hint';
+  hint.textContent = 'ОТКРЫТЬ';
+  card.appendChild(hint);
 
-      card.addEventListener('click', () => {
-        const img = card.querySelector('.photo img');
-        if (!img || img.style.display === 'none' || !lightbox) return;
+  card.addEventListener('click', () => {
+    const img = card.querySelector('.photo img');
+    if (!img || img.style.display === 'none' || !lightbox) return;
 
-        lightboxImg.src = img.src;
-        lightboxImg.alt = img.alt || '';
-        lightboxTag.textContent = card.querySelector('.copy small')?.textContent || 'MEMORY';
-        lightboxTitle.textContent = card.querySelector('.copy h3')?.textContent || '';
-        lightboxDesc.textContent = card.querySelector('.copy p')?.textContent || '';
-        lightbox.classList.add('show');
-      });
-    });
+    // Только изображение — без подписи и текста
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt || '';
+
+    // Очищаем текстовые поля, чтобы они не отображались
+    if (lightboxTag) lightboxTag.textContent = '';
+    if (lightboxTitle) lightboxTitle.textContent = '';
+    if (lightboxDesc) lightboxDesc.textContent = '';
+
+    // Скрываем блок с подписью, если он есть в HTML
+    const captionBlock = lightbox.querySelector('.lightbox-caption');
+    if (captionBlock) captionBlock.style.display = 'none';
+
+    lightbox.classList.add('show');
+  });
+});
 
     window.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
