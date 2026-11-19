@@ -286,8 +286,25 @@ document.addEventListener('DOMContentLoaded', () => {
           enterSite();
         }
       });
+    }
 
-           // --- Интерактивный бортовой компьютер ---
+    const navButtons = [...document.querySelectorAll('.page-navigation button')];
+    function activateButton(activeButton) {
+      navButtons.forEach(button => {
+        button.classList.toggle('active', button === activeButton);
+      });
+    }
+
+    navButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = document.getElementById(button.dataset.target);
+        if (!target) return;
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        activateButton(button);
+      });
+    });
+
+    // --- Интерактивный бортовой компьютер ---
     const computerResponses = {
       'привет': 'Приветствую, капитан. Все системы в норме. Чем могу помочь?',
       'приветствую': 'Приветствую, капитан. Рад вас слышать.',
@@ -322,13 +339,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
-      // Показываем "обработку"
       responseEl.textContent = '«Обработка запроса...»';
       responseEl.classList.remove('typing');
-      voiceStatus.textContent = 'ГОЛОСОВОЙ ИНТЕРФЕЙС · ОБРАБОТКА...';
+      if (voiceStatus) voiceStatus.textContent = 'ГОЛОСОВОЙ ИНТЕРФЕЙС · ОБРАБОТКА...';
 
       setTimeout(() => {
-        // Ищем ответ по ключевым словам
         let response = null;
         for (const [key, value] of Object.entries(computerResponses)) {
           if (query.includes(key)) {
@@ -337,7 +352,6 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
 
-        // Если не нашли — запасной ответ
         if (!response) {
           const fallbacks = [
             '«Данные не найдены в архиве. Но я уверен, капитан, что вы найдёте ответ сами».',
@@ -350,15 +364,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
         responseEl.textContent = response;
         responseEl.classList.add('typing');
-        voiceStatus.textContent = 'ГОЛОСОВОЙ ИНТЕРФЕЙС · АКТИВЕН';
+        if (voiceStatus) voiceStatus.textContent = 'ГОЛОСОВОЙ ИНТЕРФЕЙС · АКТИВЕН';
         input.value = '';
-
-        // Фокусируемся обратно на поле ввода
         input.focus();
       }, 600);
     };
 
-    // Отправка по Enter
     const computerInput = document.getElementById('computerInput');
     if (computerInput) {
       computerInput.addEventListener('keydown', (e) => {
@@ -367,7 +378,6 @@ document.addEventListener('DOMContentLoaded', () => {
           window.askComputer();
         }
       });
-    }
     }
 
     const navButtons = [...document.querySelectorAll('.page-navigation button')];
