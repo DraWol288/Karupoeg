@@ -160,6 +160,17 @@
           <button onclick="document.getElementById('rstate').textContent='● RECEIVING';notify('Канал 02 чист. Союзник на связи.')">ПРОВЕРИТЬ СВЯЗЬ</button>
           <button onclick="notify('Сообщение отправлено: «Я на связи. Не забудь меня в следующую миссию».')">ОТПРАВИТЬ СООБЩЕНИЕ</button>
         </p>
+        <!-- Радиоперехват -->
+<div class="intercept-box">
+  <div class="intercept-header">
+    <span>📡 РАДИОПЕРЕХВАТ</span>
+    <span id="intercept-status">ОЖИДАНИЕ СИГНАЛА</span>
+  </div>
+  <div class="intercept-message" id="interceptMessage">
+    Нажмите кнопку, чтобы перехватить случайное сообщение из эфира.
+  </div>
+  <button onclick="interceptRadio()" id="interceptBtn">📻 СЛУШАТЬ ЭФИР</button>
+</div>
       </div>
     </section>
 
