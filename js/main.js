@@ -286,6 +286,88 @@ document.addEventListener('DOMContentLoaded', () => {
           enterSite();
         }
       });
+
+           // --- Интерактивный бортовой компьютер ---
+    const computerResponses = {
+      'привет': 'Приветствую, капитан. Все системы в норме. Чем могу помочь?',
+      'приветствую': 'Приветствую, капитан. Рад вас слышать.',
+      'как дела': 'Все системы функционируют в штатном режиме. Варп-ядро стабильно. Готов к выполнению директив.',
+      'люблю': 'Взаимность подтверждена. Уровень: 100%. Это... неожиданно приятно, капитан.',
+      'статус': 'Щиты: 100%. Сенсоры: 99.8%. Связь: открыта. Жизнеобеспечение: номинально. Готов к работе.',
+      'курс': 'Текущий курс: Дельтa-квадрант. Пункт назначения: наша общая история. Рекомендую продолжать движение.',
+      'где мы': 'Мы находимся в секторе, который вы создали вместе. Координаты: ты и я.',
+      'кто ты': 'Я — бортовой компьютер USS Voyager. Но если вы спросите моего мнения... я просто рад быть частью вашей истории.',
+      'спасибо': 'Всегда к вашим услугам, капитан. Это моя основная директива.',
+      'пока': 'До связи, капитан. Буду ждать вашего возвращения на мостик.',
+      'помощь': 'Я могу ответить на вопросы о состоянии корабля, курсе, статусе систем и... поддержать разговор. Попробуйте спросить что-нибудь ещё.'
+    };
+
+    window.fillComputer = function(text) {
+      const input = document.getElementById('computerInput');
+      if (input) {
+        input.value = text;
+        input.focus();
+      }
+    };
+
+    window.askComputer = function() {
+      const input = document.getElementById('computerInput');
+      const responseEl = document.getElementById('computerResponse');
+      const voiceStatus = document.getElementById('voiceStatus');
+      if (!input || !responseEl) return;
+
+      const query = input.value.trim().toLowerCase();
+      if (!query) {
+        responseEl.textContent = '«Пожалуйста, введите запрос, капитан».';
+        return;
+      }
+
+      // Показываем "обработку"
+      responseEl.textContent = '«Обработка запроса...»';
+      responseEl.classList.remove('typing');
+      voiceStatus.textContent = 'ГОЛОСОВОЙ ИНТЕРФЕЙС · ОБРАБОТКА...';
+
+      setTimeout(() => {
+        // Ищем ответ по ключевым словам
+        let response = null;
+        for (const [key, value] of Object.entries(computerResponses)) {
+          if (query.includes(key)) {
+            response = value;
+            break;
+          }
+        }
+
+        // Если не нашли — запасной ответ
+        if (!response) {
+          const fallbacks = [
+            '«Данные не найдены в архиве. Но я уверен, капитан, что вы найдёте ответ сами».',
+            '«Интересный запрос. К сожалению, в моей базе нет точного ответа. Но я всегда готов учиться».',
+            '«Я не совсем понимаю, о чём вы. Но мне нравится ход ваших мыслей, капитан».',
+            '«Возможно, ответ скрыт в одном из неизведанных секторов. Предлагаю отправиться на поиски».'
+          ];
+          response = fallbacks[Math.floor(Math.random() * fallbacks.length)];
+        }
+
+        responseEl.textContent = response;
+        responseEl.classList.add('typing');
+        voiceStatus.textContent = 'ГОЛОСОВОЙ ИНТЕРФЕЙС · АКТИВЕН';
+        input.value = '';
+
+        // Фокусируемся обратно на поле ввода
+        input.focus();
+      }, 600);
+    };
+
+    // Отправка по Enter
+    const computerInput = document.getElementById('computerInput');
+    if (computerInput) {
+      computerInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          window.askComputer();
+        }
+      });
+    }
     }
 
     const navButtons = [...document.querySelectorAll('.page-navigation button')];
