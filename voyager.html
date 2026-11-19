@@ -87,23 +87,36 @@
         </div>
 
         <!-- COMPUTER -->
-        <div class="panel purple-edge computer">
-          <div class="panel-top">
-            <span class="panel-label">COMPUTER CORE</span>
-            <span>VOICE-09</span>
-          </div>
-          <div class="panel-content">
-            <h2>БОРТОВОЙ КОМПЬЮТЕР</h2>
-            <div class="voice-bars"><span></span><span></span><span></span><span></span><span></span></div>
-            <div class="computer-quote">
-              «Авторизация подтверждена.
-              Коды доступа капитана flupiy приняты.
-              Все палубы USS Voyager готовы
-              к выполнению директивы».
-            </div>
-          </div>
-          <div class="voice-status">ГОЛОСОВОЙ ИНТЕРФЕЙС · АКТИВЕН</div>
-        </div>
+        <!-- Бортовой компьютер (расширенный) -->
+<div class="panel purple-edge computer" id="computerPanel">
+  <div class="panel-top">
+    <span class="panel-label">COMPUTER CORE</span>
+    <span>VOICE-09 · INTERACTIVE</span>
+  </div>
+  <div class="panel-content">
+    <h2>БОРТОВОЙ КОМПЬЮТЕР</h2>
+    <div class="voice-bars"><span></span><span></span><span></span><span></span><span></span></div>
+    <div class="computer-quote" id="computerResponse">
+      «Авторизация подтверждена. Коды доступа капитана flupiy приняты. Все палубы USS Voyager готовы к выполнению директивы».
+    </div>
+
+    <!-- Поле ввода -->
+    <div class="computer-input-area">
+      <input type="text" id="computerInput" placeholder="Спросите бортовой компьютер..." autocomplete="off">
+      <button onclick="askComputer()" id="computerBtn">➤</button>
+    </div>
+
+    <!-- Подсказки -->
+    <div class="computer-hints">
+      <span class="hint" onclick="fillComputer('Привет')">Привет</span>
+      <span class="hint" onclick="fillComputer('Как дела?')">Как дела?</span>
+      <span class="hint" onclick="fillComputer('Люблю')">Люблю</span>
+      <span class="hint" onclick="fillComputer('Статус')">Статус</span>
+      <span class="hint" onclick="fillComputer('Курс')">Курс</span>
+    </div>
+  </div>
+  <div class="voice-status" id="voiceStatus">ГОЛОСОВОЙ ИНТЕРФЕЙС · АКТИВЕН</div>
+</div>
       </section>
 
       <!-- CAPTAIN'S LOG AND TACTICAL -->
