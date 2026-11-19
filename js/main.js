@@ -161,6 +161,42 @@ document.addEventListener('DOMContentLoaded', () => {
       D4: ['КОНТРОЛЬНАЯ ТОЧКА', 'Зона наблюдения за сектором. Рекомендуется держать канал связи с союзником открытым.', 'ОБЪЕКТ: НАБЛЮДЕНИЕ · СТАТУС: ПОД КОНТРОЛЕМ']
     };
 
+         // --- Радиоперехват ---
+    const radioMessages = [
+      { sender: 'Союзник', text: 'Командир, не забудь про кофе. Я уже на позиции.' },
+      { sender: 'База', text: 'Погода ясная, видимость отличная. Удачной охоты.' },
+      { sender: 'Союзник', text: 'Ты видел этот камуфляж на Strv? Я в восторге.' },
+      { sender: 'База', text: 'Внимание: в секторе C3 замечена активность. Будь осторожен.' },
+      { sender: 'Союзник', text: 'Если что — я прикрою. Только не забудь позвать.' },
+      { sender: 'База', text: 'Связь стабильна. Канал 02 чист.' },
+      { sender: 'Союзник', text: 'А помнишь тот бой на зимней карте? Вот это было эпично.' },
+      { sender: 'База', text: 'Пополнение боекомплекта завершено. Можно выдвигаться.' },
+      { sender: 'Союзник', text: 'J29 Tunnan готов к вылету. Жду команды.' },
+      { sender: 'База', text: 'Новый год уже близко. Может, отметим вместе?' },
+      { sender: 'Союзник', text: 'Ты лучший командир, с которым я летал. Только не говори остальным.' },
+      { sender: 'База', text: 'Снегопад усиливается. Рекомендую держаться ближе к ангару.' }
+    ];
+
+    window.interceptRadio = function() {
+      const btn = document.getElementById('interceptBtn');
+      const status = document.getElementById('intercept-status');
+      const msg = document.getElementById('interceptMessage');
+      if (!btn || !status || !msg) return;
+
+      btn.disabled = true;
+      status.textContent = 'ПОИСК СИГНАЛА...';
+      msg.textContent = '▂ ▄ ▆ ▃ ▅ ▂ ▄ ▆ ▃ ▅ ▂ ▄ ▆';
+      msg.classList.remove('active');
+
+      setTimeout(() => {
+        const randomMsg = radioMessages[Math.floor(Math.random() * radioMessages.length)];
+        status.textContent = 'СИГНАЛ ПРИНЯТ';
+        msg.innerHTML = `<strong>${randomMsg.sender}:</strong> ${randomMsg.text}`;
+        msg.classList.add('active');
+        btn.disabled = false;
+      }, 1200);
+    };
+
     const grid = document.getElementById('grid');
     if (grid) {
       for (let r = 1; r <= 4; r++) {
