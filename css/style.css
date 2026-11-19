@@ -2706,22 +2706,22 @@ CUSTOM CURSORS
 /* 1 и 4 страницы (Main и US) — Мишка */
 body.page-main,
 body.page-us {
-  /* Стандартный курсор на случай, если SVG не загрузится */
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23c8ff36' opacity='0.9'/%3E%3Ccircle cx='10' cy='10' r='4' fill='%23c8ff36'/%3E%3Ccircle cx='22' cy='10' r='4' fill='%23c8ff36'/%3E%3Ccircle cx='11' cy='17' r='2' fill='%23080b05'/%3E%3Ccircle cx='21' cy='17' r='2' fill='%23080b05'/%3E%3Cpath d='M14 22 Q16 24 18 22' stroke='%23080b05' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") 16 16, auto;
+  /* Основной курсор (светло-зеленый мишка) */
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M8 6 A6 6 0 1 1 8 18 A6 6 0 1 1 8 6 Z M24 6 A6 6 0 1 1 24 18 A6 6 0 1 1 24 6 Z' fill='%23c8ff36'/%3E%3Ccircle cx='16' cy='18' r='10' fill='%23c8ff36'/%3E%3Ccircle cx='12' cy='16' r='1.5' fill='%23080b05'/%3E%3Ccircle cx='20' cy='16' r='1.5' fill='%23080b05'/%3E%3Cellipse cx='16' cy='22' rx='3' ry='2' fill='%23f7ffe0'/%3E%3Ccircle cx='16' cy='21' r='1.5' fill='%23080b05'/%3E%3C/svg%3E") 16 16, auto;
 }
 
-/* Для интерактивных элементов на этих страницах (ссылки, кнопки) — курсор-рука */
+/* Мишка для ссылок и кнопок (меняет цвет на ярко-желтый) */
 body.page-main a, body.page-main button,
 body.page-us a, body.page-us button, body.page-us .card, body.page-us .planet {
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='%23eaff00' opacity='0.9'/%3E%3Ccircle cx='10' cy='10' r='4' fill='%23eaff00'/%3E%3Ccircle cx='22' cy='10' r='4' fill='%23eaff00'/%3E%3Ccircle cx='11' cy='17' r='2' fill='%23080b05'/%3E%3Ccircle cx='21' cy='17' r='2' fill='%23080b05'/%3E%3Cpath d='M14 22 Q16 24 18 22' stroke='%23080b05' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") 16 16, pointer;
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M8 6 A6 6 0 1 1 8 18 A6 6 0 1 1 8 6 Z M24 6 A6 6 0 1 1 24 18 A6 6 0 1 1 24 6 Z' fill='%23eaff00'/%3E%3Ccircle cx='16' cy='18' r='10' fill='%23eaff00'/%3E%3Ccircle cx='12' cy='16' r='1.5' fill='%23080b05'/%3E%3Ccircle cx='20' cy='16' r='1.5' fill='%23080b05'/%3E%3Cellipse cx='16' cy='22' rx='3' ry='2' fill='%23f7ffe0'/%3E%3Ccircle cx='16' cy='21' r='1.5' fill='%23080b05'/%3E%3C/svg%3E") 16 16, pointer;
 }
 
-/* 2 страница (War Thunder) — Танк (Прицел) */
+/* 2 страница (War Thunder) — Танковый прицел */
 body.page-wt {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='none' stroke='%23d5b84b' stroke-width='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='8' stroke='%23d5b84b' stroke-width='2'/%3E%3Cline x1='16' y1='24' x2='16' y2='30' stroke='%23d5b84b' stroke-width='2'/%3E%3Cline x1='2' y1='16' x2='8' y2='16' stroke='%23d5b84b' stroke-width='2'/%3E%3Cline x1='24' y1='16' x2='30' y2='16' stroke='%23d5b84b' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23d5b84b'/%3E%3C/svg%3E") 16 16, crosshair;
 }
 
-/* Для интерактивных элементов на War Thunder — курсор захвата цели */
+/* Прицел-захват для War Thunder */
 body.page-wt a, body.page-wt button, body.page-wt .sector, body.page-wt .vehicle {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='12' fill='rgba(213,184,75,0.2)' stroke='%23f0d978' stroke-width='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='8' stroke='%23f0d978' stroke-width='2'/%3E%3Cline x1='16' y1='24' x2='16' y2='30' stroke='%23f0d978' stroke-width='2'/%3E%3Cline x1='2' y1='16' x2='8' y2='16' stroke='%23f0d978' stroke-width='2'/%3E%3Cline x1='24' y1='16' x2='30' y2='16' stroke='%23f0d978' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='2' fill='%23f0d978'/%3E%3C/svg%3E") 16 16, pointer;
 }
@@ -2731,12 +2731,12 @@ body.page-voyager {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M16 4 L20 24 L16 20 L12 24 Z' fill='%23ff982e' stroke='%2383cafa' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E") 16 16, crosshair;
 }
 
-/* Для интерактивных элементов на Voyager — звездолёт с ярким свечением */
+/* Звездолёт для Voyager (свечение) */
 body.page-voyager a, body.page-voyager button, body.page-voyager .sector, body.page-voyager .panel {
   cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M16 4 L20 24 L16 20 L12 24 Z' fill='%23ff982e' stroke='%23ffcb9a' stroke-width='1.5' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='12' r='2' fill='%2383cafa'/%3E%3C/svg%3E") 16 16, pointer;
 }
 
-/* Скрываем стандартный курсор для touch-устройств, чтобы не было конфликтов */
+/* Отключаем на мобильных */
 @media (hover: none) and (pointer: coarse) {
   body {
     cursor: auto;
