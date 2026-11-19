@@ -1,7 +1,3 @@
-/* ==========================================================================
-   PROJECT: OUR UNIVERSE — SHARED SCRIPT
-   ========================================================================== */
-
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
 
@@ -25,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Live countdown to 1 January 2027 (local device time)
+    // Live countdown
     const targetDate = new Date(2027, 0, 1, 0, 0, 0);
     function updateCountdown() {
       const titleEl = document.getElementById('countdownTitle');
@@ -52,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // Planet pulse interaction
+    // Planet pulse
     const planet = document.getElementById('planet');
     function pulsePlanet() {
       if (!planet) return;
@@ -77,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Classified message modal and hidden signal
+    // Modal
     const modal = document.getElementById('modal');
     const modalMsg = document.getElementById('modalMessage');
     const closeBottom = document.getElementById('closeModalBottom');
@@ -140,9 +136,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             gainNode.gain.setTargetAtTime(0.018, audioContext.currentTime, 0.3);
           }
-        } catch (err) {
-          // Visual ambient mode remains available if audio is unsupported
-        }
+        } catch (err) { }
       } else if (gainNode && audioContext) {
         gainNode.gain.setTargetAtTime(0, audioContext.currentTime, 0.2);
       }
@@ -161,7 +155,6 @@ document.addEventListener('DOMContentLoaded', () => {
       D4: ['КОНТРОЛЬНАЯ ТОЧКА', 'Зона наблюдения за сектором. Рекомендуется держать канал связи с союзником открытым.', 'ОБЪЕКТ: НАБЛЮДЕНИЕ · СТАТУС: ПОД КОНТРОЛЕМ']
     };
 
-         // --- Радиоперехват ---
     const radioMessages = [
       { sender: 'Союзник', text: 'Командир, не забудь про кофе. Я уже на позиции.' },
       { sender: 'База', text: 'Погода ясная, видимость отличная. Удачной охоты.' },
@@ -288,6 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
+    // Навигация
     const navButtons = [...document.querySelectorAll('.page-navigation button')];
     function activateButton(activeButton) {
       navButtons.forEach(button => {
@@ -304,7 +298,29 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     });
 
-    // --- Интерактивный бортовой компьютер ---
+    const sections = navButtons
+      .map(button => ({
+        button,
+        section: document.getElementById(button.dataset.target)
+      }))
+      .filter(item => item.section);
+
+    if (sections.length) {
+      const observer = new IntersectionObserver(entries => {
+        const visible = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (!visible) return;
+        const found = sections.find(item => item.section === visible.target);
+        if (found) activateButton(found.button);
+      }, {
+        rootMargin: '-20% 0px -55% 0px',
+        threshold: [0, 0.15, 0.35, 0.6]
+      });
+      sections.forEach(item => observer.observe(item.section));
+    }
+
+    // Интерактивный компьютер
     const computerResponses = {
       'привет': 'Приветствую, капитан. Все системы в норме. Чем могу помочь?',
       'приветствую': 'Приветствую, капитан. Рад вас слышать.',
@@ -380,46 +396,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    const navButtons = [...document.querySelectorAll('.page-navigation button')];
-    function activateButton(activeButton) {
-      navButtons.forEach(button => {
-        button.classList.toggle('active', button === activeButton);
-      });
-    }
-
-    navButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const target = document.getElementById(button.dataset.target);
-        if (!target) return;
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        activateButton(button);
-      });
-    });
-
-    const sections = navButtons
-      .map(button => ({
-        button,
-        section: document.getElementById(button.dataset.target)
-      }))
-      .filter(item => item.section);
-
-    if (sections.length) {
-      const observer = new IntersectionObserver(entries => {
-        const visible = entries
-          .filter(entry => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-
-        if (!visible) return;
-        const found = sections.find(item => item.section === visible.target);
-        if (found) activateButton(found.button);
-      }, {
-        rootMargin: '-20% 0px -55% 0px',
-        threshold: [0, 0.15, 0.35, 0.6]
-      });
-
-      sections.forEach(item => observer.observe(item.section));
-    }
-
+    // Карта
     const sectors = [
       ['A1', 'Тихая орбита', 'Спокойный участок пространства. Подходит для передышки.'],
       ['A2', 'Туманность', 'Область ярких газовых облаков и красивых видов.'],
@@ -529,7 +506,6 @@ document.addEventListener('DOMContentLoaded', () => {
       if (m) m.classList.remove('show');
     };
 
-    // Просмотр изображений из таймлайна в полном размере
     const lightbox = document.getElementById('photoLightbox');
     const lightboxImg = document.getElementById('lightboxImg');
     const lightboxTag = document.getElementById('lightboxTag');
@@ -541,31 +517,24 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.querySelectorAll('body.page-us .timeline .card').forEach(card => {
-  const hint = document.createElement('span');
-  hint.className = 'zoom-hint';
-  hint.textContent = 'ОТКРЫТЬ';
-  card.appendChild(hint);
+      const hint = document.createElement('span');
+      hint.className = 'zoom-hint';
+      hint.textContent = 'ОТКРЫТЬ';
+      card.appendChild(hint);
 
-  card.addEventListener('click', () => {
-    const img = card.querySelector('.photo img');
-    if (!img || img.style.display === 'none' || !lightbox) return;
-
-    // Только изображение — без подписи и текста
-    lightboxImg.src = img.src;
-    lightboxImg.alt = img.alt || '';
-
-    // Очищаем текстовые поля, чтобы они не отображались
-    if (lightboxTag) lightboxTag.textContent = '';
-    if (lightboxTitle) lightboxTitle.textContent = '';
-    if (lightboxDesc) lightboxDesc.textContent = '';
-
-    // Скрываем блок с подписью, если он есть в HTML
-    const captionBlock = lightbox.querySelector('.lightbox-caption');
-    if (captionBlock) captionBlock.style.display = 'none';
-
-    lightbox.classList.add('show');
-  });
-});
+      card.addEventListener('click', () => {
+        const img = card.querySelector('.photo img');
+        if (!img || img.style.display === 'none' || !lightbox) return;
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt || '';
+        if (lightboxTag) lightboxTag.textContent = '';
+        if (lightboxTitle) lightboxTitle.textContent = '';
+        if (lightboxDesc) lightboxDesc.textContent = '';
+        const captionBlock = lightbox.querySelector('.lightbox-caption');
+        if (captionBlock) captionBlock.style.display = 'none';
+        lightbox.classList.add('show');
+      });
+    });
 
     window.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
@@ -574,7 +543,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-       // 3D Heart particle renderer in us.html
+    // 3D Heart
     const heartCanvas = document.getElementById('heart-canvas');
     const heartWrapper = document.getElementById('heart-canvas-wrapper');
     if (heartCanvas && heartWrapper) {
@@ -653,17 +622,13 @@ document.addEventListener('DOMContentLoaded', () => {
         const rect = heartWrapper.getBoundingClientRect();
         let w = rect.width || heartWrapper.clientWidth || 800;
         let h = rect.height || heartWrapper.clientHeight || 420;
-
         if (w === 0 || h === 0) return;
-
         const dpr = window.devicePixelRatio || 1;
         heartWidth = w;
         heartHeight = h;
-
         heartCanvas.width = heartWidth * dpr;
         heartCanvas.height = heartHeight * dpr;
         hCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        
         heartCanvas.style.width = w + 'px';
         heartCanvas.style.height = h + 'px';
       }
@@ -679,10 +644,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (heartWidth > 0 && heartHeight > 0) {
           hCtx.clearRect(0, 0, heartWidth, heartHeight);
-
-          if (!isDragging) {
-            angleY += dt * 0.85 * rotationSpeed;
-          }
+          if (!isDragging) angleY += dt * 0.85 * rotationSpeed;
 
           const timeSec = now * 0.001;
           const beat = 1 + 0.055 * Math.sin(timeSec * 3.2) + 0.02 * Math.sin(timeSec * 6.4);
@@ -708,13 +670,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const rx = p.bx * cosY - p.bz * sinY;
             const rz = p.bx * sinY + p.bz * cosY;
             const ry = p.by;
-
             const zWorld = rz * scale;
             const perspective = fov / (fov + zWorld + 140);
-
             const x2d = centerX + rx * scale * perspective;
             const y2d = centerY + ry * scale * perspective;
-
             return { x: x2d, y: y2d, z: rz, perspective, size: p.size, phase: p.phase };
           });
 
@@ -731,7 +690,6 @@ document.addEventListener('DOMContentLoaded', () => {
             hCtx.beginPath();
             hCtx.arc(pt.x, pt.y, radius, 0, Math.PI * 2);
             hCtx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha.toFixed(3)})`;
-
             if (pt.z < -1.5) {
               hCtx.shadowBlur = 10;
               hCtx.shadowColor = currentPalette.glow;
@@ -758,7 +716,7 @@ function fallback(img, name) {
   img.parentNode.appendChild(p);
 }
 
-// Глобальные функции для inline-обработчиков (на всякий случай)
+// Глобальные функции для inline-обработчиков
 window.notify = window.notify || function (t) {
   const x = document.getElementById('toast');
   if (!x) return;
