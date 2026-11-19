@@ -1507,6 +1507,74 @@ body.page-wt .section { margin-top: 45px; }
 }
 
 /* ==========================================================================
+   WAR THUNDER: RADIO INTERCEPT
+   ========================================================================== */
+body.page-wt .intercept-box {
+  margin-top: 22px;
+  padding: 18px;
+  background: #0a1114;
+  border: 1px solid #827642;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+body.page-wt .intercept-header {
+  display: flex;
+  justify-content: space-between;
+  color: var(--gold);
+  font-size: 10px;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  border-bottom: 1px dashed #52636a;
+  padding-bottom: 8px;
+}
+
+body.page-wt #intercept-status {
+  color: #819394;
+  animation: wtBlink 2s infinite;
+}
+
+body.page-wt .intercept-message {
+  min-height: 50px;
+  color: #b6c5c2;
+  font-size: 12px;
+  line-height: 1.6;
+  margin-bottom: 15px;
+  padding: 10px;
+  background: rgba(0, 0, 0, 0.3);
+  border-left: 3px solid #52636a;
+  transition: 0.3s;
+}
+
+body.page-wt .intercept-message.active {
+  border-left-color: var(--gold);
+  color: #f0d978;
+  animation: wtAppear 0.4s;
+}
+
+body.page-wt #interceptBtn {
+  width: 100%;
+  padding: 10px;
+  background: #d5b84b12;
+  border: 1px solid #827642;
+  color: #f0d978;
+  font: 10px monospace;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+body.page-wt #interceptBtn:hover {
+  background: #d5b84b2c;
+  box-shadow: 0 0 15px #d5b84b33;
+}
+
+body.page-wt #interceptBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ==========================================================================
 PAGE 3: USS VOYAGER — LCARS INTERFACE (voyager.html)
 ========================================================================== */
 body.page-voyager {
