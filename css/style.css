@@ -2181,6 +2181,90 @@ body.page-voyager footer {
 }
 
 /* ==========================================================================
+   VOYAGER: INTERACTIVE COMPUTER
+   ========================================================================== */
+body.page-voyager .computer-input-area {
+  display: flex;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+body.page-voyager #computerInput {
+  flex: 1;
+  background: #030405;
+  border: 1px solid var(--purple);
+  color: var(--peach);
+  padding: 12px 15px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  border-radius: 6px;
+  outline: none;
+  transition: 0.2s;
+}
+
+body.page-voyager #computerInput:focus {
+  border-color: var(--orange);
+  box-shadow: 0 0 15px rgba(255, 152, 46, 0.3);
+}
+
+body.page-voyager #computerInput::placeholder {
+  color: var(--muted);
+}
+
+body.page-voyager #computerBtn {
+  background: var(--purple);
+  border: 1px solid var(--purple);
+  color: #111;
+  font-size: 1.2rem;
+  padding: 0 18px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.2s;
+  font-weight: bold;
+}
+
+body.page-voyager #computerBtn:hover {
+  background: var(--orange);
+  border-color: var(--orange);
+  box-shadow: 0 0 15px rgba(255, 152, 46, 0.4);
+}
+
+body.page-voyager .computer-hints {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+body.page-voyager .hint {
+  font-family: monospace;
+  font-size: 0.65rem;
+  padding: 5px 10px;
+  background: rgba(198, 149, 201, 0.1);
+  border: 1px solid rgba(198, 149, 201, 0.3);
+  border-radius: 12px;
+  color: var(--purple);
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+body.page-voyager .hint:hover {
+  background: rgba(198, 149, 201, 0.25);
+  border-color: var(--purple);
+  color: #fff;
+}
+
+/* Анимация появления ответа */
+body.page-voyager .computer-quote.typing {
+  animation: voyTyping 0.5s;
+}
+
+@keyframes voyTyping {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* ==========================================================================
 PAGE 4: US (us.html)
 ========================================================================== */
 body.page-us {
