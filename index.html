@@ -166,51 +166,49 @@
   </div>
 
   <form 
-    class="feedback-form" 
-    action="https://formspree.io/f/mvkabolk" 
-    method="POST"
-  >
-    <!-- Имя (необязательно) -->
-    <div class="form-group">
-      <label for="fb-name">Как тебя зовут? <span class="muted">(необязательно)</span></label>
-      <input type="text" id="fb-name" name="name" placeholder="Твоё имя" autocomplete="name">
-    </div>
+  class="feedback-form" 
+  action="https://formspree.io/f/ВАШ_ID" 
+  method="POST"
+>
+  <!-- Имя -->
+  <div class="form-group">
+    <label for="fb-name">Как тебя зовут?</label>
+    <input type="text" id="fb-name" name="name" placeholder="Твоё имя" autocomplete="name" required>
+  </div>
 
-    <!-- Что нравится во внешности -->
-    <div class="form-group">
-      <label for="fb-looks">Что тебе нравится в моей внешности?</label>
-      <textarea id="fb-looks" name="looks" rows="2" placeholder="Глаза, улыбка, стиль..."></textarea>
-    </div>
+  <!-- Внешность -->
+  <div class="form-group">
+    <label for="fb-looks">Что тебе нравится в моей внешности?</label>
+    <textarea id="fb-looks" name="looks" rows="2" placeholder="Глаза, улыбка, стиль..." required></textarea>
+  </div>
 
-    <!-- Что нравится в характере -->
-    <div class="form-group">
-      <label for="fb-character">Какие черты характера тебе нравятся?</label>
-      <textarea id="fb-character" name="character" rows="2" placeholder="Доброта, чувство юмора, забота..."></textarea>
-    </div>
+  <!-- Характер -->
+  <div class="form-group">
+    <label for="fb-character">Какие черты характера тебе нравятся?</label>
+    <textarea id="fb-character" name="character" rows="2" placeholder="Доброта, чувство юмора, забота..." required></textarea>
+  </div>
 
-    <!-- Что нравится в навыках -->
-    <div class="form-group">
-      <label for="fb-skills">Что тебе нравится в моих способностях или навыках?</label>
-      <textarea id="fb-skills" name="skills" rows="2" placeholder="Умение слушать, готовить, играть..."></textarea>
-    </div>
+  <!-- Навыки -->
+  <div class="form-group">
+    <label for="fb-skills">Что тебе нравится в моих способностях или навыках?</label>
+    <textarea id="fb-skills" name="skills" rows="2" placeholder="Умение слушать, готовить, играть..." required></textarea>
+  </div>
 
-    <!-- Личное сообщение -->
-    <div class="form-group">
-      <label for="fb-message">Что-то от себя</label>
-      <textarea id="fb-message" name="message" rows="4" placeholder="Просто напиши то, что хочется..."></textarea>
-    </div>
+  <!-- Личное сообщение -->
+  <div class="form-group">
+    <label for="fb-message">Что-то от себя</label>
+    <textarea id="fb-message" name="message" rows="4" placeholder="Просто напиши то, что хочется..." required></textarea>
+  </div>
 
-    <!-- Скрытое поле для защиты от спама (honeypot) -->
-    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+  <!-- Honeypot (не трогать) -->
+  <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
 
-    <!-- Кнопка отправки -->
-    <button type="submit" class="btn feedback-submit">
-      ОТПРАВИТЬ СООБЩЕНИЕ
-    </button>
+  <button type="submit" class="btn feedback-submit">
+    ОТПРАВИТЬ СООБЩЕНИЕ
+  </button>
 
-    <!-- Статус отправки -->
-    <div class="feedback-status" id="feedbackStatus"></div>
-  </form>
+  <div class="feedback-status" id="feedbackStatus"></div>
+</form>
 </section>
 
   <script src="js/main.js"></script>
