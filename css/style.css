@@ -873,13 +873,12 @@ body.page-main .secret-star { right: 13px; bottom: 13px; }
    FEEDBACK FORM (index.html)
    ========================================================================== */
 body.page-main .feedback-section {
-  /* Ограничиваем ширину, чтобы было как у остальных блоков */
+  /* Форма занимает 100% ширины main (у которого уже есть отступы) */
   width: 100%;
-  max-width: 100%; 
-  margin: 0 auto 70px; /* Центрируем */
-  padding: 35px;
+  margin: 0 0 62px; /* Такой же отступ снизу, как у mission-log */
+  padding: 25px 22px; /* Отступы как у остальных блоков */
   border: 1px solid rgba(204, 255, 0, 0.3);
-  border-radius: 24px;
+  border-radius: 20px; /* Скругление как у countdown */
   background: linear-gradient(145deg, rgba(10, 20, 5, 0.9), rgba(5, 10, 3, 0.95));
   position: relative;
   overflow: hidden;
@@ -897,25 +896,29 @@ body.page-main .feedback-section::before {
   pointer-events: none;
 }
 
+/* Сетка для формы (в 2 колонки на широких экранах) */
 body.page-main .feedback-form {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
-  margin-top: 25px;
+  margin-top: 20px;
   position: relative;
   z-index: 1;
-  width: 100%;
+}
+
+/* Текстовые поля (textarea) и поле имени занимают всю ширину */
+body.page-main .form-group.full-width {
+  grid-column: 1 / -1;
 }
 
 body.page-main .form-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  width: 100%;
 }
 
 body.page-main .form-group label {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: 700;
   letter-spacing: 1px;
   color: var(--name);
@@ -925,20 +928,20 @@ body.page-main .form-group label {
 body.page-main .form-group label .muted {
   color: var(--muted);
   font-weight: 400;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   letter-spacing: 0.5px;
 }
 
 body.page-main .form-group input,
 body.page-main .form-group textarea {
   width: 100%;
-  padding: 14px 16px;
+  padding: 12px 14px;
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(204, 255, 0, 0.25);
-  border-radius: 12px;
+  border-radius: 10px;
   color: var(--text);
   font-family: inherit;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   line-height: 1.5;
   outline: none;
   transition: 0.25s;
@@ -946,14 +949,13 @@ body.page-main .form-group textarea {
   box-sizing: border-box;
 }
 
-/* Ограничиваем высоту полей, чтобы форма не была слишком длинной */
 body.page-main .form-group input {
-  min-height: 50px;
+  min-height: 45px;
 }
 
 body.page-main .form-group textarea {
-  min-height: 80px;
-  max-height: 180px; /* Ограничиваем максимальную высоту */
+  min-height: 70px;
+  max-height: 150px;
 }
 
 body.page-main .form-group input::placeholder,
@@ -968,12 +970,14 @@ body.page-main .form-group textarea:focus {
   box-shadow: 0 0 15px rgba(204, 255, 0, 0.15);
 }
 
+/* Кнопка отправки */
 body.page-main .feedback-submit {
-  align-self: flex-start;
+  grid-column: 1 / -1;
+  justify-self: start;
   margin-top: 10px;
-  padding: 15px 30px;
-  font-size: 0.8rem;
-  letter-spacing: 2px;
+  padding: 14px 24px;
+  font-size: 0.75rem;
+  letter-spacing: 1.5px;
   cursor: pointer;
   background: rgba(204, 255, 0, 0.08);
   transition: 0.25s;
@@ -996,7 +1000,9 @@ body.page-main .feedback-submit:disabled {
   transform: none;
 }
 
+/* Статус */
 body.page-main .feedback-status {
+  grid-column: 1 / -1;
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 1px;
@@ -1013,14 +1019,20 @@ body.page-main .feedback-status.error {
   color: #ff6b6b;
 }
 
-/* Адаптив */
+/* Адаптив для мобильных (в одну колонку) */
+@media (max-width: 850px) {
+  body.page-main .feedback-form {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 520px) {
   body.page-main .feedback-section {
-    padding: 22px;
+    padding: 20px;
   }
   body.page-main .feedback-submit {
     width: 100%;
-    align-self: stretch;
+    justify-self: stretch;
   }
 }
 
