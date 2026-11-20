@@ -873,13 +873,17 @@ body.page-main .secret-star { right: 13px; bottom: 13px; }
    FEEDBACK FORM (index.html)
    ========================================================================== */
 body.page-main .feedback-section {
-  margin: 0 0 70px;
+  /* Ограничиваем ширину, чтобы было как у остальных блоков */
+  width: 100%;
+  max-width: 100%; 
+  margin: 0 auto 70px; /* Центрируем */
   padding: 35px;
   border: 1px solid rgba(204, 255, 0, 0.3);
   border-radius: 24px;
   background: linear-gradient(145deg, rgba(10, 20, 5, 0.9), rgba(5, 10, 3, 0.95));
   position: relative;
   overflow: hidden;
+  box-sizing: border-box;
 }
 
 body.page-main .feedback-section::before {
@@ -900,12 +904,14 @@ body.page-main .feedback-form {
   margin-top: 25px;
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 body.page-main .form-group {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 100%;
 }
 
 body.page-main .form-group label {
@@ -937,7 +943,17 @@ body.page-main .form-group textarea {
   outline: none;
   transition: 0.25s;
   resize: vertical;
+  box-sizing: border-box;
+}
+
+/* Ограничиваем высоту полей, чтобы форма не была слишком длинной */
+body.page-main .form-group input {
   min-height: 50px;
+}
+
+body.page-main .form-group textarea {
+  min-height: 80px;
+  max-height: 180px; /* Ограничиваем максимальную высоту */
 }
 
 body.page-main .form-group input::placeholder,
@@ -952,10 +968,6 @@ body.page-main .form-group textarea:focus {
   box-shadow: 0 0 15px rgba(204, 255, 0, 0.15);
 }
 
-body.page-main .form-group textarea {
-  min-height: 80px;
-}
-
 body.page-main .feedback-submit {
   align-self: flex-start;
   margin-top: 10px;
@@ -965,6 +977,10 @@ body.page-main .feedback-submit {
   cursor: pointer;
   background: rgba(204, 255, 0, 0.08);
   transition: 0.25s;
+  border: 1px solid var(--accent);
+  border-radius: 999px;
+  color: var(--accent);
+  font-weight: 800;
 }
 
 body.page-main .feedback-submit:hover {
