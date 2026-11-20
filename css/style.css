@@ -1008,6 +1008,24 @@ body.page-main .feedback-status.error {
   }
 }
 
+/* Подсветка обязательных полей */
+body.page-main .form-group input:required:invalid,
+body.page-main .form-group textarea:required:invalid {
+  border-color: rgba(204, 255, 0, 0.25);
+}
+
+body.page-main .form-group input:required:valid,
+body.page-main .form-group textarea:required:valid {
+  border-color: rgba(204, 255, 0, 0.5);
+}
+
+/* Подсветка при ошибке браузера */
+body.page-main .form-group input:invalid:not(:placeholder-shown),
+body.page-main .form-group textarea:invalid:not(:placeholder-shown) {
+  border-color: #ff6b6b;
+  box-shadow: 0 0 10px rgba(255, 107, 107, 0.2);
+}
+
 /* ==========================================================================
 PAGE 2: OPERATION SEVER — WAR THUNDER (war-thunder.html)
 ========================================================================== */
