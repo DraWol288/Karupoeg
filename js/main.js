@@ -144,6 +144,72 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ambientButton) ambientButton.addEventListener('click', toggleAmbient);
   }
 
+      // --- Форма обратной связи (Formspree) ---
+    const feedbackForm = document.querySelector('.feedback-form');
+    const feedbackStatus = document.getElementById('feedbackStatus');
+    const feedbackSubmit = document.querySelector('.feedback-submit');
+
+    if (feedbackForm) {
+      feedbackForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const formData = new FormData(feedbackForm);
+        const submitBtn = feedbackSubmit;
+        const originalText = submitBtn.textContent;
+
+        // Проверка, что хотя бы одно поле заполнено
+        const looks = formData.get('looks')?.trim() || '';
+        const character = formData.get('character')?.trim() || '';
+        const skills = formData.get('skills')?.trim() || '';
+        const message = formData.get('message')?.trim() || '';
+
+        if (!looks && !character && !skills && !message) {
+          if (feedbackStatus) {
+            feedbackStatus.textContent = 'Напиши хотя бы что-нибудь, пожалуйста 💚';
+            feedbackStatus.className = 'feedback-status error';
+          }
+          return;
+        }
+
+        // Блокируем кнопку
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'ОТПРАВКА...';
+        if (feedbackStatus) {
+          feedbackStatus.textContent = 'Отправляем сообщение...';
+          feedbackStatus.className = 'feedback-status';
+        }
+
+        try {
+          const response = await fetch(feedbackForm.action, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json'
+            }
+          });
+
+          if (response.ok) {
+            if (feedbackStatus) {
+              feedbackStatus.textContent = 'Сообщение отправлено! Спасибо, что поделился(ась). 💚';
+              feedbackStatus.className = 'feedback-status success';
+            }
+            feedbackForm.reset();
+          } else {
+            const data = await response.json().catch(() => ({}));
+            throw new Error(data.error || 'Ошибка отправки');
+          }
+        } catch (err) {
+          if (feedbackStatus) {
+            feedbackStatus.textContent = 'Что-то пошло не так. Попробуй ещё раз или напиши позже.';
+            feedbackStatus.className = 'feedback-status error';
+          }
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }
+      });
+    }
+
   /* ------------------------------------------------------------------------
      2. WAR THUNDER PAGE (war-thunder.html)
      ------------------------------------------------------------------------ */
