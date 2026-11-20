@@ -155,6 +155,64 @@
     </div>
   </div>
 
+  <!-- СЕКЦИЯ: ОБРАТНАЯ СВЯЗЬ -->
+<section class="feedback-section" id="feedback">
+  <div class="section-head">
+    <div>
+      <div class="section-kicker">ЛИЧНОЕ СООБЩЕНИЕ</div>
+      <h2>Что ты думаешь обо мне?</h2>
+    </div>
+    <p class="section-note">Твои слова важны для меня. Расскажи, что тебе нравится в моей внешности, характере и навыках. И можешь написать что-то от себя — я всё прочитаю.</p>
+  </div>
+
+  <form 
+    class="feedback-form" 
+    action="https://formspree.io/f/mvkabolk" 
+    method="POST"
+  >
+    <!-- Имя (необязательно) -->
+    <div class="form-group">
+      <label for="fb-name">Как тебя зовут? <span class="muted">(необязательно)</span></label>
+      <input type="text" id="fb-name" name="name" placeholder="Твоё имя" autocomplete="name">
+    </div>
+
+    <!-- Что нравится во внешности -->
+    <div class="form-group">
+      <label for="fb-looks">Что тебе нравится в моей внешности?</label>
+      <textarea id="fb-looks" name="looks" rows="2" placeholder="Глаза, улыбка, стиль..."></textarea>
+    </div>
+
+    <!-- Что нравится в характере -->
+    <div class="form-group">
+      <label for="fb-character">Какие черты характера тебе нравятся?</label>
+      <textarea id="fb-character" name="character" rows="2" placeholder="Доброта, чувство юмора, забота..."></textarea>
+    </div>
+
+    <!-- Что нравится в навыках -->
+    <div class="form-group">
+      <label for="fb-skills">Что тебе нравится в моих способностях или навыках?</label>
+      <textarea id="fb-skills" name="skills" rows="2" placeholder="Умение слушать, готовить, играть..."></textarea>
+    </div>
+
+    <!-- Личное сообщение -->
+    <div class="form-group">
+      <label for="fb-message">Что-то от себя</label>
+      <textarea id="fb-message" name="message" rows="4" placeholder="Просто напиши то, что хочется..."></textarea>
+    </div>
+
+    <!-- Скрытое поле для защиты от спама (honeypot) -->
+    <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+    <!-- Кнопка отправки -->
+    <button type="submit" class="btn feedback-submit">
+      ОТПРАВИТЬ СООБЩЕНИЕ
+    </button>
+
+    <!-- Статус отправки -->
+    <div class="feedback-status" id="feedbackStatus"></div>
+  </form>
+</section>
+
   <script src="js/main.js"></script>
 </body>
 </html>
