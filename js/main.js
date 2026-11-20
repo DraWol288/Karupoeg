@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (ambientButton) ambientButton.addEventListener('click', toggleAmbient);
   }
 
-      // --- Форма обратной связи (Formspree) ---
+         // --- Форма обратной связи (Formspree) ---
     const feedbackForm = document.querySelector('.feedback-form');
     const feedbackStatus = document.getElementById('feedbackStatus');
     const feedbackSubmit = document.querySelector('.feedback-submit');
@@ -153,25 +153,16 @@ document.addEventListener('DOMContentLoaded', () => {
       feedbackForm.addEventListener('submit', async (e) => {
         e.preventDefault();
 
+        // Браузер уже проверил required-поля, но на всякий случай
+        if (!feedbackForm.checkValidity()) {
+          feedbackForm.reportValidity();
+          return;
+        }
+
         const formData = new FormData(feedbackForm);
         const submitBtn = feedbackSubmit;
         const originalText = submitBtn.textContent;
 
-        // Проверка, что хотя бы одно поле заполнено
-        const looks = formData.get('looks')?.trim() || '';
-        const character = formData.get('character')?.trim() || '';
-        const skills = formData.get('skills')?.trim() || '';
-        const message = formData.get('message')?.trim() || '';
-
-        if (!looks && !character && !skills && !message) {
-          if (feedbackStatus) {
-            feedbackStatus.textContent = 'Напиши хотя бы что-нибудь, пожалуйста 💚';
-            feedbackStatus.className = 'feedback-status error';
-          }
-          return;
-        }
-
-        // Блокируем кнопку
         submitBtn.disabled = true;
         submitBtn.textContent = 'ОТПРАВКА...';
         if (feedbackStatus) {
@@ -183,9 +174,7 @@ document.addEventListener('DOMContentLoaded', () => {
           const response = await fetch(feedbackForm.action, {
             method: 'POST',
             body: formData,
-            headers: {
-              'Accept': 'application/json'
-            }
+            headers: { 'Accept': 'application/json' }
           });
 
           if (response.ok) {
