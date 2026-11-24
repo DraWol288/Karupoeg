@@ -786,6 +786,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape') window.closeDecepticonModal();
     });
   }
+});
 
 // Глобальные функции для inline-обработчиков
 function fallback(img, name) {
