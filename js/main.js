@@ -785,8 +785,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') window.closeDecepticonModal();
     });
-  }
-); // <-- ЗАКРЫВАЮЩАЯ СКОБКА ДЛЯ DOMContentLoaded
+  }; // <-- ЗАКРЫВАЮЩАЯ СКОБКА ДЛЯ DOMContentLoaded
 
 // Глобальные функции для inline-обработчиков
 function fallback(img, name) {
