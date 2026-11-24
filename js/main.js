@@ -142,7 +142,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
     if (ambientButton) ambientButton.addEventListener('click', toggleAmbient);
-  }
 
          // --- Форма обратной связи (Formspree) ---
     const feedbackForm = document.querySelector('.feedback-form');
