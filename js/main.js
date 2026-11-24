@@ -1,10 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
 
-  /* ------------------------------------------------------------------------
+  /* ========================================================================
      1. MAIN PAGE (index.html)
-     ------------------------------------------------------------------------ */
+     ======================================================================== */
   if (body.classList.contains('page-main')) {
+    // Частицы
     const particleRoot = document.getElementById('particles');
     if (particleRoot) {
       for (let i = 0; i < 38; i++) {
@@ -21,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
 
-    // Live countdown
+    // Таймер
     const targetDate = new Date(2027, 0, 1, 0, 0, 0);
     function updateCountdown() {
       const titleEl = document.getElementById('countdownTitle');
@@ -48,7 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCountdown();
     setInterval(updateCountdown, 1000);
 
-    // Planet pulse
+    // Планета
     const planet = document.getElementById('planet');
     function pulsePlanet() {
       if (!planet) return;
@@ -58,9 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const label = document.querySelector('.visual-label b');
       if (label) {
         label.textContent = 'СИГНАЛ ОТПРАВЛЕН: ПРИНЯТ';
-        setTimeout(() => {
-          label.textContent = 'ВСЕЛЕННАЯ: В СЕТИ';
-        }, 2200);
+        setTimeout(() => { label.textContent = 'ВСЕЛЕННАЯ: В СЕТИ'; }, 2200);
       }
     }
     if (planet) {
@@ -73,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Modal
+    // Модальное окно
     const modal = document.getElementById('modal');
     const modalMsg = document.getElementById('modalMessage');
     const closeBottom = document.getElementById('closeModalBottom');
@@ -108,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape') closeModal();
     });
 
-    // Ambient mode
+    // Атмосферный режим
     let audioContext = null, oscillator = null, gainNode = null, ambientOn = false;
     const ambientButton = document.getElementById('ambientToggle');
     function toggleAmbient() {
@@ -143,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     if (ambientButton) ambientButton.addEventListener('click', toggleAmbient);
 
-         // --- Форма обратной связи (Formspree) ---
+    // Форма обратной связи (Formspree)
     const feedbackForm = document.querySelector('.feedback-form');
     const feedbackStatus = document.getElementById('feedbackStatus');
     const feedbackSubmit = document.querySelector('.feedback-submit');
@@ -151,31 +150,25 @@ document.addEventListener('DOMContentLoaded', () => {
     if (feedbackForm) {
       feedbackForm.addEventListener('submit', async (e) => {
         e.preventDefault();
-
-        // Браузер уже проверил required-поля, но на всякий случай
         if (!feedbackForm.checkValidity()) {
           feedbackForm.reportValidity();
           return;
         }
-
         const formData = new FormData(feedbackForm);
         const submitBtn = feedbackSubmit;
         const originalText = submitBtn.textContent;
-
         submitBtn.disabled = true;
         submitBtn.textContent = 'ОТПРАВКА...';
         if (feedbackStatus) {
           feedbackStatus.textContent = 'Отправляем сообщение...';
           feedbackStatus.className = 'feedback-status';
         }
-
         try {
           const response = await fetch(feedbackForm.action, {
             method: 'POST',
             body: formData,
             headers: { 'Accept': 'application/json' }
           });
-
           if (response.ok) {
             if (feedbackStatus) {
               feedbackStatus.textContent = 'Сообщение отправлено! Спасибо, что поделился(ась). 💚';
@@ -197,10 +190,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
+  } // КОНЕЦ БЛОКА PAGE-MAIN
 
-    /* ------------------------------------------------------------------------
+  /* ========================================================================
      2. WAR THUNDER PAGE (war-thunder.html)
-     ------------------------------------------------------------------------ */
+     ======================================================================== */
   if (body.classList.contains('page-wt')) {
     const details = {
       B2: ['СЕВЕРНЫЙ АНГАР', 'Точка сбора и подготовки техники. Проверить экипаж, загрузить боекомплект и убедиться, что командир не забыл союзника.', 'ОБЪЕКТ: АНГАР · СТАТУС: АКТИВЕН'],
@@ -229,12 +223,10 @@ document.addEventListener('DOMContentLoaded', () => {
       const status = document.getElementById('intercept-status');
       const msg = document.getElementById('interceptMessage');
       if (!btn || !status || !msg) return;
-
       btn.disabled = true;
       status.textContent = 'ПОИСК СИГНАЛА...';
       msg.textContent = '▂ ▄ ▆ ▃ ▅ ▂ ▄ ▆ ▃ ▅ ▂ ▄ ▆';
       msg.classList.remove('active');
-
       setTimeout(() => {
         const randomMsg = radioMessages[Math.floor(Math.random() * radioMessages.length)];
         status.textContent = 'СИГНАЛ ПРИНЯТ';
@@ -316,14 +308,13 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // --- Фоновая музыка (War Thunder) ---
+    // Фоновая музыка War Thunder
     const wtBgMusic = document.getElementById('wtBgMusic');
     const wtMusicToggle = document.getElementById('wtMusicToggle');
     const wtMusicIcon = wtMusicToggle ? wtMusicToggle.querySelector('.music-icon') : null;
 
     if (wtBgMusic && wtMusicToggle) {
-      wtBgMusic.volume = 0.25; // Громкость 25%
-
+      wtBgMusic.volume = 0.25;
       wtMusicToggle.addEventListener('click', () => {
         if (wtBgMusic.paused) {
           wtBgMusic.play().then(() => {
@@ -342,12 +333,12 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
-  }
-  
-  /* ------------------------------------------------------------------------
+  } // КОНЕЦ БЛОКА PAGE-WT
+
+  /* ========================================================================
      3. USS VOYAGER PAGE (voyager.html)
-     ------------------------------------------------------------------------ */
-    if (body.classList.contains('page-voyager')) {
+     ======================================================================== */
+  if (body.classList.contains('page-voyager')) {
     const intro = document.getElementById('intro');
     function enterSite() {
       if (intro) intro.classList.add('hidden');
@@ -362,14 +353,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Навигация
     const navButtons = [...document.querySelectorAll('.page-navigation button')];
     function activateButton(activeButton) {
       navButtons.forEach(button => {
         button.classList.toggle('active', button === activeButton);
       });
     }
-
     navButtons.forEach(button => {
       button.addEventListener('click', () => {
         const target = document.getElementById(button.dataset.target);
@@ -380,28 +369,19 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const sections = navButtons
-      .map(button => ({
-        button,
-        section: document.getElementById(button.dataset.target)
-      }))
+      .map(button => ({ button, section: document.getElementById(button.dataset.target) }))
       .filter(item => item.section);
 
     if (sections.length) {
       const observer = new IntersectionObserver(entries => {
-        const visible = entries
-          .filter(entry => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        const visible = entries.filter(entry => entry.isIntersecting).sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
         if (!visible) return;
         const found = sections.find(item => item.section === visible.target);
         if (found) activateButton(found.button);
-      }, {
-        rootMargin: '-20% 0px -55% 0px',
-        threshold: [0, 0.15, 0.35, 0.6]
-      });
+      }, { rootMargin: '-20% 0px -55% 0px', threshold: [0, 0.15, 0.35, 0.6] });
       sections.forEach(item => observer.observe(item.section));
     }
 
-    // Интерактивный компьютер
     const computerResponses = {
       'привет': 'Приветствую, капитан. Все системы в норме. Чем могу помочь?',
       'приветствую': 'Приветствую, капитан. Рад вас слышать.',
@@ -418,10 +398,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.fillComputer = function(text) {
       const input = document.getElementById('computerInput');
-      if (input) {
-        input.value = text;
-        input.focus();
-      }
+      if (input) { input.value = text; input.focus(); }
     };
 
     window.askComputer = function() {
@@ -435,7 +412,6 @@ document.addEventListener('DOMContentLoaded', () => {
         responseEl.textContent = '«Пожалуйста, введите запрос, капитан».';
         return;
       }
-
       responseEl.textContent = '«Обработка запроса...»';
       responseEl.classList.remove('typing');
       if (voiceStatus) voiceStatus.textContent = 'ГОЛОСОВОЙ ИНТЕРФЕЙС · ОБРАБОТКА...';
@@ -443,12 +419,8 @@ document.addEventListener('DOMContentLoaded', () => {
       setTimeout(() => {
         let response = null;
         for (const [key, value] of Object.entries(computerResponses)) {
-          if (query.includes(key)) {
-            response = value;
-            break;
-          }
+          if (query.includes(key)) { response = value; break; }
         }
-
         if (!response) {
           const fallbacks = [
             '«Данные не найдены в архиве. Но я уверен, капитан, что вы найдёте ответ сами».',
@@ -458,7 +430,6 @@ document.addEventListener('DOMContentLoaded', () => {
           ];
           response = fallbacks[Math.floor(Math.random() * fallbacks.length)];
         }
-
         responseEl.textContent = response;
         responseEl.classList.add('typing');
         if (voiceStatus) voiceStatus.textContent = 'ГОЛОСОВОЙ ИНТЕРФЕЙС · АКТИВЕН';
@@ -470,14 +441,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const computerInput = document.getElementById('computerInput');
     if (computerInput) {
       computerInput.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter') {
-          e.preventDefault();
-          window.askComputer();
-        }
+        if (e.key === 'Enter') { e.preventDefault(); window.askComputer(); }
       });
     }
 
-    // Карта
     const sectors = [
       ['A1', 'Тихая орбита', 'Спокойный участок пространства. Подходит для передышки.'],
       ['A2', 'Туманность', 'Область ярких газовых облаков и красивых видов.'],
@@ -521,14 +488,12 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // --- Фоновая музыка (в самом конце блока Voyager) ---
     const bgMusic = document.getElementById('bgMusic');
     const musicToggle = document.getElementById('musicToggle');
     const musicIcon = musicToggle ? musicToggle.querySelector('.music-icon') : null;
 
     if (bgMusic && musicToggle) {
-      bgMusic.volume = 0.3; // Громкость 30%
-
+      bgMusic.volume = 0.3;
       musicToggle.addEventListener('click', () => {
         if (bgMusic.paused) {
           bgMusic.play().then(() => {
@@ -547,11 +512,11 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
     }
-  } 
-  
-  /* ------------------------------------------------------------------------
+  } // КОНЕЦ БЛОКА PAGE-VOYAGER
+
+  /* ========================================================================
      4. US PAGE (us.html)
-     ------------------------------------------------------------------------ */
+     ======================================================================== */
   if (body.classList.contains('page-us')) {
     const c = document.getElementById('stars');
     if (c) {
@@ -562,11 +527,8 @@ document.addEventListener('DOMContentLoaded', () => {
         c.height = innerHeight * devicePixelRatio;
         x.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
         dots = Array.from({ length: Math.floor(innerWidth / 5) }, () => ({
-          x: Math.random() * innerWidth,
-          y: Math.random() * innerHeight,
-          r: Math.random() * 1.2 + 0.2,
-          a: Math.random() * 0.6 + 0.15,
-          d: Math.random() * 0.012 + 0.003
+          x: Math.random() * innerWidth, y: Math.random() * innerHeight,
+          r: Math.random() * 1.2 + 0.2, a: Math.random() * 0.6 + 0.15, d: Math.random() * 0.012 + 0.003
         }));
       }
       function draw() {
@@ -575,28 +537,17 @@ document.addEventListener('DOMContentLoaded', () => {
           s.a += s.d;
           if (s.a > 0.8 || s.a < 0.1) s.d *= -1;
           x.fillStyle = `rgba(205,255,95,${s.a})`;
-          x.beginPath();
-          x.arc(s.x, s.y, s.r, 0, 7);
-          x.fill();
+          x.beginPath(); x.arc(s.x, s.y, s.r, 0, 7); x.fill();
         });
         requestAnimationFrame(draw);
       }
       window.addEventListener('resize', resize);
-      resize();
-      draw();
+      resize(); draw();
     }
 
     const planetData = {
-      mars: [
-        'PERSONAL PLANET FILE · YOU',
-        'MARS — ТЫ',
-        'Марс — твоя планета в нашей карте Вселенной. Здесь можно написать личные строки о себе: что тебе нравится в этой планете, какие её черты напоминают тебе о себе и почему ты выбрала именно её.'
-      ],
-      titan: [
-        'PERSONAL PLANET FILE · HIM',
-        'TITAN — ОН',
-        'Титан — его мир. Загадочный спутник с плотной атмосферой, озёрами и скрытыми ландшафтами. Здесь можно добавить, почему эта планета ему нравится и какие ассоциации она вызывает у тебя.'
-      ]
+      mars: ['PERSONAL PLANET FILE · YOU', 'MARS — ТЫ', 'Марс — твоя планета в нашей карте Вселенной. Здесь можно написать личные строки о себе: что тебе нравится в этой планете, какие её черты напоминают тебе о себе и почему ты выбрала именно её.'],
+      titan: ['PERSONAL PLANET FILE · HIM', 'TITAN — ОН', 'Титан — его мир. Загадочный спутник с плотной атмосферой, озёрами и скрытыми ландшафтами. Здесь можно добавить, почему эта планета ему нравится и какие ассоциации она вызывает у тебя.']
     };
 
     window.planet = function (id) {
@@ -651,7 +602,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
 
-    // 3D Heart
     const heartCanvas = document.getElementById('heart-canvas');
     const heartWrapper = document.getElementById('heart-canvas-wrapper');
     if (heartCanvas && heartWrapper) {
@@ -672,11 +622,8 @@ document.addEventListener('DOMContentLoaded', () => {
         ['pink', 'lime', 'cyan', 'gold'].forEach(k => {
           const btn = document.getElementById('btn-color-' + k);
           if (!btn) return;
-          if (k === key) {
-            btn.classList.add('active', 'scale-125');
-          } else {
-            btn.classList.remove('active', 'scale-125');
-          }
+          if (k === key) btn.classList.add('active', 'scale-125');
+          else btn.classList.remove('active', 'scale-125');
         });
       };
 
@@ -700,24 +647,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const maxThickness = 6 * Math.sqrt(Math.max(0, 1 - shell * shell));
         const zSign = Math.random() < 0.5 ? -1 : 1;
         const hz = zSign * Math.random() * maxThickness;
-
-        particles.push({
-          bx: hx * shell,
-          by: hy * shell,
-          bz: hz,
-          size: Math.random() * 1.8 + 0.8,
-          phase: Math.random() * Math.PI * 2
-        });
+        particles.push({ bx: hx * shell, by: hy * shell, bz: hz, size: Math.random() * 1.8 + 0.8, phase: Math.random() * Math.PI * 2 });
       }
 
       let angleY = 0;
       let isDragging = false;
       let lastPointerX = 0;
 
-      heartWrapper.addEventListener('pointerdown', e => {
-        isDragging = true;
-        lastPointerX = e.clientX;
-      });
+      heartWrapper.addEventListener('pointerdown', e => { isDragging = true; lastPointerX = e.clientX; });
       window.addEventListener('pointermove', e => {
         if (!isDragging) return;
         const dx = e.clientX - lastPointerX;
@@ -732,8 +669,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let h = rect.height || heartWrapper.clientHeight || 420;
         if (w === 0 || h === 0) return;
         const dpr = window.devicePixelRatio || 1;
-        heartWidth = w;
-        heartHeight = h;
+        heartWidth = w; heartHeight = h;
         heartCanvas.width = heartWidth * dpr;
         heartCanvas.height = heartHeight * dpr;
         hCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -753,12 +689,10 @@ document.addEventListener('DOMContentLoaded', () => {
         if (heartWidth > 0 && heartHeight > 0) {
           hCtx.clearRect(0, 0, heartWidth, heartHeight);
           if (!isDragging) angleY += dt * 0.85 * rotationSpeed;
-
           const timeSec = now * 0.001;
           const beat = 1 + 0.055 * Math.sin(timeSec * 3.2) + 0.02 * Math.sin(timeSec * 6.4);
           const baseScale = Math.min(heartWidth, heartHeight) / 38;
           const scale = baseScale * beat;
-
           const centerX = heartWidth / 2;
           const centerY = heartHeight / 2 - baseScale * 1.2;
 
@@ -794,16 +728,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const twinkle = 0.8 + 0.2 * Math.sin(timeSec * 4 + pt.phase);
             const alpha = depthFactor * twinkle;
             const radius = Math.max(0.7, pt.size * pt.perspective * 1.35);
-
             hCtx.beginPath();
             hCtx.arc(pt.x, pt.y, radius, 0, Math.PI * 2);
             hCtx.fillStyle = `rgba(${r}, ${g}, ${b}, ${alpha.toFixed(3)})`;
-            if (pt.z < -1.5) {
-              hCtx.shadowBlur = 10;
-              hCtx.shadowColor = currentPalette.glow;
-            } else {
-              hCtx.shadowBlur = 0;
-            }
+            if (pt.z < -1.5) { hCtx.shadowBlur = 10; hCtx.shadowColor = currentPalette.glow; }
+            else hCtx.shadowBlur = 0;
             hCtx.fill();
           }
           hCtx.shadowBlur = 0;
@@ -812,10 +741,10 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       requestAnimationFrame(renderHeart);
     }
-  }
+  } // КОНЕЦ БЛОКА PAGE-US
 });
 
-// Global helper for inline onerror attribute on images in us.html
+// Глобальные функции для inline-обработчиков
 function fallback(img, name) {
   img.style.display = 'none';
   const p = document.createElement('div');
@@ -824,7 +753,6 @@ function fallback(img, name) {
   img.parentNode.appendChild(p);
 }
 
-// Глобальные функции для inline-обработчиков
 window.notify = window.notify || function (t) {
   const x = document.getElementById('toast');
   if (!x) return;
@@ -832,6 +760,7 @@ window.notify = window.notify || function (t) {
   x.classList.add('show');
   setTimeout(() => x.classList.remove('show'), 2500);
 };
+
 window.modal = window.modal || function (t, p) {
   const m = document.getElementById('modal');
   if (!m) return;
