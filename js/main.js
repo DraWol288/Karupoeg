@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-    // Модальное окно
+    // Модальное окно (Главная)
     const modal = document.getElementById('modal');
     const modalMsg = document.getElementById('modalMessage');
     const closeBottom = document.getElementById('closeModalBottom');
@@ -743,7 +743,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   } // КОНЕЦ БЛОКА PAGE-US
 
-/* ========================================================================
+  /* ========================================================================
      5. DECEPTICON ARCHIVE PAGE (decepticon_archive.html)
      ======================================================================== */
   if (body.classList.contains('page-decepticon')) {
@@ -784,7 +784,9 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') window.closeDecepticonModal();
     });
- }); // <-- ЗАКРЫВАЮЩАЯ СКОБКА ДЛЯ DOMContentLoaded
+  } // КОНЕЦ БЛОКА PAGE-DECEPTICON
+
+}); // <-- ЗАКРЫВАЮЩАЯ СКОБКА ДЛЯ DOMContentLoaded
 
 // Глобальные функции для inline-обработчиков
 function fallback(img, name) {
