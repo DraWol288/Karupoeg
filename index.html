@@ -200,7 +200,20 @@
       <span>КОНЕЦ ПЕРЕДАЧИ — 01 / 04</span>
     </footer>
   </main>
-  
+
+    <!-- МОДАЛЬНОЕ ОКНО (для личного сообщения) -->
+  <div class="modal-backdrop" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal">
+      <button class="close" id="closeModal" aria-label="Закрыть">×</button>
+      <div class="stamp">СЕКРЕТНЫЙ СИГНАЛ ПРИНЯТ</div>
+      <h2 id="modalTitle">ЛИЧНОЕ СООБЩЕНИЕ</h2>
+      <p id="modalMessage">
+        Пусть в новом году у тебя будет больше поводов улыбаться, больше удивительных открытий и меньше поводов для тревог. А я постараюсь быть рядом — в каждой новой главе нашего приключения.
+      </p>
+      <button class="btn" id="closeModalBottom">ЗАКРЫТЬ</button>
+    </div>
+  </div>
+
   <script src="js/main.js"></script>
 </body>
 </html>
