@@ -3037,6 +3037,44 @@ body.page-us .item, body.page-us .item.right { grid-template-columns: 1fr; direc
 }
 
 /* ==========================================================================
+   VOYAGER: BACKGROUND MUSIC BUTTON
+   ========================================================================== */
+body.page-voyager .music-btn {
+  background: var(--dark2);
+  border: 1px solid var(--purple);
+  color: var(--peach);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: 1.2rem;
+  box-shadow: 0 0 10px rgba(198, 149, 201, 0.2);
+}
+
+body.page-voyager .music-btn:hover {
+  background: var(--purple);
+  color: #111;
+  box-shadow: 0 0 20px rgba(198, 149, 201, 0.6);
+  transform: scale(1.05);
+}
+
+body.page-voyager .music-btn.playing {
+  border-color: var(--orange);
+  box-shadow: 0 0 15px rgba(255, 152, 46, 0.5);
+  animation: voyMusicPulse 2s infinite;
+}
+
+@keyframes voyMusicPulse {
+  0% { box-shadow: 0 0 15px rgba(255, 152, 46, 0.5); }
+  50% { box-shadow: 0 0 25px rgba(255, 152, 46, 0.8); }
+  100% { box-shadow: 0 0 15px rgba(255, 152, 46, 0.5); }
+}
+
+/* ==========================================================================
 CUSTOM CURSORS
 ========================================================================== */
 
