@@ -3170,10 +3170,11 @@ body.page-voyager a, body.page-voyager button, body.page-voyager .sector, body.p
    PAGE 5: DECEPTICON ARCHIVE (decepticon_archive.html)
    ========================================================================== */
 /* --- Заставка Десептиконов --- */
+/* --- Заставка Десептиконов --- */
 body.page-decepticon #decepticonIntro {
   position: fixed;
   inset: 0;
-  z-index: 100;
+  z-index: 1000;
   background: #030309;
   display: flex;
   align-items: center;
@@ -3192,7 +3193,7 @@ body.page-decepticon .intro-content {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 40px; /* Отступ между логотипом и кнопкой */
 }
 
 body.page-decepticon .intro-logo {
@@ -3202,32 +3203,67 @@ body.page-decepticon .intro-logo {
   transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Эффект при наведении (легкое пульсирование) */
-body.page-decepticon #decepticonIntro:hover .intro-logo {
-  transform: scale(1.05);
-  filter: drop-shadow(0 0 45px rgba(145, 72, 216, 0.9));
-}
-
-/* Класс, который запускает анимацию увеличения при клике */
+/* При клике логотип увеличивается и растворяется вместе с кнопкой */
 body.page-decepticon #decepticonIntro.zoom-out .intro-logo {
-  transform: scale(5); /* Увеличиваем логотип */
+  transform: scale(6);
   opacity: 0;
   transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease-in;
 }
 
-body.page-decepticon .intro-text {
-  color: #9148d8;
+/* --- Стилизация кнопки доступа --- */
+body.page-decepticon .intro-access-btn {
+  position: relative;
+  padding: 15px 40px;
   font-family: monospace;
   font-size: 12px;
   letter-spacing: 4px;
+  color: #c99cff;
   text-transform: uppercase;
-  animation: decepticonBlink 2s infinite;
+  background: rgba(145, 72, 216, 0.1);
+  border: 1px solid rgba(145, 72, 216, 0.4);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(145, 72, 216, 0.2);
 }
 
-@keyframes decepticonBlink {
-  0%, 100% { opacity: 0.3; }
-  50% { opacity: 1; text-shadow: 0 0 10px #9148d8; }
+/* Эффект при наведении на кнопку */
+body.page-decepticon #decepticonIntro:hover .intro-access-btn {
+  background: rgba(145, 72, 216, 0.3);
+  color: #fff;
+  border-color: #9148d8;
+  box-shadow: 0 0 25px rgba(145, 72, 216, 0.6), inset 0 0 10px rgba(145, 72, 216, 0.4);
+  text-shadow: 0 0 8px #9148d8;
 }
+
+/* Анимация растворения кнопки */
+body.page-decepticon #decepticonIntro.zoom-out .intro-access-btn {
+  transform: translateY(20px) scale(0.9);
+  opacity: 0;
+  transition: transform 0.5s ease-in, opacity 0.4s ease-in;
+}
+
+/* Декоративные угловые элементы (как в интерфейсах Sci-Fi) */
+body.page-decepticon .btn-corner {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border: 2px solid #9148d8;
+  transition: all 0.3s ease;
+}
+
+body.page-decepticon .top-left { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+body.page-decepticon .top-right { top: -1px; right: -1px; border-left: 0; border-bottom: 0; }
+body.page-decepticon .bottom-left { bottom: -1px; left: -1px; border-right: 0; border-top: 0; }
+body.page-decepticon .bottom-right { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+
+/* При наведении углы немного отъезжают */
+body.page-decepticon #decepticonIntro:hover .btn-corner {
+  width: 12px;
+  height: 12px;
+}
+body.page-decepticon #decepticonIntro:hover .top-left { top: -3px; left: -3px; }
+body.page-decepticon #decepticonIntro:hover .top-right { top: -3px; right: -3px; }
+body.page-decepticon #decepticonIntro:hover .bottom-left { bottom: -3px; left: -3px; }
+body.page-decepticon #decepticonIntro:hover .bottom-right { bottom: -3px; right: -3px; }
 
 body.page-decepticon {
   --bg: #080910;
