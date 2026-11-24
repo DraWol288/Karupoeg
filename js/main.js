@@ -753,6 +753,49 @@ function fallback(img, name) {
   img.parentNode.appendChild(p);
 }
 
+  /* ========================================================================
+     5. DECEPTICON ARCHIVE PAGE (decepticon_archive.html)
+     ======================================================================== */
+  if (body.classList.contains('page-decepticon')) {
+    const decepticonData = {
+      meg: [
+        'МЕГАТРОН // FILE M-01',
+        'Верховный командующий десептиконов. Его власть держится на силе, амбициях и способности подчинять себе целые армии. Здесь можно разместить любимые сцены, цитаты и заметки о его отношениях с другими персонажами.'
+      ],
+      dread: [
+        'ДРЕДВИНГ // FILE D-02',
+        'Офицер и воин, для которого важны порядок, верность принципам и честь. В архиве собраны тактические записи, сведения о вооружении и ключевые эпизоды истории.'
+      ],
+      sound: [
+        'САУНДВЕЙВ // FILE S-03',
+        'Специалист по связи и разведке. Его молчание не означает отсутствия информации: Саундвейв наблюдает, записывает и сохраняет. Доступ к части файлов ограничен даже для персонала «Немезиды».'
+      ]
+    };
+
+    window.openDecepticonModal = function(key) {
+      const modal = document.getElementById('decepticonModal');
+      const content = document.getElementById('decepticonModalContent');
+      const data = decepticonData[key];
+      if (!modal || !content || !data) return;
+
+      content.innerHTML = `
+        <h2>${data[0]}</h2>
+        <p>${data[1]}</p>
+        <p style="color:#8e899d;font-size:10px;letter-spacing:.15em">КОНЕЦ ДОКУМЕНТА // NEMESIS ARCHIVE</p>
+      `;
+      modal.classList.add('open');
+    };
+
+    window.closeDecepticonModal = function() {
+      const modal = document.getElementById('decepticonModal');
+      if (modal) modal.classList.remove('open');
+    };
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') window.closeDecepticonModal();
+    });
+  }
+
 window.notify = window.notify || function (t) {
   const x = document.getElementById('toast');
   if (!x) return;
