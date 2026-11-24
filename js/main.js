@@ -747,6 +747,32 @@ document.addEventListener('DOMContentLoaded', () => {
      5. DECEPTICON ARCHIVE PAGE (decepticon_archive.html)
      ======================================================================== */
   if (body.classList.contains('page-decepticon')) {
+
+    // --- Заставка (Интро) ---
+    const decepticonIntro = document.getElementById('decepticonIntro');
+    function enterArchive() {
+      if (!decepticonIntro || decepticonIntro.classList.contains('hidden')) return;
+      
+      // 1. Добавляем класс, который увеличивает логотип и делает его прозрачным
+      decepticonIntro.classList.add('zoom-out');
+      
+      // 2. Ждем завершения анимации (1 секунда) и скрываем экран заставки
+      setTimeout(() => {
+        decepticonIntro.classList.add('hidden');
+      }, 1000);
+    }
+
+    if (decepticonIntro) {
+      decepticonIntro.addEventListener('click', enterArchive);
+      // Поддержка клавиатуры (Enter / Пробел)
+      decepticonIntro.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          enterArchive();
+        }
+      });
+    }
+    
     const decepticonData = {
       meg: [
         'МЕГАТРОН // FILE M-01',
