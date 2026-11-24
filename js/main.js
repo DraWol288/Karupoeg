@@ -742,7 +742,6 @@ document.addEventListener('DOMContentLoaded', () => {
       requestAnimationFrame(renderHeart);
     }
   } // КОНЕЦ БЛОКА PAGE-US
-});
 
 /* ========================================================================
      5. DECEPTICON ARCHIVE PAGE (decepticon_archive.html)
@@ -785,7 +784,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') window.closeDecepticonModal();
     });
-  }; // <-- ЗАКРЫВАЮЩАЯ СКОБКА ДЛЯ DOMContentLoaded
+ }); // <-- ЗАКРЫВАЮЩАЯ СКОБКА ДЛЯ DOMContentLoaded
 
 // Глобальные функции для inline-обработчиков
 function fallback(img, name) {
