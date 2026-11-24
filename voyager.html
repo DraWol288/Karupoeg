@@ -26,6 +26,11 @@
       </div>
     </div>
 
+    <!-- НОВАЯ КНОПКА МУЗЫКИ -->
+<button id="musicToggle" class="music-btn" aria-label="Включить музыку" title="Включить фоновую музыку">
+  <span class="music-icon">🔇</span>
+</button>
+
     <nav class="top-nav">
       <a href="index.html">MAIN</a>
       <a href="war-thunder.html">WAR THUNDER</a>
@@ -285,6 +290,13 @@
 
   <footer>USS VOYAGER · NCC-74656 · TWO CAPTAINS · ONE UNIVERSE</footer>
 
+    <!-- Фоновая музыка -->
+  <audio id="bgMusic" loop>
+    <!-- Замените путь на свой, если файл называется иначе -->
+    <source src="вояджер.mp3" type="audio/mpeg">
+    Ваш браузер не поддерживает аудио.
+  </audio>
+  
   <script src="js/main.js"></script>
 </body>
 </html>
