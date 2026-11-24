@@ -199,7 +199,7 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
 
-  /* ------------------------------------------------------------------------
+    /* ------------------------------------------------------------------------
      2. WAR THUNDER PAGE (war-thunder.html)
      ------------------------------------------------------------------------ */
   if (body.classList.contains('page-wt')) {
@@ -314,9 +314,10 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape') {
         const m = document.getElementById('modal');
         if (m) m.classList.remove('show');
- }
-      });
-            // --- Фоновая музыка (War Thunder) ---
+      }
+    });
+
+    // --- Фоновая музыка (War Thunder) ---
     const wtBgMusic = document.getElementById('wtBgMusic');
     const wtMusicToggle = document.getElementById('wtMusicToggle');
     const wtMusicIcon = wtMusicToggle ? wtMusicToggle.querySelector('.music-icon') : null;
@@ -339,10 +340,11 @@ document.addEventListener('DOMContentLoaded', () => {
           wtMusicToggle.classList.remove('playing');
           if (wtMusicIcon) wtMusicIcon.textContent = '🔇';
           wtMusicToggle.setAttribute('aria-label', 'Включить музыку');
-      }
-    });
+        }
+      });
+    }
   }
-
+  
   /* ------------------------------------------------------------------------
      3. USS VOYAGER PAGE (voyager.html)
      ------------------------------------------------------------------------ */
