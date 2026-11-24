@@ -22,6 +22,10 @@
         <a href="voyager.html">VOYAGER</a>
         <a href="us.html">US</a>
       </nav>
+      <!-- Кнопка музыки -->
+    <button id="wtMusicToggle" class="wt-music-btn" aria-label="Включить музыку">
+      <span class="music-icon">🔇</span> РАДИО
+    </button>
     </div>
   </header>
 
@@ -220,6 +224,12 @@
       <p class="muted" id="mtext"></p>
     </div>
   </div>
+
+   <!-- Фоновая музыка (замените путь на свой файл) -->
+  <audio id="wtBgMusic" loop>
+    <source src="танки.mp3" type="audio/mpeg">
+    Ваш браузер не поддерживает аудио.
+  </audio>
 
   <script src="js/main.js"></script>
 </body>
