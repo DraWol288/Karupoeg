@@ -3165,3 +3165,367 @@ body.page-voyager a, body.page-voyager button, body.page-voyager .sector, body.p
     cursor: auto;
   }
 }
+
+/* ==========================================================================
+   PAGE 5: DECEPTICON ARCHIVE (decepticon_archive.html)
+   ========================================================================== */
+body.page-decepticon {
+  --bg: #080910;
+  --panel: #11131d;
+  --purple: #9148d8;
+  --red: #d63c51;
+  --cyan: #58d5e6;
+  --text: #eeeaf5;
+  --muted: #aaa3b6;
+  --line: #393044;
+  margin: 0;
+  background: radial-gradient(ellipse at 50% -15%, #352044 0%, #14111e 38%, var(--bg) 78%);
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  letter-spacing: 0.035em;
+}
+
+body.page-decepticon:before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.13;
+  background-image: linear-gradient(#9148d8 1px, transparent 1px), linear-gradient(90deg, #9148d8 1px, transparent 1px);
+  background-size: 54px 54px;
+  mask-image: linear-gradient(to bottom, #000, transparent 75%);
+}
+
+body.page-decepticon header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: #090910ed;
+  border-bottom: 1px solid #58317a;
+  backdrop-filter: blur(12px);
+  padding: 13px 4vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+body.page-decepticon .brand {
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  color: #d7b8ff;
+}
+body.page-decepticon .brand small {
+  display: block;
+  color: var(--muted);
+  font-size: 9px;
+  margin-top: 5px;
+  letter-spacing: 0.22em;
+}
+
+body.page-decepticon nav {
+  display: flex;
+  gap: 5px;
+  flex-wrap: wrap;
+}
+body.page-decepticon nav a {
+  color: #c9c3d7;
+  text-decoration: none;
+  font-size: 10px;
+  padding: 9px 10px;
+  border: 1px solid transparent;
+  letter-spacing: 0.1em;
+}
+body.page-decepticon nav a:hover,
+body.page-decepticon nav a.active {
+  border-color: var(--purple);
+  color: white;
+  background: #241832;
+}
+
+body.page-decepticon main {
+  max-width: 1180px;
+  margin: auto;
+  padding: 30px 22px 85px;
+}
+body.page-decepticon .hero {
+  min-height: 75vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+
+body.page-decepticon .sig {
+  width: 108px;
+  height: 108px;
+  border: 3px solid var(--purple);
+  transform: rotate(45deg);
+  display: grid;
+  place-items: center;
+  margin: 0 auto 35px;
+  box-shadow: 0 0 35px #9148d866;
+}
+body.page-decepticon .sig span {
+  transform: rotate(-45deg);
+  font-size: 54px;
+  color: #c99cff;
+  text-shadow: 0 0 18px var(--purple);
+}
+body.page-decepticon .kicker {
+  color: var(--red);
+  font-size: 11px;
+  letter-spacing: 0.32em;
+  font-weight: bold;
+}
+body.page-decepticon h1 {
+  font-size: clamp(36px, 7vw, 76px);
+  line-height: 0.98;
+  margin: 16px 0;
+  color: #fff;
+  letter-spacing: 0.08em;
+  text-shadow: 0 0 25px #9148d866;
+}
+body.page-decepticon .subtitle {
+  color: #aaa5b8;
+  letter-spacing: 0.2em;
+  font-size: 12px;
+}
+body.page-decepticon .hero p {
+  max-width: 650px;
+  color: #b8b3c4;
+  line-height: 1.75;
+  margin: 24px auto;
+}
+
+body.page-decepticon .btn {
+  display: inline-block;
+  border: 1px solid var(--purple);
+  color: #e8d8ff;
+  background: #20152c;
+  padding: 12px 18px;
+  text-decoration: none;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+}
+body.page-decepticon .btn:hover {
+  background: var(--purple);
+  color: white;
+}
+
+body.page-decepticon .statusline {
+  display: flex;
+  justify-content: center;
+  gap: 22px;
+  flex-wrap: wrap;
+  color: #8e899d;
+  font-size: 10px;
+  margin-top: 38px;
+}
+body.page-decepticon .statusline b {
+  color: #d8c4f2;
+}
+
+body.page-decepticon section {
+  padding: 50px 0;
+  scroll-margin-top: 85px;
+}
+body.page-decepticon .sectionhead {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 15px;
+  margin-bottom: 24px;
+  gap: 12px;
+}
+body.page-decepticon .sectionhead h2 {
+  font-size: clamp(18px, 3vw, 24px);
+  margin: 0;
+  letter-spacing: 0.1em;
+}
+body.page-decepticon .sectionhead span {
+  font-size: 10px;
+  color: var(--red);
+  letter-spacing: 0.18em;
+}
+
+body.page-decepticon .grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+body.page-decepticon .card {
+  background: linear-gradient(145deg, #191725, #0e1018);
+  border: 1px solid #393047;
+  position: relative;
+  overflow: hidden;
+  padding: 22px;
+  min-height: 245px;
+  transition: 0.25s;
+}
+body.page-decepticon .card:hover {
+  transform: translateY(-4px);
+  border-color: var(--purple);
+  box-shadow: 0 12px 35px #0008, 0 0 20px #9148d822;
+}
+body.page-decepticon .card:before {
+  content: "";
+  position: absolute;
+  right: -35px;
+  top: -45px;
+  width: 130px;
+  height: 130px;
+  border: 1px solid #9148d844;
+  transform: rotate(45deg);
+}
+body.page-decepticon .num {
+  color: var(--red);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+}
+body.page-decepticon .card h3 {
+  font-size: 22px;
+  margin: 18px 0 8px;
+}
+body.page-decepticon .card p {
+  color: #aaa5b8;
+  line-height: 1.65;
+  font-size: 13px;
+}
+body.page-decepticon .tag {
+  display: inline-block;
+  color: #cda9ff;
+  border: 1px solid #70429a;
+  padding: 6px 8px;
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  margin: 4px 4px 0 0;
+}
+body.page-decepticon .red { border-top: 3px solid var(--red); }
+body.page-decepticon .purple { border-top: 3px solid var(--purple); }
+body.page-decepticon .blue { border-top: 3px solid var(--cyan); }
+
+body.page-decepticon .two {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+}
+body.page-decepticon .terminal {
+  background: #0c0e16;
+  border: 1px solid #3b304b;
+  padding: 23px;
+  line-height: 1.8;
+  color: #bdb6cb;
+  font-family: Consolas, monospace;
+  font-size: 12px;
+}
+body.page-decepticon .terminal strong { color: #d6b7ff; }
+body.page-decepticon .redtxt { color: #ff6479; }
+body.page-decepticon .bluetxt { color: var(--cyan); }
+
+body.page-decepticon .log {
+  border-left: 2px solid #70429a;
+  padding: 2px 0 2px 17px;
+  margin: 17px 0;
+}
+body.page-decepticon .log b { color: #e4cfff; }
+body.page-decepticon .log small {
+  display: block;
+  color: #817b91;
+  margin-bottom: 6px;
+}
+
+body.page-decepticon .people {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+body.page-decepticon .person {
+  background: linear-gradient(135deg, #171321, #10131c);
+  border: 1px solid #4a3560;
+  padding: 24px;
+  position: relative;
+}
+body.page-decepticon .person h3 {
+  font-size: 26px;
+  margin: 8px 0;
+}
+body.page-decepticon .callsign {
+  font-size: 10px;
+  color: var(--cyan);
+  letter-spacing: 0.2em;
+}
+body.page-decepticon .person p {
+  font-size: 13px;
+  line-height: 1.75;
+  color: #b6b0c2;
+}
+body.page-decepticon .classification {
+  color: #e2b9ff;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+}
+body.page-decepticon .note {
+  color: #817b91;
+  font-size: 11px;
+  line-height: 1.7;
+  margin-top: 15px;
+}
+
+body.page-decepticon footer {
+  text-align: center;
+  border-top: 1px solid var(--line);
+  padding: 30px 15px;
+  color: #777184;
+  font-size: 10px;
+  letter-spacing: 0.18em;
+}
+
+body.page-decepticon .modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: #030309df;
+  backdrop-filter: blur(8px);
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+body.page-decepticon .modal.open { display: flex; }
+body.page-decepticon .modalbox {
+  max-width: 620px;
+  width: 100%;
+  background: #11111b;
+  border: 1px solid var(--purple);
+  box-shadow: 0 0 55px #9148d844;
+  padding: 28px;
+  position: relative;
+}
+body.page-decepticon .modalbox h2 {
+  margin-top: 0;
+  color: #e5ccff;
+}
+body.page-decepticon .modalbox p {
+  color: #c1bbcd;
+  line-height: 1.8;
+}
+body.page-decepticon .close {
+  position: absolute;
+  right: 14px;
+  top: 10px;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+@media (max-width: 760px) {
+  body.page-decepticon header { align-items: flex-start; flex-direction: column; }
+  body.page-decepticon nav a { padding: 7px; font-size: 9px; }
+  body.page-decepticon .grid { grid-template-columns: 1fr; }
+  body.page-decepticon .two, body.page-decepticon .people { grid-template-columns: 1fr; }
+  body.page-decepticon .hero { min-height: 65vh; }
+}
