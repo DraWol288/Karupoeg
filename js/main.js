@@ -744,16 +744,7 @@ document.addEventListener('DOMContentLoaded', () => {
   } // КОНЕЦ БЛОКА PAGE-US
 });
 
-// Глобальные функции для inline-обработчиков
-function fallback(img, name) {
-  img.style.display = 'none';
-  const p = document.createElement('div');
-  p.className = 'placeholder';
-  p.innerHTML = '<b>IMAGE PLACEHOLDER</b>Добавь файл:<br>images/' + name;
-  img.parentNode.appendChild(p);
-}
-
-  /* ========================================================================
+/* ========================================================================
      5. DECEPTICON ARCHIVE PAGE (decepticon_archive.html)
      ======================================================================== */
   if (body.classList.contains('page-decepticon')) {
@@ -796,18 +787,11 @@ function fallback(img, name) {
     });
   }
 
-window.notify = window.notify || function (t) {
-  const x = document.getElementById('toast');
-  if (!x) return;
-  x.textContent = t;
-  x.classList.add('show');
-  setTimeout(() => x.classList.remove('show'), 2500);
-};
-
-window.modal = window.modal || function (t, p) {
-  const m = document.getElementById('modal');
-  if (!m) return;
-  document.getElementById('mtitle').textContent = t;
-  document.getElementById('mtext').textContent = p;
-  m.classList.add('show');
-};
+// Глобальные функции для inline-обработчиков
+function fallback(img, name) {
+  img.style.display = 'none';
+  const p = document.createElement('div');
+  p.className = 'placeholder';
+  p.innerHTML = '<b>IMAGE PLACEHOLDER</b>Добавь файл:<br>images/' + name;
+  img.parentNode.appendChild(p);
+}
