@@ -3169,6 +3169,66 @@ body.page-voyager a, body.page-voyager button, body.page-voyager .sector, body.p
 /* ==========================================================================
    PAGE 5: DECEPTICON ARCHIVE (decepticon_archive.html)
    ========================================================================== */
+/* --- Заставка Десептиконов --- */
+body.page-decepticon #decepticonIntro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #030309;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+}
+
+body.page-decepticon #decepticonIntro.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+body.page-decepticon .intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+body.page-decepticon .intro-logo {
+  width: 250px;
+  height: auto;
+  filter: drop-shadow(0 0 25px rgba(145, 72, 216, 0.6));
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Эффект при наведении (легкое пульсирование) */
+body.page-decepticon #decepticonIntro:hover .intro-logo {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 45px rgba(145, 72, 216, 0.9));
+}
+
+/* Класс, который запускает анимацию увеличения при клике */
+body.page-decepticon #decepticonIntro.zoom-out .intro-logo {
+  transform: scale(5); /* Увеличиваем логотип */
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.8s ease-in;
+}
+
+body.page-decepticon .intro-text {
+  color: #9148d8;
+  font-family: monospace;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  animation: decepticonBlink 2s infinite;
+}
+
+@keyframes decepticonBlink {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; text-shadow: 0 0 10px #9148d8; }
+}
+
 body.page-decepticon {
   --bg: #080910;
   --panel: #11131d;
