@@ -314,6 +314,31 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Escape') {
         const m = document.getElementById('modal');
         if (m) m.classList.remove('show');
+ }
+      });
+            // --- Фоновая музыка (War Thunder) ---
+    const wtBgMusic = document.getElementById('wtBgMusic');
+    const wtMusicToggle = document.getElementById('wtMusicToggle');
+    const wtMusicIcon = wtMusicToggle ? wtMusicToggle.querySelector('.music-icon') : null;
+
+    if (wtBgMusic && wtMusicToggle) {
+      wtBgMusic.volume = 0.25; // Громкость 25%
+
+      wtMusicToggle.addEventListener('click', () => {
+        if (wtBgMusic.paused) {
+          wtBgMusic.play().then(() => {
+            wtMusicToggle.classList.add('playing');
+            if (wtMusicIcon) wtMusicIcon.textContent = '🔊';
+            wtMusicToggle.setAttribute('aria-label', 'Выключить музыку');
+          }).catch(err => {
+            console.warn('Не удалось воспроизвести музыку:', err);
+            alert('Убедитесь, что файл audio/wt-theme.mp3 существует.');
+          });
+        } else {
+          wtBgMusic.pause();
+          wtMusicToggle.classList.remove('playing');
+          if (wtMusicIcon) wtMusicIcon.textContent = '🔇';
+          wtMusicToggle.setAttribute('aria-label', 'Включить музыку');
       }
     });
   }
