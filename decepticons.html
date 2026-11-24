@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#080910">
+  <title>Архив десептиконов — Немезида</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-decepticon">
+
+  <header>
+    <div class="brand">
+      NEMESIS // ARCHIVE
+      <small>DECEPTICON HIGH COMMAND NETWORK</small>
+    </div>
+    <nav>
+      <a href="index.html">MAIN</a>
+      <a href="war-thunder.html">WAR THUNDER</a>
+      <a href="voyager.html">VOYAGER</a>
+      <a href="decepticon_archive.html" class="active">DECEPTICON</a>
+      <a href="us.html">US</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="top">
+      <div class="hero-content">
+        <div class="sig"><span>◆</span></div>
+        <div class="kicker">ЗАЩИЩЁННЫЙ КАНАЛ // ОСОБЫЙ ДОПУСК</div>
+        <h1>АРХИВ<br>ДЕСЕПТИКОНОВ</h1>
+        <div class="subtitle">КРЕЙСЕР «НЕМЕЗИДА» · КИБЕРТРОНСКАЯ СЕТЬ</div>
+        <p>Система активна. Обнаружены три приоритетных досье, два персональных профиля и несколько сообщений, не предназначенных для посторонних.</p>
+        <a class="btn" href="#command">ПОЛУЧИТЬ ДОСТУП</a>
+        <div class="statusline">
+          <span>СВЯЗЬ: <b>СТАБИЛЬНА</b></span>
+          <span>КОМАНДОВАНИЕ: <b>МЕГАТРОН</b></span>
+          <span>ФРАКЦИЯ: <b>ДЕСЕПТИКОНЫ</b></span>
+        </div>
+      </div>
+    </section>
+
+    <section id="command">
+      <div class="sectionhead">
+        <h2>01 // ВЕРХОВНОЕ КОМАНДОВАНИЕ</h2>
+        <span>TOP SECRET</span>
+      </div>
+      <div class="grid">
+        <article class="card red">
+          <div class="num">COMMANDER · 001</div>
+          <h3>МЕГАТРОН</h3>
+          <p>Верховный лидер десептиконов. Его приказы определяют направление кампании. Любое обращение к командованию проходит через защищённый канал.</p>
+          <span class="tag">ЛИДЕР</span><span class="tag">СТРАТЕГИЯ</span><span class="tag">ВЛАСТЬ</span>
+        </article>
+        <article class="card purple">
+          <div class="num">OFFICER · 002</div>
+          <h3>ДРЕДВИНГ</h3>
+          <p>Воин, для которого честь и дисциплина имеют значение. Досье содержит сведения о боевых операциях и личном кодексе.</p>
+          <span class="tag">ВОЕННЫЙ ОФИЦЕР</span><span class="tag">ТАКТИКА</span>
+        </article>
+        <article class="card blue">
+          <div class="num">INTELLIGENCE · 003</div>
+          <h3>САУНДВЕЙВ</h3>
+          <p>Разведка, наблюдение и перехват. Саундвейв почти не оставляет следов, но знает о происходящем больше остальных.</p>
+          <span class="tag">РАЗВЕДКА</span><span class="tag">СВЯЗЬ</span><span class="tag">ПЕРЕХВАТ</span>
+        </article>
+      </div>
+    </section>
+
+    <section id="dossiers">
+      <div class="sectionhead">
+        <h2>02 // ПРИОРИТЕТНЫЕ ДОСЬЕ</h2>
+        <span>ОТКРЫТЬ ФАЙЛ</span>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="num">FILE M-01 · COMMAND</div>
+          <h3>МЕГАТРОН</h3>
+          <p>История лидера, его цели, решения и записи командования.</p>
+          <button class="btn" onclick="openDecepticonModal('meg')">ОТКРЫТЬ ДОСЬЕ</button>
+        </article>
+        <article class="card">
+          <div class="num">FILE D-02 · COMBAT</div>
+          <h3>ДРЕДВИНГ</h3>
+          <p>Тактические данные, дисциплина, боевые навыки и служба.</p>
+          <button class="btn" onclick="openDecepticonModal('dread')">ОТКРЫТЬ ДОСЬЕ</button>
+        </article>
+        <article class="card">
+          <div class="num">FILE S-03 · INTEL</div>
+          <h3>САУНДВЕЙВ</h3>
+          <p>Секретные каналы, наблюдение и архив перехваченных сигналов.</p>
+          <button class="btn" onclick="openDecepticonModal('sound')">ОТКРЫТЬ ДОСЬЕ</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="personnel">
+      <div class="sectionhead">
+        <h2>03 // ДОПОЛНИТЕЛЬНЫЙ ЛИЧНЫЙ СОСТАВ</h2>
+        <span>ПЕРСОНАЛЬНЫЕ ПРОФИЛИ</span>
+      </div>
+      <div class="people">
+        <article class="person">
+          <div class="classification">ПРОФИЛЬ 014-A · ДОСТУП РАЗРЕШЁН</div>
+          <h3>DraWol</h3>
+          <div class="callsign">ПОЗЫВНОЙ: DRAWOL</div>
+          <p>Отдельный профиль в архиве «Немезиды». Персонаж, связанный с закрытыми операциями и личными записями экипажа. Специализация и кибертронская форма могут быть дополнены в дальнейшем.</p>
+          <span class="tag">ЛИЧНОЕ ДОСЬЕ</span><span class="tag">ОПЕРАТИВНЫЙ СОСТАВ</span>
+        </article>
+        <article class="person">
+          <div class="classification">ПРОФИЛЬ 014-B · ДОСТУП РАЗРЕШЁН</div>
+          <h3>flupiy</h3>
+          <div class="callsign">ПОЗЫВНОЙ: FLUPIY</div>
+          <p>Персональный профиль с приоритетным доступом к отдельным разделам архива. Упоминается в материалах командования и закрытых сообщениях.</p>
+          <span class="tag">ЛИЧНОЕ ДОСЬЕ</span><span class="tag">ОСОБЫЙ ДОПУСК</span>
+        </article>
+      </div>
+      <p class="note">Примечание архива: DraWol и flupiy — ваши авторские персонажи в этой версии истории. Их кибертронские формы, должности и отношения с героями можно придумать отдельно, не меняя канонных персонажей.</p>
+    </section>
+
+    <section id="signals">
+      <div class="sectionhead">
+        <h2>04 // ПЕРЕХВАЧЕННЫЕ СИГНАЛЫ</h2>
+        <span>АВТОМАТИЧЕСКАЯ РАСШИФРОВКА</span>
+      </div>
+      <div class="two">
+        <div class="terminal">
+          <strong>» INCOMING TRANSMISSION</strong>
+          <div class="log">
+            <small>КАНАЛ 01 // КОМАНДОВАНИЕ</small>
+            <b>МЕГАТРОН:</b><br>«Дисциплина — основа порядка. Не заставляйте меня повторять приказ».
+          </div>
+          <div class="log">
+            <small>КАНАЛ 02 // ТАКТИЧЕСКИЙ</small>
+            <b>ДРЕДВИНГ:</b><br>«Победа не должна достигаться ценой утраты чести».
+          </div>
+          <div class="log">
+            <small>КАНАЛ 03 // ЗАШИФРОВАНО</small>
+            <b class="bluetxt">САУНДВЕЙВ:</b><br>[АУДИОЗАПИСЬ СОХРАНЕНА]<br>[ИСТОЧНИК: НЕ УСТАНОВЛЕН]
+          </div>
+        </div>
+        <div class="terminal">
+          <strong>» SYSTEM DIAGNOSTICS</strong><br>
+          <span class="bluetxt">[OK]</span> Внутренняя сеть активна<br>
+          <span class="bluetxt">[OK]</span> Архив доступен<br>
+          <span class="bluetxt">[OK]</span> Личные профили синхронизированы<br>
+          <span class="redtxt">[WARN]</span> Обнаружено незарегистрированное сообщение<br><br>
+          <strong>» РЕКОМЕНДАЦИЯ</strong><br>
+          Проверить личный канал. Некоторые данные сохранены вне общего архива.
+        </div>
+      </div>
+    </section>
+
+    <section id="message">
+      <div class="sectionhead">
+        <h2>05 // ЛИЧНЫЙ КАНАЛ</h2>
+        <span>НЕ ДЛЯ ОБЩЕГО ДОСТУПА</span>
+      </div>
+      <div class="terminal">
+        <strong>SAUNDWAVE // PRIVATE CHANNEL</strong><br>
+        Получатели: <span class="bluetxt">DraWol</span> / <span class="bluetxt">flupiy</span><br>
+        Статус: <span class="bluetxt">СОХРАНЕНО</span><br><br>
+        <span class="redtxt">[НАЧАЛО СООБЩЕНИЯ]</span><br>
+        Даже среди бесконечных звёздных систем и бесконечных войн есть вещи, которые стоят отдельного места в архиве. Этот файл — о вас двоих. Не приказ, не отчёт и не донесение. Просто напоминание о том, что ваша собственная история важнее любой записи в базе данных.<br><br>
+        <span class="redtxt">[КОНЕЦ СООБЩЕНИЯ]</span><br><br>
+        <span class="bluetxt">ФАЙЛ СОХРАНЁН. УДАЛЕНИЕ ЗАПРЕЩЕНО.</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>DECEPTICON ARCHIVE // NEMESIS · ВСЕ КАНАЛЫ ЗАЩИЩЕНЫ · 2026</footer>
+
+  <!-- Модальное окно -->
+  <div class="modal" id="decepticonModal" onclick="if(event.target===this)closeDecepticonModal()">
+    <div class="modalbox">
+      <button class="close" onclick="closeDecepticonModal()">×</button>
+      <div id="decepticonModalContent"></div>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
