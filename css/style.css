@@ -1760,6 +1760,54 @@ body.page-wt #interceptBtn:disabled {
 }
 
 /* ==========================================================================
+   WAR THUNDER: MUSIC TOGGLE
+   ========================================================================== */
+body.page-wt .wt-music-btn {
+  background: #0b1216;
+  border: 1px solid var(--line);
+  color: var(--gold);
+  font: bold 10px monospace;
+  letter-spacing: 1px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: 0.2s;
+}
+
+body.page-wt .wt-music-btn:hover {
+  background: #1b292f;
+  border-color: var(--gold);
+  box-shadow: 0 0 10px rgba(213, 184, 75, 0.2);
+}
+
+body.page-wt .wt-music-btn.playing {
+  border-color: var(--gold);
+  background: rgba(213, 184, 75, 0.1);
+  animation: wtMusicPulse 2s infinite;
+}
+
+body.page-wt .wt-music-btn.playing .music-icon {
+  color: var(--green);
+}
+
+@keyframes wtMusicPulse {
+  0% { box-shadow: 0 0 5px rgba(213, 184, 75, 0.2); }
+  50% { box-shadow: 0 0 15px rgba(213, 184, 75, 0.4); }
+  100% { box-shadow: 0 0 5px rgba(213, 184, 75, 0.2); }
+}
+
+/* Чтобы кнопка не ломала шапку на мобильных */
+@media (max-width: 600px) {
+  body.page-wt .wt-music-btn {
+    align-self: flex-start;
+    margin-top: 10px;
+  }
+}
+
+/* ==========================================================================
 PAGE 3: USS VOYAGER — LCARS INTERFACE (voyager.html)
 ========================================================================== */
 body.page-voyager {
