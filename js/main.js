@@ -321,7 +321,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ------------------------------------------------------------------------
      3. USS VOYAGER PAGE (voyager.html)
      ------------------------------------------------------------------------ */
-  if (body.classList.contains('page-voyager')) {
+    if (body.classList.contains('page-voyager')) {
     const intro = document.getElementById('intro');
     function enterSite() {
       if (intro) intro.classList.add('hidden');
@@ -334,35 +334,6 @@ document.addEventListener('DOMContentLoaded', () => {
           enterSite();
         }
       });
-          // --- Фоновая музыка ---
-    const bgMusic = document.getElementById('bgMusic');
-    const musicToggle = document.getElementById('musicToggle');
-    const musicIcon = musicToggle ? musicToggle.querySelector('.music-icon') : null;
-
-    if (bgMusic && musicToggle) {
-      // Устанавливаем начальную громкость (30%)
-      bgMusic.volume = 0.3;
-
-      // Обработчик клика по кнопке
-      musicToggle.addEventListener('click', () => {
-        if (bgMusic.paused) {
-          bgMusic.play().then(() => {
-            // Успешно запустилось
-            musicToggle.classList.add('playing');
-            if (musicIcon) musicIcon.textContent = '🔊';
-            musicToggle.setAttribute('aria-label', 'Выключить музыку');
-          }).catch(err => {
-            console.warn('Не удалось воспроизвести музыку:', err);
-            alert('Не удалось воспроизвести аудио. Убедитесь, что файл существует по пути audio/voyager-theme.mp3');
-          });
-        } else {
-          bgMusic.pause();
-          musicToggle.classList.remove('playing');
-          if (musicIcon) musicIcon.textContent = '🔇';
-          musicToggle.setAttribute('aria-label', 'Включить музыку');
-        }
-      });
-    }
     }
 
     // Навигация
@@ -523,8 +494,35 @@ document.addEventListener('DOMContentLoaded', () => {
         map.appendChild(button);
       });
     }
-  }
 
+    // --- Фоновая музыка (в самом конце блока Voyager) ---
+    const bgMusic = document.getElementById('bgMusic');
+    const musicToggle = document.getElementById('musicToggle');
+    const musicIcon = musicToggle ? musicToggle.querySelector('.music-icon') : null;
+
+    if (bgMusic && musicToggle) {
+      bgMusic.volume = 0.3; // Громкость 30%
+
+      musicToggle.addEventListener('click', () => {
+        if (bgMusic.paused) {
+          bgMusic.play().then(() => {
+            musicToggle.classList.add('playing');
+            if (musicIcon) musicIcon.textContent = '🔊';
+            musicToggle.setAttribute('aria-label', 'Выключить музыку');
+          }).catch(err => {
+            console.warn('Не удалось воспроизвести музыку:', err);
+            alert('Не удалось воспроизвести аудио. Убедитесь, что файл существует по пути audio/voyager-theme.mp3');
+          });
+        } else {
+          bgMusic.pause();
+          musicToggle.classList.remove('playing');
+          if (musicIcon) musicIcon.textContent = '🔇';
+          musicToggle.setAttribute('aria-label', 'Включить музыку');
+        }
+      });
+    }
+  } 
+  
   /* ------------------------------------------------------------------------
      4. US PAGE (us.html)
      ------------------------------------------------------------------------ */
