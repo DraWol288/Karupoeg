@@ -773,19 +773,22 @@ document.addEventListener('DOMContentLoaded', () => {
       });
     }
     
-    const decepticonData = {
-      meg: [
-        'МЕГАТРОН // FILE M-01',
-        'Верховный командующий десептиконов. Его власть держится на силе, амбициях и способности подчинять себе целые армии. Здесь можно разместить любимые сцены, цитаты и заметки о его отношениях с другими персонажами.'
-      ],
-      dread: [
-        'ДРЕДВИНГ // FILE D-02',
-        'Офицер и воин, для которого важны порядок, верность принципам и честь. В архиве собраны тактические записи, сведения о вооружении и ключевые эпизоды истории.'
-      ],
-      sound: [
-        'САУНДВЕЙВ // FILE S-03',
-        'Специалист по связи и разведке. Его молчание не означает отсутствия информации: Саундвейв наблюдает, записывает и сохраняет. Доступ к части файлов ограничен даже для персонала «Немезиды».'
-      ]
+        const decepticonData = {
+      meg: {
+        title: 'МЕГАТРОН // FILE M-01',
+        text: 'Верховный командующий десептиконов. Его власть держится на силе, амбициях и способности подчинять себе целые армии. Здесь можно разместить любимые сцены, цитаты и заметки о его отношениях с другими персонажами.',
+        image: 'images/megatron.webp' // Путь к картинке
+      },
+      dread: {
+        title: 'ДРЕДВИНГ // FILE D-02',
+        text: 'Офицер и воин, для которого важны порядок, верность принципам и честь. В архиве собраны тактические записи, сведения о вооружении и ключевые эпизоды истории.',
+        image: 'images/dredving.png'
+      },
+      sound: {
+        title: 'САУНДВЕЙВ // FILE S-03',
+        text: 'Специалист по связи и разведке. Его молчание не означает отсутствия информации: Саундвейв наблюдает, записывает и сохраняет. Доступ к части файлов ограничен даже для персонала «Немезиды».',
+        image: 'images/soundwave.webp'
+      }
     };
 
     window.openDecepticonModal = function(key) {
@@ -794,10 +797,14 @@ document.addEventListener('DOMContentLoaded', () => {
       const data = decepticonData[key];
       if (!modal || !content || !data) return;
 
+      // Генерируем HTML с картинкой
       content.innerHTML = `
-        <h2>${data[0]}</h2>
-        <p>${data[1]}</p>
-        <p style="color:#8e899d;font-size:10px;letter-spacing:.15em">КОНЕЦ ДОКУМЕНТА // NEMESIS ARCHIVE</p>
+        <h2 style="margin-bottom: 20px;">${data.title}</h2>
+        <div class="decepticon-modal-img-container">
+          <img src="${data.image}" alt="${data.title}" onerror="this.style.display='none'">
+        </div>
+        <p>${data.text}</p>
+        <p style="color:#8e899d;font-size:10px;letter-spacing:.15em;margin-top:20px;">КОНЕЦ ДОКУМЕНТА // NEMESIS ARCHIVE</p>
       `;
       modal.classList.add('open');
     };
