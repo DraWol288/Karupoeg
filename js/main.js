@@ -951,6 +951,16 @@ document.addEventListener('DOMContentLoaded', () => {
         r.style.display = r.style.display === "none" ? "block" : "none";
       }
     };
+
+        // Штамп сердечка на открытке
+    window.stampHeart = function() {
+      const stamp = document.getElementById('heartStamp');
+      if (stamp && !stamp.classList.contains('stamped')) {
+        stamp.classList.add('stamped');
+        // Необязательно: вибрация на телефоне, если поддерживается
+        if (navigator.vibrate) navigator.vibrate(50);
+      }
+    };
   } // КОНЕЦ БЛОКА PAGE-DEUTSCHLAND
   
 }); // <-- ЗАКРЫВАЮЩАЯ СКОБКА ДЛЯ DOMContentLoaded
