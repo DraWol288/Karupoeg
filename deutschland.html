@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#191a1c">
+  <title>Deutschland — Reiseprotokoll</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-deutschland">
+
+  <header>
+    <div class="logo">REISE·PROTOKOLL <span style="color:var(--gold)">DE</span></div>
+    <nav>
+      <a href="index.html">MAIN</a>
+      <a href="war-thunder.html">WAR THUNDER</a>
+      <a href="voyager.html">VOYAGER</a>
+      <a href="decepticon_archive.html">TRANSFORMERS</a>
+      <a href="deutschland.html" class="active">DEUTSCHLAND</a>
+      <a href="us.html">US</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div>
+        <div class="kicker">Sonderreise · zwei Reisende · ein kleines Geheimnis</div>
+        <h1>DEUTSCH<br>LAND<small>ПУТЕВОЙ ЖУРНАЛ / 2026–∞</small></h1>
+        <p>Маршрут по Германии. Четыре города, несколько неожиданных остановок и один билет, который почему-то выписан на двоих. Не обязательно знать немецкий идеально — достаточно любопытства и желания не потеряться вместе.</p>
+        <div class="route-line"></div>
+        <p style="font:700 .8rem Arial;letter-spacing:.12em">PASSAGIERE: DraWol & flupiy · STATUS: AUF ENTDECKUNG</p>
+      </div>
+      <div class="hero-visual">
+        <div class="stamp">REISEPASS<br>GÜLTIG FÜR ZWEI</div>
+        <h2 style="margin-top:22px">Eine kleine Reise.</h2>
+        <p style="font:.9rem/1.6 Arial">«Небольшое путешествие» — в этом журнале спрятаны места, слова, штампы и кое-что, что не относится к туристическим достопримечательностям.</p>
+        <div style="font:700 .75rem Arial;color:var(--red);letter-spacing:.15em">TICKET NR. 02 · SITZPLÄTZE: NEBENEINANDER</div>
+      </div>
+    </section>
+
+    <section class="section" id="route">
+      <div class="section-head">
+        <h2>Reiseziele</h2>
+        <p>Выбери остановку. У каждой — своя заметка и штамп в паспорте.</p>
+      </div>
+      <div class="city-grid">
+        <div class="city" data-city="Berlin"><div class="num">01 / HAUPTSTADT</div><h3>Berlin</h3><p>Город, где история встречается с уличным искусством, а планы легко меняются по дороге.</p><div class="mini">🏙</div><div class="unlock">ОТКРЫТЬ →</div></div>
+        <div class="city" data-city="Hamburg"><div class="num">02 / HAFEN</div><h3>Hamburg</h3><p>Порт, ветер, корабли и ощущение, что впереди ещё целый маршрут.</p><div class="mini">⚓</div><div class="unlock">ОТКРЫТЬ →</div></div>
+        <div class="city" data-city="München"><div class="num">03 / BAYERN</div><h3>München</h3><p>Баварские улочки, уютные кафе и заслуженная остановка для отдыха.</p><div class="mini">🏔</div><div class="unlock">ОТКРЫТЬ →</div></div>
+        <div class="city" data-city="Köln"><div class="num">04 / RHEIN</div><h3>Köln</h3><p>Высокие шпили, мосты и финальная точка маршрута — или повод продолжить.</p><div class="mini">⛪</div><div class="unlock">ОТКРЫТЬ →</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-head">
+        <h2>Streckenkarte</h2>
+        <p>Схема маршрута. Каждый пункт можно открыть отдельно.</p>
+      </div>
+      <div class="map-panel">
+        <div class="kicker" style="color:var(--gold)">DEUTSCHE BAHN · REISEPLAN</div>
+        <div class="maproute">
+          <div class="stop"><b>BERLIN</b><small>Start</small></div>
+          <span class="arrow">━━▶</span>
+          <div class="stop"><b>HAMBURG</b><small>Hafen</small></div>
+          <span class="arrow">━━▶</span>
+          <div class="stop"><b>MÜNCHEN</b><small>Bayern</small></div>
+          <span class="arrow">━━▶</span>
+          <div class="stop"><b>KÖLN</b><small>Rhein</small></div>
+        </div>
+        <p style="font:.8rem Arial;color:#c9c2b5">Hinweis: Zug verpasst? Kein Problem. Auf dieser Reise gibt es keine Eile.</p>
+      </div>
+    </section>
+
+    <section class="section" id="passport">
+      <div class="section-head">
+        <h2>Reisepass</h2>
+        <p>Собери четыре штампа — и откроется специальная запись.</p>
+      </div>
+      <div class="passport">
+        <div class="pass-card">
+          <div class="kicker">Stempelkarte / штампы</div>
+          <h3 style="font-size:1.7rem;margin:10px 0">Маленькие достижения</h3>
+          <div class="progress"><i id="progress"></i></div>
+          <div id="progressText" style="font:.8rem Arial">0 / 4 городов изучено</div>
+          <div class="stamps">
+            <div class="stamp-slot" id="stamp-Berlin">BERLIN<br>—</div>
+            <div class="stamp-slot" id="stamp-Hamburg">HAMBURG<br>—</div>
+            <div class="stamp-slot" id="stamp-München">MÜNCHEN<br>—</div>
+            <div class="stamp-slot" id="stamp-Köln">KÖLN<br>—</div>
+          </div>
+        </div>
+        <div class="pass-card">
+          <div class="kicker">Sondervermerk</div>
+          <h3 style="font-size:1.6rem;margin:10px 0">Запись для двух пассажиров</h3>
+          <p style="line-height:1.6">В билете почему-то указано: «места рядом». А в графе попутчики — два позывных. Даже если один отвлёкся на карту, второй всегда может подождать.</p>
+          <p style="font:700 .8rem Arial;color:var(--red)">DraWol ↔ flupiy · gemeinsame Reise</p>
+          <div id="passportSecret" style="display:none;font-size:1.1rem;line-height:1.6;border-top:1px dashed #aaa;padding-top:12px">Секретная запись: некоторые путешествия хороши не тем, куда приехал, а тем, с кем делил дорогу. И да — перекус в пути считается обязательной частью программы.</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="language">
+      <div class="section-head">
+        <h2>Sprachmodul</h2>
+        <p>Небольшая языковая проверка. Никаких экзаменов, только попытки и подсказки.</p>
+      </div>
+      <div class="quiz">
+        <div class="kicker">Wort des Tages · 01</div>
+        <h3 id="qtitle">Что означает «zusammen»?</h3>
+        <div class="quiz-options" id="answers"></div>
+        <div class="quiz-feedback" id="feedback"></div>
+        <button class="action" onclick="nextQuestion()">Следующее слово ↗</button>
+      </div>
+    </section>
+
+    <section class="section" id="post">
+      <div class="section-head">
+        <h2>Post aus Deutschland</h2>
+        <p>Открыть открытку из поездки.</p>
+      </div>
+      <div class="postcard">
+        <div>
+          <div class="kicker">Grußkarte / открытка</div>
+          <h3 style="font-size:2rem">Liebe Reisende,</h3>
+          <div class="letter" id="letter">Нажми кнопку, чтобы открыть письмо из нашего маленького путешествия.</div>
+          <button class="action" onclick="openLetter()">Открыть открытку</button>
+        </div>
+        <div>
+          <div style="font:700 .8rem Arial;letter-spacing:.1em;margin-top:10px">AN: DraWol & flupiy</div>
+          <hr style="border:0;border-top:1px dashed #999;margin:20px 0">
+          <p style="font:.9rem/1.6 Arial">Viele Grüße aus Deutschland!<br><span style="color:var(--red)">И маленький привет из путешествия, которое существует в этом сайте.</span></p>
+          <div class="stamp" style="font-size:.7rem">POST<br>FÜR ZWEI</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="secret">
+        <div>
+          <div class="kicker" style="color:var(--gold)">Geheime Notiz · 404</div>
+          <h2 style="font-size:1.8rem;margin:8px 0">Сигнал вне маршрута</h2>
+          <p>В журнале есть один пункт, который не отмечен на карте. Нажми, если любишь находить то, что спрятано между строк.</p>
+        </div>
+        <button onclick="revealSecret()">Проверить сигнал</button>
+      </div>
+      <div id="secretReveal" style="display:none;background:#f8f0df;padding:18px;border:1px dashed #777;margin-top:12px;line-height:1.7">Обнаружено сообщение: «Если поездка внезапно стала слишком длинной, можно устроить привал. Главное — чтобы рядом был свой человек. Можно поделиться наушниками, чипсами, пледом… и не спорить, кто занял больше места.»<br><small>Координаты: Mars ↔ Titan. Это не немецкий город, но почему-то тоже отмечен в вашем маршруте.</small></div>
+    </section>
+
+  </main>
+
+  <footer>GUTE REISE · PASST AUF EINANDER AUF · <span style="color:var(--red)">DraWol & flupiy</span></footer>
+
+  <!-- Модальное окно -->
+  <div class="modal" id="modal">
+    <div class="modalbox">
+      <button class="close" onclick="closeModal()">×</button>
+      <div class="kicker" id="modalKicker">REISEZIEL</div>
+      <h3 id="modalTitle"></h3>
+      <p id="modalText"></p>
+      <p class="tiny" id="modalExtra"></p>
+      <button class="action" id="stampBtn" onclick="collectStamp()">Поставить штамп в паспорт</button>
+    </div>
+  </div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
