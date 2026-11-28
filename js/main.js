@@ -952,12 +952,12 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     };
 
-        // Штамп сердечка на открытке
+            // Штамп сердечка на открытке
     window.stampHeart = function() {
-      const stamp = document.getElementById('heartStamp');
+      const stamp = document.querySelector('.heart-stamp');
       if (stamp && !stamp.classList.contains('stamped')) {
         stamp.classList.add('stamped');
-        // Необязательно: вибрация на телефоне, если поддерживается
+        // Вибрация на телефоне (если поддерживается)
         if (navigator.vibrate) navigator.vibrate(50);
       }
     };
