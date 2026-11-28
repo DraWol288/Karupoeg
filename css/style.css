@@ -3170,7 +3170,6 @@ body.page-voyager a, body.page-voyager button, body.page-voyager .sector, body.p
    PAGE 5: DECEPTICON ARCHIVE (decepticon_archive.html)
    ========================================================================== */
 /* --- Заставка Десептиконов --- */
-/* --- Заставка Десептиконов --- */
 body.page-decepticon #decepticonIntro {
   position: fixed;
   inset: 0;
@@ -3624,4 +3623,34 @@ body.page-decepticon .close {
   body.page-decepticon .grid { grid-template-columns: 1fr; }
   body.page-decepticon .two, body.page-decepticon .people { grid-template-columns: 1fr; }
   body.page-decepticon .hero { min-height: 65vh; }
+}
+
+/* Контейнер для картинки в модальном окне */
+body.page-decepticon .decepticon-modal-img-container {
+  width: 100%;
+  max-height: 350px; /* Ограничиваем высоту */
+  background: #080910;
+  border: 1px solid #393044;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding: 10px;
+}
+
+body.page-decepticon .decepticon-modal-img-container img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain; /* Картинка вписывается целиком */
+  filter: drop-shadow(0 5px 15px rgba(0, 0, 0, 0.5));
+  transition: transform 0.3s ease;
+}
+
+/* Небольшой эффект при наведении на картинку внутри окна */
+body.page-decepticon .decepticon-modal-img-container:hover img {
+  transform: scale(1.03);
 }
