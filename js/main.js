@@ -819,6 +819,140 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   } // КОНЕЦ БЛОКА PAGE-DECEPTICON
 
+    /* ========================================================================
+     6. DEUTSCHLAND PAGE (deutschland.html)
+     ======================================================================== */
+  if (body.classList.contains('page-deutschland')) {
+    const cities = {
+      Berlin: {
+        text: "Столица с очень разными районами: исторические места, музеи, уличное искусство и современная жизнь. Здесь можно легко уйти гулять без строгого плана.",
+        extra: "Маленькая задача: придумай, что бы вы выбрали — музей, прогулку или поиск уютного кафе. Штамп выдаётся за сам факт исследования.",
+        stamp: "BERLIN · ANGEKOMMEN"
+      },
+      Hamburg: {
+        text: "Большой портовый город с каналами, мостами, кораблями и северным настроением. Хорошее место, чтобы просто смотреть на воду и никуда не торопиться.",
+        extra: "Маленькая задача: выбери — прогулка у воды или поездка на кораблике. И кто из вас первым заметит маяк?",
+        stamp: "HAMBURG · HAFEN"
+      },
+      "München": {
+        text: "Баварская атмосфера, площади, парки и архитектура. В маршрут можно добавить паузу в кафе и немного просто посидеть, прежде чем ехать дальше.",
+        extra: "Маленькая задача: закажите мысленно один напиток и один десерт на двоих. Не забудьте поделиться.",
+        stamp: "MÜNCHEN · PAUSE"
+      },
+      "Köln": {
+        text: "Город у Рейна, знаменитый собором, мостами и прогулками вдоль реки. Хорошая последняя остановка, чтобы оглянуться на маршрут.",
+        extra: "Маленькая задача: выбери сувенир, который вы бы оставили на память о поездке. Не обязательно дорогой — главное, чтобы был ваш.",
+        stamp: "KÖLN · ZIEL"
+      }
+    };
+
+    let activeCity = null;
+    const visited = new Set();
+
+    // Открытие модального окна города
+    document.querySelectorAll(".city").forEach(card => {
+      card.addEventListener("click", () => {
+        activeCity = card.dataset.city;
+        let c = cities[activeCity];
+        if (!c) return;
+        
+        document.getElementById("modalKicker").textContent = "REISEZIEL · " + activeCity;
+        document.getElementById("modalTitle").textContent = activeCity;
+        document.getElementById("modalText").textContent = c.text;
+        document.getElementById("modalExtra").textContent = c.extra;
+        document.getElementById("stampBtn").textContent = visited.has(activeCity) ? "Штамп уже в паспорте ✓" : "Поставить штамп в паспорт";
+        document.getElementById("modal").classList.add("open");
+      });
+    });
+
+    window.closeModal = function() {
+      document.getElementById("modal").classList.remove("open");
+    };
+
+    window.collectStamp = function() {
+      if (!activeCity) return;
+      visited.add(activeCity);
+      let el = document.getElementById("stamp-" + activeCity);
+      if (el) {
+        el.classList.add("got");
+        el.innerHTML = cities[activeCity].stamp.replace(" · ", "<br>");
+      }
+      document.querySelector(`[data-city="${activeCity}"]`).classList.add("done");
+      updateProgress();
+      window.closeModal();
+      if (visited.size === 4) {
+        document.getElementById("passportSecret").style.display = "block";
+      }
+    };
+
+    function updateProgress() {
+      const progressEl = document.getElementById("progress");
+      const textEl = document.getElementById("progressText");
+      if (progressEl) progressEl.style.width = (visited.size / 4 * 100) + "%";
+      if (textEl) textEl.textContent = visited.size + " / 4 городов изучено" + (visited.size === 4 ? " · маршрут завершён!" : "");
+    }
+
+    // Квиз
+    const questions = [
+      { q: "Что означает «zusammen»?", a: ["Вместе", "Впереди", "Ночью"], correct: 0, hint: "Это слово подходит двум пассажирам, которые путешествуют рядом." },
+      { q: "Что значит «Gute Reise»?", a: ["Доброе утро", "Счастливого пути", "До свидания"], correct: 1, hint: "Так желают приятного путешествия." },
+      { q: "«Schatz» — это…", a: ["Карта", "Станция", "Сокровище / ласковое обращение"], correct: 2, hint: "Так можно ласково назвать дорогого человека." },
+      { q: "Что означает «Pause»?", a: ["Привал / пауза", "Билет", "Поезд"], correct: 0, hint: "Небольшой отдых между остановками." },
+      { q: "«Wir zwei» — это…", a: ["Мы двое", "Два билета", "Два города"], correct: 0, hint: "Очень короткая фраза, но для этой страницы подходит." }
+    ];
+    
+    let qi = 0;
+    window.renderQ = function() {
+      let q = questions[qi];
+      document.getElementById("qtitle").textContent = q.q;
+      let box = document.getElementById("answers");
+      box.innerHTML = "";
+      q.a.forEach((a, i) => {
+        let b = document.createElement("button");
+        b.textContent = a;
+        b.onclick = () => {
+          box.querySelectorAll("button").forEach(x => x.disabled = true);
+          let f = document.getElementById("feedback");
+          if (i === q.correct) {
+            b.classList.add("correct");
+            f.textContent = "Richtig! Верно. " + q.hint;
+          } else {
+            b.classList.add("wrong");
+            box.children[q.correct].classList.add("correct");
+            f.textContent = "Не совсем — " + q.hint;
+          }
+        };
+        box.appendChild(b);
+      });
+      document.getElementById("feedback").textContent = "";
+    };
+
+    window.nextQuestion = function() {
+      qi = (qi + 1) % questions.length;
+      window.renderQ();
+    };
+
+    if (document.getElementById("qtitle")) {
+      window.renderQ();
+    }
+
+    // Открытка
+    window.openLetter = function() {
+      const letterEl = document.getElementById("letter");
+      if (letterEl) {
+        letterEl.innerHTML = "Дорогие путешественники!<br><br>Пусть в ваших поездках будет побольше красивых случайностей, смешных историй и остановок, которые не хочется заканчивать. А если маршрут однажды станет совсем другим — пусть рядом всё равно будет тот, с кем уютно даже просто ждать поезд.<br><br><b>Für euch zwei. ❤️</b><br><small>Для вас двоих.</small>";
+      }
+    };
+
+    // Секрет
+    window.revealSecret = function() {
+      let r = document.getElementById("secretReveal");
+      if (r) {
+        r.style.display = r.style.display === "none" ? "block" : "none";
+      }
+    };
+  } // КОНЕЦ БЛОКА PAGE-DEUTSCHLAND
+  
 }); // <-- ЗАКРЫВАЮЩАЯ СКОБКА ДЛЯ DOMContentLoaded
 
 // Глобальные функции для inline-обработчиков
