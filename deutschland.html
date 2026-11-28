@@ -146,26 +146,38 @@
         <h2>Post aus Deutschland</h2>
         <p>Открыть открытку из поездки.</p>
       </div>
-      <div class="postcard">
+            <div class="postcard">
         <div>
           <div class="kicker">Grußkarte / открытка</div>
           <h3 style="font-size:2rem">Liebe Reisende,</h3>
           <div class="letter" id="letter">Нажми кнопку, чтобы открыть письмо из нашего маленького путешествия.</div>
           <button class="action" onclick="openLetter()">Открыть открытку</button>
         </div>
-        <div>
-          <div style="font:700 .8rem Arial;letter-spacing:.1em;margin-top:10px">AN: DraWol & flupiy</div>
-          <hr style="border:0;border-top:1px dashed #999;margin:20px 0">
-          <p style="font:.9rem/1.6 Arial">Viele Grüße aus Deutschland!<br><span style="color:var(--red)">И маленький привет из путешествия, которое существует в этом сайте.</span></p>
-          <div class="stamp" style="font-size:.7rem">POST<br>FÜR ZWEI</div>
-
-          <!-- НОВЫЙ ШТАМП СЕРДЕЧКА -->
-          <div id="heartStamp" class="heart-stamp">
-            <span>FÜR UNS<br>FÜR IMMER</span>
+        
+        <!-- Правая часть открытки -->
+        <div style="position: relative; display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="font:700 .8rem Arial;letter-spacing:.1em; margin-top:10px">AN: DraWol & flupiy</div>
+            <hr style="border:0;border-top:1px dashed #999;margin:20px 0">
+            <p style="font:.9rem/1.6 Arial">Viele Grüße aus Deutschland!<br><span style="color:var(--red)">И маленький привет из путешествия, которое существует в этом сайте.</span></p>
+            
+            <!-- Обычный почтовый штамп в правом верхнем углу -->
+            <div class="postage-stamp">
+              DEUTSCHE POST<br>2026
+            </div>
           </div>
 
-          <!-- КНОПКА ДЛЯ УСТАНОВКИ ШТАМПА -->
-          <button class="action" style="margin-top: 15px; font-size: 0.7rem; padding: 8px 12px;" onclick="stampHeart()">Поставить сердечко</button>
+          <div style="text-align: center; margin-top: 20px;">
+            <!-- Кнопка -->
+            <button class="action" style="font-size: 0.75rem; padding: 10px 15px; width: 100%;" onclick="stampHeart()">Поставить штамп</button>
+          </div>
+
+          <!-- Контейнер для сердечка (занимает всё свободное место) -->
+          <div id="heartStampContainer" class="heart-stamp-container">
+            <div class="heart-stamp">
+              <span>FÜR UNS<br>FÜR IMMER</span>
+            </div>
+          </div>
         </div>
       </div>
     </section>
