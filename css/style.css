@@ -4204,3 +4204,48 @@ body.page-deutschland .city.done {
   border: 1px solid #c7bca7; /* Возвращаем обычную рамку */
   background: var(--cream);  /* Оставляем фон как был */
 }
+
+/* --- Штамп-сердечко на открытке --- */
+body.page-deutschland .heart-stamp {
+  position: absolute;
+  bottom: 20px;
+  right: 40px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  
+  /* Форма сердечка */
+  background-color: var(--red);
+  -webkit-mask-image: radial-gradient(circle at 50% 35%, transparent 45%, black 46%),
+                      radial-gradient(circle at 50% 35%, transparent 45%, black 46%);
+  -webkit-mask-size: 100% 100%, 100% 100%;
+  -webkit-mask-position: 0 0, 0 0;
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z'/%3E%3C/svg%3E");
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  
+  /* Эффект чернил */
+  opacity: 0;
+  transform: scale(1.5) rotate(-20deg);
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  mix-blend-mode: multiply;
+}
+
+/* Текст внутри сердечка (черный, чтобы читался на красном фоне) */
+body.page-deutschland .heart-stamp span {
+  color: var(--cream);
+  font: bold 0.7rem Arial, sans-serif;
+  letter-spacing: 0.1em;
+  line-height: 1.2;
+  z-index: 1;
+}
+
+/* Когда сердечко "прижимается" */
+body.page-deutschland .heart-stamp.stamped {
+  opacity: 0.85; /* Немного прозрачности для реалистичности */
+  transform: scale(1) rotate(-15deg);
+}
